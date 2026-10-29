@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="23" failures="0" errors="0" time="0.319831">
+    <testsuite name="src/actionQueue.test.ts" timestamp="2026-10-23T23:42:13.608Z" hostname="ASPIRE" tests="3" failures="0" errors="0" skipped="0" time="0.0118877">
+        <testcase classname="src/actionQueue.test.ts" name="prioritizes overdue explicit actions before today and upcoming" time="0.0064006">
+        </testcase>
+        <testcase classname="src/actionQueue.test.ts" name="creates a first-contact task from an aging pipeline lead without backend state" time="0.0008691">
+        </testcase>
+        <testcase classname="src/actionQueue.test.ts" name="does not surface won or lost leads" time="0.0005245">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/api.test.ts" timestamp="2026-10-23T23:42:13.613Z" hostname="ASPIRE" tests="2" failures="0" errors="0" skipped="0" time="0.1485058">
+        <testcase classname="src/api.test.ts" name="API response integrity &gt; rejects successful HTTP with malformed JSON rather than reporting a saved mutation" time="0.1395328">
+        </testcase>
+        <testcase classname="src/api.test.ts" name="API response integrity &gt; keeps the explicit provider failure" time="0.0024159">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/ecosystemBridge.test.ts" timestamp="2026-10-23T23:42:13.615Z" hostname="ASPIRE" tests="3" failures="0" errors="0" skipped="0" time="0.0165245">
+        <testcase classname="src/ecosystemBridge.test.ts" name="ORLIQ bridge &gt; gera pacote financeiro para DashLIQ com recebível restante" time="0.0059891">
+        </testcase>
+        <testcase classname="src/ecosystemBridge.test.ts" name="ORLIQ bridge &gt; não exporta notas internas e respeita opt-out de contatos" time="0.0033957">
+        </testcase>
+        <testcase classname="src/ecosystemBridge.test.ts" name="ORLIQ bridge &gt; usa extensão identificável do ecossistema" time="0.0030621">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/format.test.ts" timestamp="2026-10-23T23:42:13.618Z" hostname="ASPIRE" tests="3" failures="0" errors="0" skipped="0" time="0.0854872">
+        <testcase classname="src/format.test.ts" name="commercial formatting &gt; converts decimal values to exact integer cents" time="0.0041606">
+        </testcase>
+        <testcase classname="src/format.test.ts" name="commercial formatting &gt; formats money and pipeline labels" time="0.0513813">
+        </testcase>
+        <testcase classname="src/format.test.ts" name="commercial formatting &gt; produces ISO date inputs for an IANA timezone" time="0.0252473">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/historyIntelligence.test.ts" timestamp="2026-10-23T23:42:13.622Z" hostname="ASPIRE" tests="3" failures="0" errors="0" skipped="0" time="0.0158091">
+        <testcase classname="src/historyIntelligence.test.ts" name="history intelligence &gt; derives cadence and behavior before a won outcome" time="0.0052611">
+        </testcase>
+        <testcase classname="src/historyIntelligence.test.ts" name="history intelligence &gt; remembers the stage immediately before a loss" time="0.0008058">
+        </testcase>
+        <testcase classname="src/historyIntelligence.test.ts" name="history intelligence &gt; only marks comparative patterns ready with enough wins and losses" time="0.0058826">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/opportunity.test.ts" timestamp="2026-10-23T23:42:13.625Z" hostname="ASPIRE" tests="4" failures="0" errors="0" skipped="0" time="0.0205411">
+        <testcase classname="src/opportunity.test.ts" name="keeps insufficient evidence distinct from a low quality business" time="0.0055129">
+        </testcase>
+        <testcase classname="src/opportunity.test.ts" name="opportunity priority &gt; uses deterministic score bands" time="0.0015076">
+        </testcase>
+        <testcase classname="src/opportunity.test.ts" name="opportunity priority &gt; explains a strong local company without a confirmed website" time="0.0069244">
+        </testcase>
+        <testcase classname="src/opportunity.test.ts" name="opportunity priority &gt; keeps sparse leads at low priority without inventing evidence" time="0.0018238">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/outreach.test.ts" timestamp="2026-10-23T23:42:13.629Z" hostname="ASPIRE" tests="5" failures="0" errors="0" skipped="0" time="0.0210756">
+        <testcase classname="src/outreach.test.ts" name="outreach &gt; builds factual context from the lead" time="0.0053393">
+        </testcase>
+        <testcase classname="src/outreach.test.ts" name="outreach &gt; renders known variables and removes unknown variables" time="0.0012506">
+        </testcase>
+        <testcase classname="src/outreach.test.ts" name="outreach &gt; renders a default template" time="0.0013918">
+        </testcase>
+        <testcase classname="src/outreach.test.ts" name="outreach &gt; falls back to defaults when storage is invalid" time="0.0056811">
+        </testcase>
+        <testcase classname="src/outreach.test.ts" name="outreach &gt; builds encoded external contact links" time="0.002059">
+        </testcase>
+    </testsuite>
+</testsuites>

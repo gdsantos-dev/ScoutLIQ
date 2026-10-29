@@ -1,0 +1,298 @@
+{
+  "scope": "One local Chromium run; synthetic preview data, no external provider latency",
+  "readyMs": 1737,
+  "initialResourceCount": 20,
+  "mapDeferred": true,
+  "resources": [
+    {
+      "url": "http://localhost:8123/assets/index-BbpKEzS3.js",
+      "duration": 242.39999997615814,
+      "bytes": 149280
+    },
+    {
+      "url": "http://localhost:8123/assets/framework-DldvXD6N.js",
+      "duration": 94.40000003576279,
+      "bytes": 769
+    },
+    {
+      "url": "http://localhost:8123/assets/charts-BvdOcJub.js",
+      "duration": 240.19999998807907,
+      "bytes": 110287
+    },
+    {
+      "url": "http://localhost:8123/assets/motion-CG8SMN36.js",
+      "duration": 141.10000002384186,
+      "bytes": 31626
+    },
+    {
+      "url": "http://localhost:8123/assets/index-CeWIDVWK.css",
+      "duration": 208.89999997615814,
+      "bytes": 35754
+    },
+    {
+      "url": "http://localhost:8123/api/auth/me",
+      "duration": 28.80000001192093,
+      "bytes": 583
+    },
+    {
+      "url": "http://localhost:8123/favicon.ico",
+      "duration": 34.30000001192093,
+      "bytes": 6012
+    },
+    {
+      "url": "http://localhost:8123/scoutliq-mark.png",
+      "duration": 13.199999988079071,
+      "bytes": 109764
+    },
+    {
+      "url": "http://localhost:8123/api/leads",
+      "duration": 127.30000001192093,
+      "bytes": 4914
+    },
+    {
+      "url": "http://localhost:8123/api/sales",
+      "duration": 133.89999997615814,
+      "bytes": 1694
+    },
+    {
+      "url": "http://localhost:8123/api/expenses",
+      "duration": 47.09999996423721,
+      "bytes": 564
+    },
+    {
+      "url": "http://localhost:8123/api/dashboard?period=7d",
+      "duration": 130.69999998807907,
+      "bytes": 544
+    },
+    {
+      "url": "http://localhost:8123/api/dashboard?period=7d",
+      "duration": 170.5,
+      "bytes": 544
+    },
+    {
+      "url": "http://localhost:8123/assets/Radar-sNdaYyAh.js",
+      "duration": 58,
+      "bytes": 18683
+    },
+    {
+      "url": "http://localhost:8123/assets/opportunity-C1OE4hwu.js",
+      "duration": 42,
+      "bytes": 2098
+    },
+    {
+      "url": "http://localhost:8123/assets/trash-2-eiB1w9Vu.js",
+      "duration": 56.5,
+      "bytes": 629
+    },
+    {
+      "url": "http://localhost:8123/assets/Radar-B7UZKvK7.css",
+      "duration": 41.69999998807907,
+      "bytes": 1314
+    },
+    {
+      "url": "http://localhost:8123/api/smart-searches",
+      "duration": 33.200000047683716,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/radar/saved-searches",
+      "duration": 31.30000001192093,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/research/batches/active",
+      "duration": 30,
+      "bytes": 314
+    },
+    {
+      "url": "http://localhost:8123/assets/Campaigns-BXzLUFru.js",
+      "duration": 29.100000023841858,
+      "bytes": 3469
+    },
+    {
+      "url": "http://localhost:8123/assets/arrow-down-right-Clb5xzsO.js",
+      "duration": 29.099999964237213,
+      "bytes": 470
+    },
+    {
+      "url": "http://localhost:8123/favicon.ico",
+      "duration": 26.600000023841858,
+      "bytes": 6012
+    },
+    {
+      "url": "http://localhost:8123/api/campaigns",
+      "duration": 45.700000047683716,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/radar/saved-searches",
+      "duration": 45.69999998807907,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/insights/outcomes",
+      "duration": 57.69999998807907,
+      "bytes": 428
+    },
+    {
+      "url": "http://localhost:8123/api/smart-searches",
+      "duration": 48.90000003576279,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/radar/saved-searches",
+      "duration": 52.40000003576279,
+      "bytes": 302
+    },
+    {
+      "url": "http://localhost:8123/api/research/batches/active",
+      "duration": 58.60000002384186,
+      "bytes": 314
+    },
+    {
+      "url": "http://localhost:8123/favicon.ico",
+      "duration": 51.5,
+      "bytes": 6012
+    },
+    {
+      "url": "http://localhost:8123/assets/OpportunityMap-NCQbyK55.js",
+      "duration": 39.700000047683716,
+      "bytes": 4908
+    },
+    {
+      "url": "http://localhost:8123/assets/map-C13VEY7j.js",
+      "duration": 231.10000002384186,
+      "bytes": 278601
+    },
+    {
+      "url": "http://localhost:8123/assets/OpportunityMap-JR8eJ17e.css",
+      "duration": 62.60000002384186,
+      "bytes": 10841
+    },
+    {
+      "url": "http://localhost:8123/api/radar/map-config",
+      "duration": 21.399999976158142,
+      "bytes": 361
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3301/4279.png",
+      "duration": 184.0999999642372,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3301/4280.png",
+      "duration": 163.5999999642372,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3302/4279.png",
+      "duration": 177.89999997615814,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3302/4280.png",
+      "duration": 182.60000002384186,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3300/4279.png",
+      "duration": 180.19999998807907,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3301/4278.png",
+      "duration": 149,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3300/4280.png",
+      "duration": 148.80000001192093,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3302/4278.png",
+      "duration": 169.19999998807907,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/13/3300/4278.png",
+      "duration": 169.10000002384186,
+      "bytes": 0
+    },
+    {
+      "url": "http://localhost:8123/assets/maplibre-gl-worker-Bn3N37MR.js",
+      "duration": -303.30000001192093,
+      "bytes": 146663
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6603/8559.png",
+      "duration": 29.700000047683716,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6603/8560.png",
+      "duration": 35.299999952316284,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6604/8559.png",
+      "duration": 40.5,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6604/8560.png",
+      "duration": 41.80000001192093,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6602/8559.png",
+      "duration": 35.90000003576279,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6603/8558.png",
+      "duration": 41.89999997615814,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6602/8560.png",
+      "duration": 43.80000001192093,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6604/8558.png",
+      "duration": 44.5,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6603/8561.png",
+      "duration": 28.80000001192093,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6605/8559.png",
+      "duration": 29.099999964237213,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6604/8561.png",
+      "duration": 29.400000035762787,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6605/8560.png",
+      "duration": 27.899999976158142,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6605/8558.png",
+      "duration": 53.5,
+      "bytes": 0
+    },
+    {
+      "url": "https://tile.openstreetmap.org/14/6605/8561.png",
+      "duration": 40.40000003576279,
+      "bytes": 0
+    }
+  ]
+}

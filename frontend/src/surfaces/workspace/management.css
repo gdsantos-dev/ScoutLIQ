@@ -1,0 +1,624 @@
+/* Management surfaces */
+.pipeline-toolbar {
+  padding: 24px 0;
+  gap: 32px;
+}
+.pipeline-action-summary,
+.pipeline-potential {
+  font-size: 14px;
+}
+.pipeline-stage {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid #3a3a3a;
+  border-radius: 0;
+}
+.pipeline-stage-head {
+  padding: 26px 24px 26px 0;
+}
+.pipeline-stage-index {
+  color: #999;
+  font-size: 13px;
+}
+.pipeline-stage-head h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.pipeline-stage-head > div > span {
+  font-size: 13px;
+  color: #aaa;
+}
+.pipeline-stage-track {
+  gap: 0;
+  padding: 0;
+}
+.deal-card {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid #343434;
+  border-radius: 0;
+  width: 310px;
+  min-width: 260px;
+}
+.deal-card:hover {
+  background: #191919;
+  transform: none;
+}
+.deal-main {
+  padding: 24px;
+}
+.deal-main > strong {
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 550;
+}
+.deal-category,
+.deal-location {
+  color: #aaa;
+  font-size: 13px;
+}
+.deal-value {
+  font-size: 15px;
+}
+.deal-value > b {
+  font-size: 15px;
+}
+.deal-value > b small {
+  font-size: 13px;
+}
+.deal-next-action {
+  min-height: 48px;
+  font-size: 14px;
+  padding-top: 12px;
+}
+.deal-next-action strong {
+  font-size: 14px;
+}
+.deal-footer {
+  padding: 0 18px 18px;
+  border: 0;
+}
+.deal-open {
+  min-width: 44px;
+  min-height: 44px;
+}
+.finance-hero {
+  padding: 32px 0;
+  background: none;
+  border: 0;
+}
+.finance-result > strong,
+.finance-main > strong {
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 450;
+}
+.finance-secondary {
+  border-color: #3a3a3a;
+}
+.settings-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 64px;
+  margin-top: 32px;
+}
+.settings-panel {
+  padding: 0;
+}
+.settings-panel h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.settings-section {
+  padding-block: 24px;
+}
+.settings-section h3 {
+  font-size: 16px;
+}
+.campaign-workspace {
+  border-block: 1px solid #3b3b3b;
+}
+.campaign-detail {
+  padding: 24px 32px;
+}
+.campaign-list-row {
+  padding: 22px;
+  background: transparent;
+}
+.campaign-list-row strong {
+  font-size: 15px;
+  font-weight: 550;
+}
+.campaign-list-row.active {
+  background: #222;
+  border-left: 2px solid var(--liq-accent);
+}
+.campaign-detail h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.campaign-detail-head p {
+  color: #bbb;
+  font-size: 14px;
+}
+.campaign-metrics {
+  border: 0;
+  border-block: 1px solid #383838;
+  border-radius: 0;
+}
+.campaign-metrics b {
+  font-weight: 450;
+}
+.campaign-create-panel {
+  padding: 28px 0;
+  border-block: 1px solid #424242;
+  margin-block: 20px;
+}
+.outcome-panel {
+  border-top: 1px solid #444;
+  margin-top: 48px;
+  padding-top: 24px;
+}
+.site-summary {
+  border-block: 1px solid #393939;
+  border-radius: 0;
+  background: transparent;
+}
+.auth-shell {
+  background: #0c0c0c;
+}
+.auth-shell .brand {
+  font-size: 30px;
+}
+.auth-shell h1 {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+.auth-shell input {
+  min-height: 50px;
+}
+.auth-shell .button {
+  min-height: 50px;
+}
+@media (max-width: 1100px) {
+  .management-context {
+    gap: 20px;
+  }
+  .context-action {
+    max-width: 42%;
+    gap: 12px;
+    padding-left: 16px;
+  }
+  .context-action > span:nth-child(2) {
+    display: none;
+  }
+  .monitor-overview {
+    gap: 32px;
+  }
+  .monitor-overview > div {
+    display: grid;
+    gap: 2px;
+  }
+  .settings-layout {
+    gap: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .page-head {
+    min-height: 80px;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+  }
+  .page-head h1 {
+    font-size: 29px;
+  }
+  .head-actions {
+    justify-content: flex-start;
+  }
+  .head-actions .button {
+    font-size: 13px;
+    padding-inline: 12px;
+  }
+  .management-context {
+    align-items: stretch;
+    flex-direction: column;
+    padding-bottom: 22px;
+    gap: 14px;
+  }
+  .management-context-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+  }
+  .management-context-title > span:last-child {
+    font-size: 13px;
+  }
+  .context-action {
+    width: 100%;
+    max-width: none;
+    padding: 12px 0 12px 16px;
+    background: #1b1b1b;
+    border-left: 2px solid var(--liq-accent);
+  }
+  .context-action > span:first-child {
+    flex: 1;
+  }
+  .context-action > svg {
+    margin-right: 14px;
+  }
+  .canvas-mode .view-toggle {
+    margin-left: auto;
+  }
+  .map-controls {
+    top: 138px;
+    right: 14px;
+  }
+  .map-controls button {
+    width: 42px;
+    height: 42px;
+  }
+  .canvas-mode .maplibregl-ctrl-bottom-right {
+    bottom: 196px;
+  }
+  .canvas-mode .radar-process-state {
+    left: 14px;
+    right: 14px;
+    bottom: 210px;
+  }
+  .radar-agent {
+    padding: 12px;
+  }
+  .radar-agent .eyebrow {
+    display: none;
+  }
+  .canvas-mode > .radar-search-error {
+    left: 14px;
+    right: 14px;
+    top: 132px;
+  }
+  .map-error {
+    top: 42%;
+    width: min(85%, 330px);
+  }
+  .monitor-overview {
+    gap: 20px;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+  .monitor-overview strong {
+    font-size: 28px;
+  }
+  .monitor-overview span {
+    font-size: 13px;
+  }
+  .radar-saved-search-item {
+    display: grid;
+    gap: 12px;
+  }
+  .radar-saved-search-actions {
+    justify-content: flex-start;
+  }
+  .modal,
+  dialog.modal.wide {
+    width: calc(100vw - 20px);
+    max-height: calc(min(100dvh, var(--dialog-viewport-height, 100dvh)) - 24px);
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .modal-head {
+    top: -20px;
+    margin-bottom: 20px;
+  }
+  dialog.modal h2 {
+    font-size: 22px;
+  }
+  .radar-discovery,
+  .radar-discovery.has-radius {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .radar-location-field,
+  .radar-niche-field {
+    grid-column: 1/-1;
+  }
+  .radar-radius-field,
+  .radar-scope-field {
+    min-height: 74px;
+  }
+  .radar-natural-input {
+    flex-direction: column;
+  }
+  .filter-primary-fields,
+  .advanced-filters {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 12px;
+  }
+  .filter-primary-fields .smart-select:last-child {
+    grid-column: 1/-1;
+  }
+  .context-panel {
+    inset: auto 0 0;
+    width: 100%;
+    height: calc(100dvh - 20px);
+    border-radius: 16px 16px 0 0;
+    max-height: none;
+  }
+  .context-panel[open] {
+    animation-name: sheet-enter;
+  }
+  .context-panel-header {
+    padding: 12px 12px 0 20px;
+  }
+  .context-identity {
+    padding: 18px 20px 20px;
+    gap: 14px;
+  }
+  .context-identity h2 {
+    font-size: 23px;
+  }
+  .company-monogram {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+  .context-tabs {
+    padding-inline: 20px;
+    gap: 18px;
+    overflow-x: auto;
+  }
+  .context-tabs button {
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .context-body {
+    padding: 24px 20px;
+  }
+  .context-footer {
+    padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+    gap: 14px;
+  }
+  .context-footer > span {
+    max-width: 80px;
+  }
+  .context-priority strong {
+    font-size: 48px;
+  }
+  .context-opportunity-title {
+    font-size: 21px;
+  }
+  .command-surface {
+    width: calc(100vw - 16px);
+    margin-top: 16px;
+    max-height: calc(100dvh - 32px);
+  }
+  .command-input {
+    padding: 12px 12px 12px 18px;
+    gap: 12px;
+  }
+  .command-input input {
+    font-size: 16px;
+  }
+  .command-results {
+    max-height: calc(100dvh - 180px);
+  }
+  .command-result {
+    gap: 12px;
+    padding: 14px 10px;
+  }
+  .command-footer {
+    padding: 12px 18px;
+    gap: 14px;
+    font-size: 13px;
+  }
+  .workspace-notice {
+    bottom: 82px;
+    padding-left: 14px;
+    font-size: 14px;
+  }
+  .pipeline-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .pipeline-search {
+    flex-basis: 100%;
+    max-width: none;
+  }
+  .pipeline-ledger {
+    display: block;
+  }
+  .pipeline-stage {
+    display: block;
+    padding: 0;
+  }
+  .pipeline-stage-head {
+    display: flex;
+    padding: 22px 0;
+    min-height: auto;
+    gap: 14px;
+  }
+  .pipeline-stage-total {
+    margin-left: auto;
+  }
+  .pipeline-stage-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    gap: 0;
+  }
+  .deal-card {
+    width: 100%;
+    min-width: 0;
+    border-left: 0;
+    border-top: 1px solid #333;
+  }
+  .deal-main {
+    width: 100%;
+    padding: 22px 0 14px;
+  }
+  .deal-category > svg {
+    display: none;
+  }
+  .deal-footer {
+    padding: 0 0 18px;
+  }
+  .deal-next-action {
+    min-height: 0;
+  }
+  .settings-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .settings-panel {
+    border-top: 1px solid #444;
+    padding-top: 24px;
+  }
+  .filter-bar .search-input {
+    max-width: none;
+    flex-basis: 100%;
+  }
+  .filter-bar .tabs {
+    width: 100%;
+  }
+  .table-scroll {
+    overflow: visible;
+  }
+  .table-scroll table {
+    min-width: 0;
+    width: 100%;
+    display: block;
+  }
+  .table-scroll thead {
+    display: none;
+  }
+  .table-scroll tbody {
+    display: grid;
+    width: 100%;
+  }
+  .table-scroll tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid #3b3b3b;
+    gap: 12px 20px;
+  }
+  .table-scroll td {
+    display: block;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+    font-size: 14px;
+  }
+  .table-scroll td:first-child {
+    grid-column: 1/-1;
+    padding-bottom: 8px;
+  }
+  .table-scroll td:last-child {
+    grid-column: 1/-1;
+    justify-self: end;
+  }
+  .table-scroll td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+  .company-cell {
+    max-width: 100%;
+  }
+  .campaign-workspace {
+    display: block;
+  }
+  .campaign-detail {
+    padding: 24px 0;
+  }
+  .campaign-list {
+    display: flex;
+    overflow-x: auto;
+    border: 0;
+    border-bottom: 1px solid #3c3c3c;
+    border-radius: 0;
+  }
+  .campaign-list-row {
+    min-width: 180px;
+    padding: 18px 16px;
+    border-right: 1px solid #333;
+  }
+  .campaign-list-row.active {
+    border-left: 0;
+    border-bottom: 2px solid var(--liq-accent);
+  }
+  .campaign-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid .span-2 {
+    grid-column: auto;
+  }
+  input:not([type="hidden"]),
+  textarea {
+    font-size: 16px;
+  }
+}
+@media (max-width: 360px) {
+  .filter-primary-fields,
+  .advanced-filters {
+    grid-template-columns: 1fr;
+  }
+  .context-tabs {
+    gap: 14px;
+    padding-inline: 16px;
+  }
+  .context-tabs button {
+    font-size: 13px;
+  }
+  .context-body {
+    padding-inline: 18px;
+  }
+  .context-footer > span {
+    display: none;
+  }
+  .table-scroll tr {
+    gap: 12px;
+  }
+}
+@keyframes sheet-enter {
+  from {
+    opacity: 0.7;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  scroll-behavior: auto !important;
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+dialog.modal {
+  backdrop-filter: none;
+}
+

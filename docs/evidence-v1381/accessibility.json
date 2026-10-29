@@ -1,0 +1,20 @@
+{
+  "measures": [
+    {
+      "viewport": 1440,
+      "width": 598,
+      "scroll": 598
+    },
+    {
+      "viewport": 390,
+      "width": 388,
+      "scroll": 388
+    },
+    {
+      "viewport": 320,
+      "width": 318,
+      "scroll": 318
+    }
+  ],
+  "violations": []
+}

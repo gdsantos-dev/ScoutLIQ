@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:2224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\operations.spec.ts:14:1 › canonical funnel, sources, provenance and existing learning without history fan-out (12.3s)
+  ok 2 e2e\operations.spec.ts:44:1 › empty account has usable funnel and unavailable rates (3.7s)
+  ok 3 e2e\operations.spec.ts:54:1 › mobile loading, failure, retry, filters and keyboard-scrollable tables (7.9s)
+
+  3 passed (34.7s)

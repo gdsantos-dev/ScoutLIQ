@@ -1,0 +1,76 @@
+/* ---------- empty / skeleton ---------- */
+.empty {
+  min-height: 170px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 7px;
+  padding: 24px;
+  border: 1px dashed var(--liq-border);
+  border-radius: 12px;
+  color: #a8a8a8;
+  text-align: center;
+}
+.empty svg {
+  color: #a8a8a8;
+}
+.empty h3 {
+  margin: 2px 0 0;
+  color: #a3a3a3;
+  font-size: 13px;
+  font-weight: 560;
+}
+.empty p {
+  max-width: 390px;
+  margin: 0;
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.loading-view {
+  padding-top: 22px;
+}
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #111111;
+  border-radius: 10px;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.035),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+.heading-skeleton {
+  width: 260px;
+  height: 34px;
+}
+.map-skeleton {
+  height: 500px;
+  margin-top: 20px;
+}
+.chart-skeleton {
+  height: 240px;
+}
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

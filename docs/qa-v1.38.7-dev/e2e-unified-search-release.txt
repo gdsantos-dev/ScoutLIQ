@@ -1,0 +1,16 @@
+
+Running 9 tests using 1 worker
+
+(node:26260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\unified-search.spec.ts:34:1 › three fields, catalog errors, keyboard selection, responsive dialog and focus restoration (7.5s)
+  ok 2 e2e\unified-search.spec.ts:105:1 › launch closes modal, existing worker persists results, reload and history restore the same search (11.9s)
+  ok 3 e2e\unified-search.spec.ts:208:1 › nested record and edit dialogs retain background lock until the last dialog closes (3.6s)
+  ok 4 e2e\unified-search.spec.ts:228:1 › commercial review is persisted in the record with required evidence (5.2s)
+  ok 5 e2e\unified-search.spec.ts:271:1 › optional criteria require acknowledgement before dropping unsupported text (4.3s)
+  ok 6 e2e\unified-search.spec.ts:322:1 › saved search reopens the unified form without losing reviewed criteria or geography (6.0s)
+  ok 7 e2e\unified-search.spec.ts:430:1 › natural command opens the same search form and restores dialog ownership (2.9s)
+  ok 8 e2e\unified-search.spec.ts:452:1 › opportunities use the same search form and return results to Radar (4.3s)
+  ok 9 e2e\unified-search.spec.ts:473:1 › saved legacy intent requires a catalog selection instead of reusing another remembered city (3.9s)
+
+  9 passed (54.6s)

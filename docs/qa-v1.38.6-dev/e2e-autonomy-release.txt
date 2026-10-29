@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:86024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\autonomy.spec.ts:40:1 › routine configuration, history, mobile, keyboard and error recovery (15.0s)
+  ok 2 e2e\autonomy.spec.ts:109:1 › scheduled routine finishes with browser closed using continuous worker (24.7s)
+
+  2 passed (42.9s)

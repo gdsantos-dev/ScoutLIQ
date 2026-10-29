@@ -1,0 +1,142 @@
+{
+  "version": "1.38.3-dev",
+  "backend_full_passed": 440,
+  "backend_focused_passed": 28,
+  "frontend_unit_passed": 24,
+  "e2e_regression_passed": 65,
+  "e2e_investigation_passed": 3,
+  "frontend_build": true,
+  "frontend_e2e_types": true,
+  "base": {
+    "base": "v1.38.2-dev integrated workspace",
+    "files": 527,
+    "sha256": "39fb92f3f4bf87c35cfea5a244001107e923bdaa568e3fa4e96d3726c35e0cd2",
+    "local_changes": [],
+    "base_receipts_not_in_full": true
+  },
+  "protected": {
+    "backend/scoring.py": true,
+    "backend/commercial_fit.py": true,
+    "backend/research.py": true,
+    "backend/evidence_intelligence.py": true,
+    "backend/providers.py": true,
+    "backend/discovery_plan.py": true,
+    "frontend/src/App.tsx": true,
+    "frontend/src/pages/Pipeline.tsx": true,
+    "migrations/versions/001_initial.py": true,
+    "migrations/versions/002_sites.py": true,
+    "migrations/versions/003_account_auth.py": true,
+    "migrations/versions/004_orliq_admin_users.py": true,
+    "migrations/versions/005_i18n_currency.py": true,
+    "migrations/versions/006_lead_research.py": true,
+    "migrations/versions/007_deep_site_audit.py": true,
+    "migrations/versions/007_site_audit.py": true,
+    "migrations/versions/009_research_batches.py": true,
+    "migrations/versions/010_pipeline_next_action.py": true,
+    "migrations/versions/011_commercial_history_saved_searches.py": true,
+    "migrations/versions/012_score_engine_site_intelligence.py": true,
+    "migrations/versions/013_competitive_context.py": true,
+    "migrations/versions/014_commercial_signals_timing.py": true,
+    "migrations/versions/015_radar_research_automation.py": true,
+    "migrations/versions/016_watchlist_territory.py": true,
+    "migrations/versions/017_enrichment_automation_engine.py": true,
+    "migrations/versions/018_campaigns_outcome_learning.py": true,
+    "migrations/versions/019_opportunity_workflow.py": true,
+    "migrations/versions/020_applied_intelligence.py": true,
+    "migrations/versions/021_smart_search.py": true,
+    "migrations/versions/022_operational_autonomy.py": true,
+    "migrations/versions/023_semantic_intent_budget.py": true,
+    "migrations/versions/024_supervised_learning.py": true,
+    "migrations/versions/025_score_calibration.py": true,
+    "migrations/versions/026_communication.py": true,
+    "migrations/versions/027_location_cache.py": true,
+    "migrations/versions/028_absorption_staging.py": true,
+    "migrations/versions/029_absorption_recovery.py": true
+  },
+  "browser_suites": [
+    {
+      "suite": "general-search",
+      "port": 8510,
+      "exit_code": 0,
+      "seconds": 25.97
+    },
+    {
+      "suite": "unified-search",
+      "port": 8511,
+      "exit_code": 0,
+      "seconds": 48.8
+    },
+    {
+      "suite": "map-search",
+      "port": 8512,
+      "exit_code": 0,
+      "seconds": 13.66
+    },
+    {
+      "suite": "smart-search",
+      "port": 8513,
+      "exit_code": 0,
+      "seconds": 26.05
+    },
+    {
+      "suite": "absorption",
+      "port": 8514,
+      "exit_code": 0,
+      "seconds": 26.02
+    },
+    {
+      "suite": "autonomy",
+      "port": 8515,
+      "exit_code": 0,
+      "seconds": 35.53
+    },
+    {
+      "suite": "experience",
+      "port": 8516,
+      "exit_code": 0,
+      "seconds": 28.56
+    },
+    {
+      "suite": "workflow",
+      "port": 8517,
+      "exit_code": 0,
+      "seconds": 40.55
+    },
+    {
+      "suite": "absorption-intelligent",
+      "port": 8518,
+      "exit_code": 0,
+      "seconds": 64.45
+    },
+    {
+      "suite": "redesign",
+      "port": 8519,
+      "exit_code": 0,
+      "seconds": 290.33
+    },
+    {
+      "suite": "learning",
+      "port": 8530,
+      "exit_code": 0,
+      "seconds": 22.42,
+      "rerun_reason": "Existing UTC default date rejected as future; product calendar fix validated."
+    },
+    {
+      "suite": "intelligence",
+      "port": 8521,
+      "exit_code": 0,
+      "seconds": 30.78
+    },
+    {
+      "suite": "communication",
+      "port": 8522,
+      "exit_code": 0,
+      "seconds": 22.45
+    }
+  ],
+  "browser_initial_failure": "learning: default UTC review date rejected as future by local server; fixed with existing product calendar and rerun",
+  "external_homologation": false,
+  "production_deployed": false,
+  "real_messages_sent": false,
+  "real_provider_quota_used": false
+}

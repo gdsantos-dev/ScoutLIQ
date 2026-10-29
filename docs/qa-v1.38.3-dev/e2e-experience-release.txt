@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:15064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\experience.spec.ts:5:1 › experience: navigation, decision record and responsive evidence (12.8s)
+  ok 2 e2e\experience.spec.ts:126:1 › radar: context survives navigation and the map loads only on demand (4.9s)
+  ok 3 e2e\experience.spec.ts:201:1 › new search entry points follow English and Spanish preferences (6.1s)
+
+  3 passed (27.1s)

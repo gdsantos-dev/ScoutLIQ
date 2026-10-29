@@ -1,0 +1,79 @@
+/* Owns Radar layout. Previous rules for these selectors were removed, not overlaid. */
+.radar-surface { position: relative; min-width: 0; }
+.radar-canvas-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.radar-title { margin-right: auto; }
+.radar-title h1 { margin: 0 0 5px; font-size: 28px; font-weight: 580; letter-spacing: -.04em; }
+.radar-title > span { font-size: 12px; color: var(--liq-muted); }
+.radar-smart-launch { min-height: 44px; }
+.radar-search-launch { display: flex; align-items: center; gap: 10px; padding: 10px 12px; min-height: 44px; max-width: 280px; color: var(--liq-muted); background: transparent; border: 1px solid var(--liq-border); border-radius: 6px; font: inherit; font-size: 12px; cursor: pointer; }
+.radar-search-launch span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.radar-search-launch kbd { margin-left: 12px; }
+.radar-workbench-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding-bottom: 20px; }
+.radar-workbench-controls .button { min-height: 40px; }
+.radar-workbench-controls .button > b { color: var(--liq-accent-bright); }
+.radar-workbench-controls .view-toggle { display: flex; gap: 4px; margin-left: auto; padding: 3px; background: var(--liq-surface); border-radius: 6px; }
+.radar-workbench-controls .view-toggle button { display: flex; align-items: center; justify-content: center; gap: 7px; width: auto; min-width: 76px; height: 36px; border: 0; background: transparent; color: var(--liq-muted); padding: 6px 10px; font: inherit; font-size: 12px; }
+.radar-workbench-controls .view-toggle button.active { color: var(--liq-text-strong); background: var(--liq-surface-3); border-radius: 4px; }
+.radar-layout { display: block; height: auto; max-height: none; overflow: visible; border: 0; background: none; }
+.canvas-mode .radar-layout { display: grid; grid-template-columns: minmax(300px, .9fr) minmax(320px, 1.1fr); gap: 24px; align-items: start; }
+.radar-map { position: sticky; top: 24px; height: min(72dvh, 800px); min-height: 440px; border: 1px solid var(--liq-border); border-radius: 8px; overflow: hidden; order: 2; }
+.radar-map .map-shell { height: 100%; min-height: 440px; border-radius: 8px; }
+.radar-map-area-actions { position: absolute; top: 16px; left: 16px; right: 68px; z-index: 6; display: flex; flex-wrap: wrap; gap: 6px; }
+.radar-map-area-actions button { min-height: 40px; padding: 8px 10px; background: var(--liq-surface); border: 1px solid var(--liq-border-strong); border-radius: 5px; font-size: 12px; }
+.radar-map-area-actions button:disabled { opacity: .55; }
+.radar-results { display: flex; flex-direction: column; min-width: 0; border: 0; background: transparent; }
+.radar-results-head { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 1px solid var(--liq-border); border-bottom: 1px solid var(--liq-border); }
+.radar-results-head > div { display: flex; gap: 8px; align-items: center; }
+.radar-results-head h2 { margin: 0; font-size: 14px; font-weight: 560; }
+.radar-results-head h2 > span { margin-left: 10px; color: var(--liq-muted); font-variant-numeric: tabular-nums; }
+.radar-results-head .search-input { width: min(300px, 100%); min-height: 40px; padding: 0 8px; }
+.radar-result-scroll { overflow: visible; min-height: 0; }
+.opportunity-row { position: relative; border-bottom: 1px solid var(--liq-hairline); }
+.opportunity-row:hover, .opportunity-row.selected { background: var(--liq-surface); }
+.opportunity-row.selected { box-shadow: inset 2px 0 var(--liq-accent); }
+.opportunity-row-main { display: grid; grid-template-columns: 40px minmax(0, 1fr) minmax(130px, .6fr) 16px; align-items: center; gap: 18px; width: 100%; background: transparent; border: 0; padding: 22px 48px 22px 12px; text-align: left; color: var(--liq-text); cursor: pointer; }
+.opportunity-index { font-size: 24px; font-weight: 520; letter-spacing: -.045em; font-variant-numeric: tabular-nums; color: var(--liq-text); }
+.opportunity-index[data-priority="high"] { color: var(--liq-accent-bright); }
+.opportunity-row-copy { display: grid; gap: 5px; min-width: 0; }
+.opportunity-row-copy strong { font-size: 15px; font-weight: 580; line-height: 1.4; }
+.opportunity-row-copy > span { color: var(--liq-muted); font-size: 12px; }
+.opportunity-row-copy small { font-size: 12px; color: var(--liq-text); line-height: 1.5; }
+.opportunity-decision { display: grid; gap: 7px; font-size: 12px; line-height: 1.5; min-width: 0; }
+.opportunity-decision small { color: var(--liq-muted); font-size: 12px; overflow-wrap: anywhere; }
+.opportunity-row-context { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0 48px 16px 70px; color: var(--liq-muted); font-size: 12px; }
+.radar-results-footer { display: flex; flex-wrap: wrap; gap: 12px; padding: 20px 0; align-items: center; }
+.radar-results-footer small { margin-left: auto; font-size: 12px; color: var(--liq-muted); }
+.canvas-mode .opportunity-row-main { grid-template-columns: 32px minmax(0,1fr); gap: 8px 14px; padding-right: 36px; }
+.canvas-mode .opportunity-decision { grid-column: 2; }
+.canvas-mode .row-arrow { display: none; }
+.sheet-handle { display: none; }
+@media (max-width: 1100px) {
+  .canvas-mode .radar-layout { grid-template-columns: 1fr; }
+  .radar-map { position: relative; top: 0; order: 0; height: 48dvh; min-height: 380px; }
+  .radar-map .map-shell { min-height: 380px; }
+}
+@media (max-width: 760px) {
+  .radar-canvas-heading { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
+  .radar-title { display: flex; align-items: baseline; gap: 16px; width: 100%; margin-bottom: 8px; }
+  .radar-title h1 { font-size: 26px; }
+  .radar-search-launch { max-width: none; width: 100%; min-height: 44px; justify-content: center; }
+  .radar-smart-launch { width: 100%; min-height: 48px; justify-content: center; }
+  .radar-search-launch kbd { display: none; }
+  .radar-workbench-controls { gap: 8px; }
+  .radar-workbench-controls .button { flex: 1; min-height: 44px; justify-content: center; padding-inline: 10px; }
+  .radar-workbench-controls .view-toggle { width: 100%; margin-left: 0; }
+  .radar-workbench-controls .view-toggle button { flex: 1; min-height: 44px; }
+  .radar-results-head { gap: 8px; padding: 12px 0; }
+  .radar-results-head .search-input { width: 100%; min-height: 44px; }
+  .radar-results-head input { font-size: 16px; }
+  .opportunity-row-main { grid-template-columns: 32px minmax(0,1fr); gap: 7px 12px; padding: 20px 34px 20px 0; }
+  .opportunity-decision { grid-column: 2; }
+  .opportunity-decision > span { color: var(--liq-muted); }
+  .opportunity-row-main .row-arrow { display: none; }
+  .opportunity-row-context { padding: 0 28px 16px 44px; gap: 8px; }
+  .radar-map { min-height: 360px; height: 52dvh; }
+  .radar-map .map-shell { min-height: 360px; }
+}
+
+.smart-criteria { display: grid; gap: 6px; margin: 18px 0 12px; padding-left: 12px; border-left: 2px solid var(--liq-accent); font-size: 13px; overflow-wrap: anywhere; }
+.smart-criteria span { color: var(--liq-muted); }

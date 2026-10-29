@@ -1,0 +1,106 @@
+/* v1.14.0 · intelligent reanalysis + local competitive context */
+.confidence-reanalysis-button {
+  width: fit-content;
+  min-height: 30px;
+  margin-top: 8px;
+  padding: 0 10px;
+  gap: 6px;
+  font-size: 13px;
+}
+.confidence-reanalysis-message {
+  margin-top: 7px;
+  color: #a8a8a8;
+}
+.competitive-context-section {
+  margin-top: 20px;
+  padding: 14px 0 2px;
+  border-top: 1px solid var(--liq-hairline);
+}
+.competitive-context-head {
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 10px;
+}
+.competitive-context-head > div {
+  display: grid;
+  gap: 3px;
+}
+.competitive-context-head strong {
+  color: #c9c9c9;
+  font-size: 13px;
+  font-weight: 580;
+}
+.competitive-context-head > small {
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.competitive-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.competitive-metrics > span {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+.competitive-metrics > span:nth-child(odd) {
+  padding-right: 12px;
+}
+.competitive-metrics > span:nth-child(even) {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.035);
+}
+.competitive-metrics em {
+  color: #a8a8a8;
+  font-size: 13px;
+  font-style: normal;
+}
+.competitive-metrics b {
+  color: #b6b6b6;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.competitive-gap {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+  padding: 9px 0;
+  color: #a8a8a8;
+}
+.competitive-gap > svg {
+  margin-top: 1px;
+  color: #a45b6d;
+}
+.competitive-gap > span {
+  display: grid;
+  gap: 3px;
+}
+.competitive-gap strong {
+  color: #b2b2b2;
+  font-size: 13px;
+  font-weight: 560;
+}
+.competitive-gap small {
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.45;
+}
+@media (max-width: 560px) {
+  .competitive-metrics {
+    grid-template-columns: 1fr;
+  }
+  .competitive-metrics > span:nth-child(odd),
+  .competitive-metrics > span:nth-child(even) {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: 0;
+  }
+}
+

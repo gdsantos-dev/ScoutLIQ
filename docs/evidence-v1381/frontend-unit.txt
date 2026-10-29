@@ -1,0 +1,13 @@
+
+> scoutliq@1.38.1-dev test
+> vitest run
+
+
+ RUN  v4.1.12 C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.38.1-dev/ScoutLIQ/frontend
+
+
+ Test Files  7 passed (7)
+      Tests  23 passed (23)
+   Start at  01:49:58
+   Duration  2.32s (transform 3.30s, setup 0ms, import 4.24s, tests 360ms, environment 3ms)
+

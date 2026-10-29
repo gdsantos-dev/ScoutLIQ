@@ -1,0 +1,12 @@
+
+Running 5 tests using 1 worker
+
+(node:29632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\absorption.spec.ts:26:1 › preview, commit, persistent history and canonical Radar without outreach (5.9s)
+  ok 2 e2e\absorption.spec.ts:58:1 › a lost preview response retries the same request instead of creating another batch (3.2s)
+  ok 3 e2e\absorption.spec.ts:76:3 › mobile 320: file, keyboard, overflow and accessible preview (4.0s)
+  ok 4 e2e\absorption.spec.ts:76:3 › mobile 390: file, keyboard, overflow and accessible preview (3.9s)
+  ok 5 e2e\absorption.spec.ts:96:1 › invalid JSON and failed history are visible without creating records (2.5s)
+
+  5 passed (22.9s)

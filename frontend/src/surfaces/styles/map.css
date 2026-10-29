@@ -1,0 +1,177 @@
+/* ---------- map ---------- */
+.map-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  background: #111111;
+  isolation: isolate;
+  contain: layout paint;
+  overscroll-behavior: contain;
+}
+.map-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 9, 0.05),
+    transparent 18%,
+    transparent 78%,
+    rgba(9, 9, 9, 0.28)
+  );
+}
+.map-shell > .map-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+.map-shell > .map-canvas.maplibregl-map {
+  position: absolute;
+}
+.map-shell[data-provider="open"] .map-canvas canvas {
+  filter: invert(0.92) hue-rotate(172deg) brightness(0.68) contrast(0.95);
+}
+.map-location,
+.map-controls,
+.map-legend,
+.map-error {
+  z-index: 4;
+}
+.map-location {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 8px;
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(16px);
+  color: #9e9e9e;
+  font-size: 13px;
+}
+.map-controls {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: grid;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 9px;
+  overflow: visible;
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(16px);
+}
+.map-controls button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-bottom: 1px solid var(--liq-border);
+  background: rgba(10, 10, 10, 0.94);
+  color: #a8a8a8;
+  cursor: pointer;
+}
+.map-controls button:first-child {
+  border-radius: 8px 8px 0 0;
+}
+.map-controls button:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 8px 8px;
+}
+.map-controls button:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+.map-legend {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 8px;
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(16px);
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-diamond {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: var(--scout-crimson);
+  border-radius: 2px;
+}
+.legend-client {
+  color: var(--liq-success);
+  font-style: normal;
+}
+.map-error {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 14px;
+  border: 1px solid rgba(233, 130, 151, 0.28);
+  border-radius: 10px;
+  background: rgba(15, 15, 15, 0.9);
+  color: #dca3b0;
+  font-size: 13px;
+}
+.map-marker {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px 10px 10px 3px;
+  background: var(--scout-crimson);
+  box-shadow: 0 8px 24px rgba(91, 5, 29, 0.32);
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+.map-marker::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+.map-marker.stage-won {
+  background: #7e7e7e;
+}
+.map-marker.stage-lost {
+  background: #666666;
+}
+.map-marker.selected {
+  box-shadow:
+    0 0 0 4px rgba(195, 21, 62, 0.18),
+    0 10px 26px rgba(0, 0, 0, 0.35);
+}
+.map-marker.exceptional {
+  width: 32px;
+  height: 32px;
+}
+

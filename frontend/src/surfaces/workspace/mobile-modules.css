@@ -1,0 +1,471 @@
+/* v1.24.0 · módulos restantes + formulários/empty states mobile */
+@media (max-width: 760px) {
+  /* Oportunidades e Monitores: superfícies operacionais, sem padding duplicado do ledger. */
+  .surface-opportunities.ledger-mode,
+  .surface-monitors.ledger-mode {
+    padding: 0;
+  }
+
+  .surface-opportunities > .page-head,
+  .surface-monitors > .page-head {
+    min-height: 0;
+    padding-bottom: 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .surface-opportunities > .page-head .head-actions,
+  .surface-monitors > .page-head .head-actions {
+    width: 100%;
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .surface-opportunities > .page-head .button,
+  .surface-monitors > .page-head .button {
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .campaign-summary-line::-webkit-scrollbar,
+  .automation-summary-line::-webkit-scrollbar,
+  .campaign-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Monitores: overview legível sem três cards SaaS repetidos. */
+  .surface-monitors .monitor-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: 0;
+    margin-bottom: 18px;
+    border-block: 1px solid #363636;
+  }
+
+  .surface-monitors .monitor-overview > div {
+    min-width: 0;
+    padding: 16px 10px 15px;
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+
+  .surface-monitors .monitor-overview > div + div {
+    border-left: 1px solid #363636;
+  }
+
+  .surface-monitors .monitor-overview strong {
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .surface-monitors .monitor-overview span {
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+
+  .surface-monitors .monitor-searches {
+    margin: 0 0 22px;
+  }
+
+  .surface-monitors .radar-saved-searches-head {
+    padding: 10px 0 12px;
+  }
+
+  .surface-monitors .radar-saved-search-item {
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .surface-monitors .radar-saved-search-run {
+    width: 100%;
+    display: grid;
+    gap: 4px;
+    text-align: left;
+  }
+
+  .surface-monitors .radar-saved-search-actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .surface-monitors .radar-monitor-frequency,
+  .surface-monitors .radar-monitor-enable {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Campanhas: seleção horizontal + detalhe contínuo. */
+
+  .campaign-summary-line,
+  .automation-summary-line {
+    margin: -2px 0 18px;
+    padding: 0 0 12px;
+    max-width: 100%;
+    overflow-x: visible;
+    flex-wrap: wrap;
+    gap: 14px;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .campaign-create-panel {
+    margin: 0 0 22px;
+    padding: 20px 0;
+    gap: 16px;
+  }
+
+  .campaign-create-copy h2 {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+
+  .campaign-create-grid {
+    gap: 12px;
+  }
+
+  .campaign-workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-block: 0;
+  }
+
+  .campaign-list {
+    width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+    padding: 0 0 10px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    border: 0;
+    border-bottom: 1px solid #353535;
+    scrollbar-width: none;
+  }
+
+  .campaign-list-row {
+    flex: 0 0 min(76vw, 280px);
+    min-width: 0;
+    min-height: 68px;
+    padding: 12px 13px;
+    border: 1px solid #383838;
+    border-radius: 9px;
+    background: #191919;
+    scroll-snap-align: start;
+  }
+
+  .campaign-list-row.active {
+    border: 1px solid #626262;
+    border-bottom-color: #626262;
+    background: #222;
+    box-shadow: inset 3px 0 0 var(--liq-accent);
+  }
+
+  .campaign-detail {
+    padding: 22px 0 0;
+    gap: 18px;
+  }
+
+  .campaign-detail-head {
+    gap: 12px;
+  }
+
+  .campaign-detail-head > .smart-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .campaign-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-color: #373737;
+  }
+
+  .campaign-metrics span {
+    min-height: 74px;
+    padding: 12px 10px;
+  }
+
+  .campaign-metrics span:nth-child(5) {
+    grid-column: 1 / -1;
+    border-right: 0;
+  }
+
+  .campaign-member-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-member-toolbar .button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .campaign-member-row > button:first-child {
+    min-height: 64px;
+  }
+
+  .outcome-learning-section {
+    margin-top: 34px;
+  }
+
+  .outcome-learning-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  /* Automações: editor vira workspace próprio em vez de formulário gigante empilhado. */
+
+  .automation-builder {
+    position: fixed;
+    inset: 0;
+    z-index: 58;
+    margin: 0;
+    padding: max(18px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--liq-bg-raised);
+    border: 0;
+  }
+  .automation-builder-head {
+    position: sticky;
+    top: -18px;
+    z-index: 3;
+    margin: -18px -18px 18px;
+    padding: 18px;
+    background: var(--liq-bg-raised);
+    border-bottom: 1px solid var(--liq-hairline);
+  }
+  .automation-builder-head h2 {
+    font-size: 20px;
+  }
+
+  .automation-builder-grid,
+  .automation-stop-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .automation-section {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+  .automation-section-head {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .automation-section-head .text-link {
+    min-height: 40px;
+    flex: 0 0 auto;
+  }
+
+  .automation-condition-row,
+  .automation-action-row {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 14px;
+    border: 1px solid #393939;
+    border-radius: 10px;
+    background: #191919;
+  }
+
+  .automation-condition-row > .icon-button,
+  .automation-action-row > .icon-button {
+    justify-self: end;
+  }
+
+  .automation-service-value {
+    grid-template-columns: minmax(0, 1fr) 78px;
+  }
+
+  .automation-stop-stages {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .automation-stop-stages label,
+  .automation-stop-toggle {
+    min-height: 42px;
+    padding: 9px 10px;
+    border: 1px solid #373737;
+    border-radius: 8px;
+    background: #181818;
+  }
+
+  .automation-form-actions {
+    position: sticky;
+    bottom: -22px;
+    z-index: 4;
+    margin: 28px -18px -22px;
+    padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(20, 20, 20, 0.98);
+    border-top: 1px solid #3a3a3a;
+    backdrop-filter: blur(10px);
+  }
+
+  .automation-form-actions .button {
+    flex: 1;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .automation-list {
+    border-top-color: #373737;
+  }
+
+  .automation-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 16px 0;
+  }
+
+  .automation-row-main {
+    min-height: 52px;
+  }
+
+  .automation-rule-copy {
+    gap: 4px;
+  }
+
+  .automation-rule-copy strong {
+    font-size: 14px;
+  }
+
+  .automation-rule-copy > span {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .automation-row-stop {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding-left: 0;
+    gap: 7px 10px;
+    line-height: 1.35;
+  }
+
+  .automation-row-actions .icon-button {
+    min-width: 42px;
+    min-height: 42px;
+  }
+
+  /* Configurações: uma sequência única, sem a malha desktop. */
+
+  /* About: fatos em sequência editorial compacta. */
+
+  /* Formulários: no celular modal vira sheet real, com ações alcançáveis pelo polegar. */
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) {
+    width: 100vw;
+    max-width: none;
+    max-height: min(88dvh, 780px, calc(var(--dialog-viewport-height, 100dvh) - 10px));
+    margin: auto 0 0;
+    padding: 18px 18px calc(18px + env(safe-area-inset-bottom));
+    border: 1px solid #454545;
+    border-bottom: 0;
+    border-radius: 18px 18px 0 0;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .modal-head {
+    top: -18px;
+    margin: -4px -18px 20px;
+    padding: 10px 18px 14px;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .form-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .span-2 {
+    grid-column: auto;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .form-actions {
+    position: sticky;
+    bottom: calc(-18px - env(safe-area-inset-bottom));
+    z-index: 5;
+    margin: 24px -18px calc(-18px - env(safe-area-inset-bottom));
+    padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+    background: #191919;
+    border-top: 1px solid #3a3a3a;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .form-actions .button {
+    flex: 1;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  /* Empty states: ocupam o espaço necessário, não uma tela inteira para dizer “nada aqui”. */
+  .empty {
+    min-height: 0;
+    padding: 34px 12px;
+    align-content: start;
+    justify-items: start;
+    text-align: left;
+    border: 0;
+    border-block: 1px solid #353535;
+    border-radius: 0;
+  }
+
+  .empty > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .empty h3 {
+    margin-top: 12px;
+    font-size: 17px;
+  }
+
+  .empty p {
+    max-width: 34rem;
+    margin-bottom: 16px;
+    line-height: 1.55;
+  }
+
+  .empty > .button,
+  .empty > button,
+  .empty > a {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  .surface-opportunities > .page-head .head-actions,
+  .surface-monitors > .page-head .head-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .surface-monitors .monitor-overview strong {
+    font-size: 22px;
+  }
+
+  .surface-monitors .monitor-overview span {
+    font-size: 10.5px;
+  }
+
+  .campaign-list-row {
+    flex-basis: 82vw;
+  }
+
+  .automation-stop-stages {
+    grid-template-columns: 1fr;
+  }
+
+  .automation-section-head {
+    display: grid;
+  }
+}
+

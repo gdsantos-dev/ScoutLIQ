@@ -1,0 +1,17 @@
+.env
+.venv/
+node_modules/
+.npm-cache/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+.test-tmp/
+.runtime-tmp/
+data/
+*.db
+*.db-*
+artifacts/
+release/
+*.tsbuildinfo
+*.log
+.scoutliq-backups/

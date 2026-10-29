@@ -1,0 +1,25 @@
+absorption-intelligent: 4 passed
+
+absorption: 5 passed
+
+autonomy: 2 passed
+
+communication: 1 passed
+
+experience: 3 passed
+
+general-search: 3 passed
+
+intelligence: 2 passed
+
+learning: 2 passed
+
+map-search: 1 passed
+
+redesign: 25 passed
+
+smart-search: 3 passed
+
+unified-search: 9 passed
+
+workflow: 5 passed

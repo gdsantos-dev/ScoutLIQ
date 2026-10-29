@@ -1,0 +1,352 @@
+/* Context is a workspace, with one layer of detail at a time. */
+.context-panel {
+  position: fixed;
+  inset: 16px 16px 16px auto;
+  margin: 0;
+  padding: 0;
+  width: min(550px, calc(100vw - 32px));
+  max-width: none;
+  max-height: none;
+  height: calc(min(100dvh, var(--dialog-viewport-height, 100dvh)) - 32px);
+  border: 1px solid #4a4a4a;
+  border-radius: 12px;
+  color: var(--liq-text);
+  background: #191919;
+  box-shadow: -12px 8px 64px #0007;
+  overflow: hidden;
+}
+.context-panel[open] {
+  display: flex;
+  flex-direction: column;
+  animation: context-enter 0.2s var(--ease-out);
+}
+.context-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 0 28px;
+}
+.context-panel-header .eyebrow {
+  margin: 0;
+}
+.context-panel-header > div {
+  display: flex;
+}
+.context-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 28px 24px;
+}
+.company-monogram {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  color: #dedede;
+  background: #2c2c2c;
+  border: 1px solid #4a4a4a;
+  border-radius: 6px;
+}
+.context-identity h2 {
+  font-size: 25px;
+  font-weight: 520;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin: 0 0 8px;
+}
+.context-identity p {
+  color: #b5b5b5;
+  font-size: 14px;
+  margin: 0;
+}
+.context-tabs {
+  display: flex;
+  gap: 20px;
+  padding: 0 28px;
+  border-bottom: 1px solid #3d3d3d;
+  flex-shrink: 0;
+}
+.context-tabs button {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  font-size: 14px;
+  color: #aaa;
+  padding: 12px 0 16px;
+}
+.context-tabs button[aria-selected="true"] {
+  color: #fafafa;
+  border-bottom-color: var(--liq-accent);
+}
+.context-body {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  padding: 28px;
+  overscroll-behavior: contain;
+  animation: body-enter 0.18s ease;
+}
+.context-body > section,
+.analysis-workspace > section {
+  border: 0;
+  border-bottom: 1px solid #3a3a3a;
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 24px;
+  margin: 0 0 28px;
+}
+.context-priority {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #393939;
+}
+.context-priority > div {
+  display: grid;
+  gap: 8px;
+}
+.context-priority > div:last-child {
+  text-align: right;
+}
+.context-priority span {
+  font-size: 13px;
+  color: #bbb;
+}
+.context-priority strong {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 450;
+  color: var(--liq-accent-bright);
+  letter-spacing: -0.07em;
+}
+.context-priority strong small {
+  font-size: 16px;
+  color: #a5a5a5;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding-left: 8px;
+}
+.context-priority b {
+  font-size: 18px;
+  font-weight: 500;
+}
+.context-opportunity-title {
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  margin: 26px 0 18px;
+}
+.context-signals {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 14px;
+}
+.context-signals li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+}
+.context-signals li svg {
+  color: #b9b9b9;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.context-signals small {
+  color: #aaa;
+  margin-left: 8px;
+}
+.context-service,
+.context-stage {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+  border-block: 1px solid #393939;
+  font-size: 14px;
+}
+.context-service > span,
+.context-stage > span {
+  color: #aaa;
+}
+.context-service > b,
+.context-stage > strong {
+  font-size: 15px;
+  font-weight: 550;
+  text-align: right;
+}
+.context-contact {
+  padding: 8px 0 20px;
+}
+.context-contact p {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.6;
+}
+.context-contact p svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.context-contact > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+.context-contact .text-link {
+  color: #e0e0e0;
+  min-height: 36px;
+}
+.context-disclosure {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #4b4b4b;
+  border-radius: 6px;
+  background: #242424;
+  padding: 12px 16px;
+  text-align: left;
+}
+.watch-context {
+  margin-top: 20px;
+  min-height: 44px;
+}
+.demo-disclosure {
+  color: #b5b5b5;
+  border-left: 2px solid #777;
+  padding-left: 12px;
+  font-size: 13px;
+  margin: 0 0 24px;
+}
+.context-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 28px;
+  border-top: 1px solid #414141;
+  background: #1d1d1d;
+  flex-shrink: 0;
+}
+.context-footer .button {
+  flex: 1;
+  min-height: 48px;
+}
+.context-footer > span {
+  font-size: 13px;
+  color: #b9b9b9;
+}
+.context-body h3 {
+  font-size: 18px;
+}
+.context-body .eyebrow {
+  color: #b0b0b0;
+  font-size: 13px;
+}
+.context-body details > summary {
+  min-height: 44px;
+  padding-block: 12px;
+  font-size: 14px;
+  color: #ddd;
+  cursor: pointer;
+}
+.score-dimension span,
+.confidence-score span {
+  font-size: 14px;
+}
+.score-dimension i,
+.confidence-score > i {
+  height: 3px;
+}
+.opportunity-evidence {
+  font-size: 14px;
+}
+.research-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.context-body .research-panel {
+  padding-top: 0;
+}
+.context-body .research-head strong {
+  font-size: 19px;
+}
+.next-action-focus {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  background: #252525;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  padding: 18px;
+  margin: 24px 0;
+  text-align: left;
+}
+.next-action-focus > span {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+}
+.next-action-focus small {
+  color: #aaa;
+}
+.context-sales {
+  padding: 20px 0;
+}
+.context-sales > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 18px 0;
+  border-bottom: 1px solid #333;
+  font-size: 15px;
+}
+.context-sales small {
+  color: #aaa;
+  grid-column: 1/-1;
+}
+.next-action-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.commercial-log-form {
+  grid-template-columns: 1fr;
+}
+.commercial-timeline-item {
+  padding-block: 12px;
+}
+@keyframes context-enter {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes body-enter {
+  from {
+    opacity: 0.65;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

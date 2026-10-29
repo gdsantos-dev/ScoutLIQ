@@ -1,0 +1,60 @@
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 2798 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                         1.31 kB │ gzip:   0.57 kB
+dist/assets/inter-latin-wght-normal-Dx4kXJAl.woff2     48.26 kB
+dist/assets/maplibre-gl-worker-Bn3N37MR.js            506.79 kB
+dist/assets/ContextPanel-CGu5xrok.css                   0.98 kB │ gzip:   0.41 kB
+dist/assets/commercial-learning-ClAri0CG.css            1.69 kB │ gzip:   0.61 kB
+dist/assets/Intelligence-CpaSnB5C.css                   2.71 kB │ gzip:   0.87 kB
+dist/assets/Radar-B7UZKvK7.css                          3.32 kB │ gzip:   1.01 kB
+dist/assets/CommercialQueue-BuUOMdi9.css                3.84 kB │ gzip:   1.15 kB
+dist/assets/Pipeline-4jsrKMBc.css                       3.96 kB │ gzip:   1.17 kB
+dist/assets/OpportunityWorkflow-BR0FL5jh.css            5.64 kB │ gzip:   1.62 kB
+dist/assets/OpportunityMap-JR8eJ17e.css                83.02 kB │ gzip:  10.52 kB
+dist/assets/index-Ddk8_PAX.css                        195.90 kB │ gzip:  35.67 kB
+dist/assets/clock-3-Bjgu2cFi.js                         0.17 kB │ gzip:   0.16 kB
+dist/assets/arrow-down-right-B_teev3J.js                0.17 kB │ gzip:   0.16 kB
+dist/assets/download-CjTH3cZe.js                        0.23 kB │ gzip:   0.19 kB
+dist/assets/activity-DJTFTZeE.js                        0.24 kB │ gzip:   0.20 kB
+dist/assets/database-SO3E68vs.js                        0.24 kB │ gzip:   0.20 kB
+dist/assets/external-link-CYcRe_Ao.js                   0.25 kB │ gzip:   0.20 kB
+dist/assets/pencil-CyqD5SW0.js                          0.28 kB │ gzip:   0.23 kB
+dist/assets/shield-check-DQarCqKP.js                    0.32 kB │ gzip:   0.25 kB
+dist/assets/trash-2-Dw58SGdW.js                         0.33 kB │ gzip:   0.22 kB
+dist/assets/calendar-clock-CnIaR_o5.js                  0.37 kB │ gzip:   0.25 kB
+dist/assets/file-pen-line-DiCbXUjH.js                   0.47 kB │ gzip:   0.31 kB
+dist/assets/framework-DldvXD6N.js                       0.47 kB │ gzip:   0.30 kB
+dist/assets/phone-D6MEasUd.js                           0.52 kB │ gzip:   0.32 kB
+dist/assets/TrendChart-B3I0ddV_.js                      1.68 kB │ gzip:   0.87 kB
+dist/assets/opportunity-hnP6axfI.js                     4.06 kB │ gzip:   1.80 kB
+dist/assets/About-Brb0mIgr.js                           7.43 kB │ gzip:   2.33 kB
+dist/assets/Clients-C5N4O67t.js                         7.93 kB │ gzip:   2.30 kB
+dist/assets/Settings-mTyC0x3A.js                        8.33 kB │ gzip:   2.94 kB
+dist/assets/Campaigns-DBPOiwou.js                       9.28 kB │ gzip:   3.17 kB
+dist/assets/Finance-DXRyC3f8.js                         9.64 kB │ gzip:   2.60 kB
+dist/assets/Integrations-Cgv4X2zC.js                   10.26 kB │ gzip:   3.67 kB
+dist/assets/OpportunityMap-8eGprYZD.js                 11.06 kB │ gzip:   4.62 kB
+dist/assets/Communication-DdkjjCe4.js                  11.42 kB │ gzip:   4.10 kB
+dist/assets/Sites-CWBsIfON.js                          12.12 kB │ gzip:   4.08 kB
+dist/assets/Intelligence-4nD8taE0.js                   17.73 kB │ gzip:   5.47 kB
+dist/assets/CommercialQueue-B6wfP6m3.js                18.37 kB │ gzip:   5.89 kB
+dist/assets/OpportunityWorkflow-dypwxlg6.js            19.26 kB │ gzip:   6.41 kB
+dist/assets/Pipeline-DGzhmthH.js                       19.51 kB │ gzip:   6.43 kB
+dist/assets/Actions-y8WMmNzz.js                        21.57 kB │ gzip:   7.25 kB
+dist/assets/CommercialLearning-F7qbNd_0.js             23.31 kB │ gzip:   6.97 kB
+dist/assets/Automations-DuZ02_Ld.js                    23.36 kB │ gzip:   7.48 kB
+dist/assets/ContextPanel-Bhuirwix.js                   40.28 kB │ gzip:  11.82 kB
+dist/assets/Radar-C739NOI4.js                          64.49 kB │ gzip:  19.54 kB
+dist/assets/motion-CG8SMN36.js                         94.99 kB │ gzip:  31.39 kB
+dist/assets/charts-BvdOcJub.js                        373.84 kB │ gzip: 110.28 kB
+dist/assets/index-aXBdElA0.js                         470.25 kB │ gzip: 149.84 kB
+dist/assets/map-C13VEY7j.js                         1,024.34 kB │ gzip: 279.23 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 39.70s

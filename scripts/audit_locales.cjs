@@ -1,0 +1,6 @@
+const ts=require('../frontend/node_modules/typescript'), fs=require('fs'), path=require('path');
+const root=path.resolve('frontend/src');
+function load(p){const src=fs.readFileSync(p,'utf8');const m={exports:{}};new Function('require','module','exports',ts.transpile(src,{module:ts.ModuleKind.CommonJS}))(x=>load(path.resolve(path.dirname(p),x+'.ts')),m,m.exports);return m.exports;}
+const {tr}=load(path.join(root,'i18n.ts'));let total=0,missing=[];
+function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(/\.tsx?$/.test(p)&&!p.includes('.test.')&&!p.includes('i18n')){const src=ts.createSourceFile(p,fs.readFileSync(p,'utf8'),ts.ScriptTarget.Latest,true);function visit(n){if(ts.isCallExpression(n)&&n.expression.getText(src)==='tr'&&n.arguments.length&&ts.isStringLiteral(n.arguments[0])){let s=n.arguments[0].text;total++;if(tr(s,'en-US')===s && /[áéíóúãõçê]|\b(busca|conta|de|para|sem|com|dados|empresa|não|nova|salvar)\b/i.test(s))missing.push({file:path.relative(root,p),text:s});}ts.forEachChild(n,visit);}visit(src);}}}walk(root);fs.writeFileSync('artifacts/i18n-static-audit.json',JSON.stringify({total,missing},null,2));console.log(JSON.stringify({total,missing},null,2));
+

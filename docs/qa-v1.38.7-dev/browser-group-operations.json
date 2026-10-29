@@ -1,0 +1,8 @@
+[
+  {
+    "suite": "operations",
+    "port": 9200,
+    "exit_code": 0,
+    "seconds": 24.51
+  }
+]

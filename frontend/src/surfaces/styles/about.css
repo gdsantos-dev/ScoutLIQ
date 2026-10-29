@@ -1,0 +1,198 @@
+/* ---------- about ---------- */
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(330px, 0.65fr);
+  gap: 40px;
+  align-items: end;
+  min-height: 300px;
+  margin-top: 22px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--liq-border);
+  background: radial-gradient(
+    circle at 18% 60%,
+    rgba(195, 21, 62, 0.08),
+    transparent 35%
+  );
+}
+.about-hero-copy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.about-product-mark {
+  width: 92px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(195, 21, 62, 0.28);
+  border-radius: 18px;
+  background: rgba(195, 21, 62, 0.05);
+}
+.about-product-mark .brand-mark {
+  width: 54px;
+  height: 54px;
+}
+.about-hero-copy h2 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  font-weight: 480;
+}
+.about-hero-copy h2 .brand {
+  font-size: inherit;
+}
+.about-hero-copy p:last-child {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: #a8a8a8;
+  line-height: 1.65;
+  font-size: 13px;
+}
+.about-release {
+  display: grid;
+  border-top: 1px solid var(--liq-border-strong);
+}
+.about-release > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--liq-hairline);
+}
+.about-release span {
+  color: #a8a8a8;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+.about-release strong,
+.about-release a {
+  color: #d3d3d3;
+  font-size: 13px;
+  font-weight: 540;
+}
+.about-release a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.about-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--liq-border);
+  margin-top: 30px;
+}
+.about-section {
+  min-width: 0;
+  padding: 26px 28px 28px 0;
+  border-bottom: 1px solid var(--liq-border);
+}
+.about-section:nth-child(even) {
+  padding-left: 28px;
+  border-left: 1px solid var(--liq-hairline);
+}
+.about-wide {
+  grid-column: 1 / -1;
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+.about-section-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.about-section-head > svg {
+  margin-top: 3px;
+  color: var(--scout-crimson-hi);
+}
+.about-section-head h2 {
+  margin: 0;
+  color: #d7d7d7;
+  font-size: 15px;
+  font-weight: 560;
+}
+.about-capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--liq-hairline);
+}
+.about-capabilities > div {
+  padding: 14px 14px 14px 0;
+  border-bottom: 1px solid var(--liq-hairline);
+}
+.about-capabilities > div:nth-child(even) {
+  padding-left: 14px;
+  border-left: 1px solid var(--liq-hairline);
+}
+.about-capabilities strong {
+  color: #c9c9c9;
+  font-size: 13px;
+}
+.about-capabilities p,
+.about-principles > p,
+.about-status > p {
+  margin: 5px 0 0;
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.about-facts {
+  margin: 20px 0 0;
+}
+.about-facts > div {
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--liq-hairline);
+}
+.about-facts dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.about-facts dd {
+  margin: 0;
+  color: #cbcbcb;
+  font-size: 13px;
+}
+.about-workspace-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  border-top: 1px solid var(--liq-hairline);
+}
+.about-workspace-row > div {
+  padding: 16px 0;
+}
+.about-workspace-row > div + div {
+  padding-left: 18px;
+  border-left: 1px solid var(--liq-hairline);
+}
+.about-workspace-row span {
+  display: block;
+  color: #a8a8a8;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.about-workspace-row strong {
+  display: block;
+  margin-top: 5px;
+  color: #cfcfcf;
+  font-size: 13px;
+}
+.about-orliq-signature {
+  display: block;
+  margin-top: 24px;
+  color: var(--orliq-champagne);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+}
+

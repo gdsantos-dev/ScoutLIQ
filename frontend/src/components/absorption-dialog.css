@@ -1,0 +1,240 @@
+.absorption-dialog .absorption-content {
+  display: grid;
+  gap: 16px;
+  padding: 4px 0 8px;
+}
+.absorption-instructions {
+  margin: 0;
+  line-height: 1.55;
+  max-width: 72ch;
+}
+.absorption-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.absorption-dialog textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 170px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.absorption-dialog input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.absorption-dialog .field-hint {
+  margin: -8px 0 0;
+}
+.absorption-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.absorption-preview {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--liq-border, #444);
+  padding-top: 18px;
+}
+.absorption-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.absorption-summary span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.absorption-list {
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--liq-border, #444);
+  border-radius: 8px;
+}
+.absorption-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 16px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--liq-border, #444);
+}
+.absorption-item:last-child {
+  border: 0;
+}
+.absorption-item > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: start;
+}
+.absorption-item small {
+  font-size: 12px;
+  opacity: 0.7;
+  overflow-wrap: anywhere;
+}
+.absorption-state {
+  font-size: 12px;
+  font-weight: 650;
+}
+.absorption-state-ready,
+.absorption-state-imported {
+  color: var(--liq-success, #3eaa81);
+}
+.absorption-state-pending {
+  color: var(--liq-warning, #d79f51);
+}
+.absorption-history {
+  border-top: 1px solid var(--liq-border, #444);
+  padding-top: 12px;
+}
+.absorption-history summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.absorption-history > div {
+  display: grid;
+  padding-top: 8px;
+  max-height: 160px;
+  overflow: auto;
+}
+.absorption-history button {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid var(--liq-border, #444);
+  color: inherit;
+  background: transparent;
+  text-align: left;
+  padding: 9px 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.absorption-history small {
+  opacity: 0.65;
+}
+@media (max-width: 620px) {
+  .absorption-controls,
+  .absorption-item {
+    grid-template-columns: 1fr;
+  }
+  .absorption-item {
+    gap: 6px;
+  }
+}
+.absorption-mapping,
+.absorption-edit-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+.absorption-mapping {
+  border: 1px solid var(--liq-border, #444);
+  padding: 12px;
+  border-radius: 8px;
+}
+.absorption-mapping small,
+.absorption-suggestion {
+  overflow-wrap: anywhere;
+}
+.absorption-editor {
+  grid-column: 1 / -1;
+  width: 100%;
+  border-top: 1px solid var(--liq-border, #444);
+  padding-top: 12px;
+}
+.absorption-item > .absorption-editor {
+  display: grid;
+  gap: 16px;
+}
+.absorption-editor .field,
+.absorption-mapping .field {
+  min-width: 0;
+}
+.absorption-editor input,
+.absorption-mapping select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.absorption-editor pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 12px;
+}
+.absorption-recovery {
+  display: grid;
+  gap: 12px;
+  padding: 12px 0;
+}
+.absorption-recovery p {
+  margin: 6px 0;
+  font-size: 13px;
+}
+.absorption-recovery > .button {
+  justify-self: start;
+}
+.absorption-recovery input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: var(--liq-accent, #c42042);
+}
+.absorption-list {
+  max-height: 480px;
+}
+.absorption-item strong {
+  overflow-wrap: anywhere;
+}
+.absorption-suggestion {
+  border-top: 1px solid var(--liq-border, #444);
+  padding-top: 12px;
+}
+@media (max-width: 620px) {
+  .absorption-mapping,
+  .absorption-edit-fields {
+    grid-template-columns: 1fr;
+  }
+}
+.absorption-dialog .field select {
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid var(--liq-border, #444);
+  border-radius: 6px;
+  background: var(--liq-surface, #141414);
+  color: inherit;
+  max-width: 100%;
+}
+.absorption-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.absorption-recovery .absorption-consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  flex: 0 0 18px;
+  padding: 0;
+  margin: 2px 0 0;
+  appearance: auto;
+}
+.absorption-editor details {
+  min-width: 0;
+}
+.absorption-editor details > .absorption-edit-fields {
+  padding-top: 12px;
+}
+.absorption-editor summary {
+  cursor: pointer;
+}

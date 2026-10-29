@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:25956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\smart-search.spec.ts:30:1 › editable intent, all targets, mobile reflow and keyboard (7.5s)
+  ok 2 e2e\smart-search.spec.ts:81:1 › job survives closed browser and returns audited result groups (11.5s)
+  ok 3 e2e\smart-search.spec.ts:215:1 › input errors remain visible without executing a search (2.7s)
+
+  3 passed (25.4s)

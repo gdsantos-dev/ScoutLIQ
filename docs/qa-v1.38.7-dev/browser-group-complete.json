@@ -1,0 +1,86 @@
+[
+  {
+    "suite": "general-search",
+    "port": 9180,
+    "exit_code": 0,
+    "seconds": 31.33
+  },
+  {
+    "suite": "unified-search",
+    "port": 9181,
+    "exit_code": 0,
+    "seconds": 56.31
+  },
+  {
+    "suite": "map-search",
+    "port": 9182,
+    "exit_code": 0,
+    "seconds": 13.31
+  },
+  {
+    "suite": "smart-search",
+    "port": 9183,
+    "exit_code": 0,
+    "seconds": 26.67
+  },
+  {
+    "suite": "absorption",
+    "port": 9184,
+    "exit_code": 0,
+    "seconds": 24.17
+  },
+  {
+    "suite": "autonomy",
+    "port": 9185,
+    "exit_code": 0,
+    "seconds": 38.91
+  },
+  {
+    "suite": "experience",
+    "port": 9186,
+    "exit_code": 0,
+    "seconds": 38.34
+  },
+  {
+    "suite": "workflow",
+    "port": 9187,
+    "exit_code": 0,
+    "seconds": 53.62
+  },
+  {
+    "suite": "absorption-intelligent",
+    "port": 9188,
+    "exit_code": 0,
+    "seconds": 69.81
+  },
+  {
+    "suite": "redesign",
+    "port": 9189,
+    "exit_code": 0,
+    "seconds": 390.69
+  },
+  {
+    "suite": "learning",
+    "port": 9190,
+    "exit_code": 0,
+    "seconds": 30.39
+  },
+  {
+    "suite": "intelligence",
+    "port": 9191,
+    "exit_code": 0,
+    "seconds": 36.78
+  },
+  {
+    "suite": "communication",
+    "port": 9192,
+    "exit_code": 0,
+    "seconds": 26.11
+  },
+  {
+    "suite": "investigation",
+    "port": 9193,
+    "exit_code": 0,
+    "seconds": 42.17
+  }
+]

@@ -1,0 +1,63 @@
+.commercial-review {
+  border-top: 1px solid var(--liq-border);
+  padding-block: 20px;
+}
+.commercial-review-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.commercial-review h3 {
+  margin: 0;
+}
+.commercial-review dl {
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+}
+.commercial-review dl > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) 2fr;
+  gap: 12px;
+}
+.commercial-review dt {
+  color: var(--liq-muted);
+}
+.commercial-review dd {
+  margin: 0;
+}
+.commercial-review form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+.commercial-review-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.commercial-review-fields > div {
+  display: grid;
+  gap: 6px;
+}
+.commercial-review select,
+.commercial-review textarea {
+  width: 100%;
+}
+.commercial-review select {
+  min-height: 44px;
+  min-width: 0;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--liq-text);
+  background: var(--liq-bg);
+  border: 1px solid var(--liq-border);
+  border-radius: 6px;
+}
+@media (max-width: 600px) {
+  .commercial-review-fields {
+    grid-template-columns: 1fr;
+  }
+}

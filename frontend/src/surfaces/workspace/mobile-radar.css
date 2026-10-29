@@ -1,0 +1,217 @@
+/* v1.22.0 · Radar mobile workspace */
+.mobile-label,
+.context-sheet-handle {
+  display: none;
+}
+
+@media (max-width: 760px) {
+
+  .view-toggle button {
+    min-height: 44px;
+    border-radius: 10px;
+  }
+
+  .result-actions-menu summary {
+    width: 42px;
+    height: 48px;
+  }
+
+  .desktop-label {
+    display: none;
+  }
+
+  .mobile-label {
+    display: inline;
+  }
+
+  .canvas-mode .radar-process-state {
+    left: 10px;
+    right: 10px;
+    transition: bottom 180ms var(--ease-out);
+  }
+
+  .sheet-peek.canvas-mode .radar-process-state {
+    bottom: 224px;
+  }
+
+  .sheet-mid.canvas-mode .radar-process-state {
+    bottom: calc(min(52dvh, 470px) + 58px);
+  }
+
+  .sheet-full.canvas-mode .radar-process-state {
+    bottom: 12px;
+  }
+
+  .sheet-peek.canvas-mode .maplibregl-ctrl-bottom-right {
+    bottom: 170px;
+  }
+
+  .sheet-mid.canvas-mode .maplibregl-ctrl-bottom-right {
+    bottom: min(52dvh, 470px);
+  }
+
+  .sheet-full.canvas-mode .maplibregl-ctrl-bottom-right {
+    display: none;
+  }
+
+  dialog.modal.radar-search-sheet,
+  dialog.modal.radar-filter-sheet,
+  dialog.modal.radar-saved-sheet {
+    position: fixed;
+    inset: auto 0 0;
+    margin: 0;
+    width: 100vw;
+    max-width: none;
+    max-height: calc(min(100dvh, var(--dialog-viewport-height, 100dvh)) - 10px);
+    border-radius: 18px 18px 0 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 0 18px calc(18px + env(safe-area-inset-bottom));
+    background: #191919;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  dialog.modal.radar-search-sheet {
+    height: min(88dvh, 760px);
+  }
+
+  dialog.modal.radar-filter-sheet {
+    height: min(82dvh, 700px);
+  }
+
+  dialog.modal.radar-saved-sheet {
+    height: min(72dvh, 620px);
+  }
+
+  .radar-search-sheet .modal-head,
+  .radar-filter-sheet .modal-head,
+  .radar-saved-sheet .modal-head {
+    top: 0;
+    margin: 0 -18px 18px;
+    padding: 16px 18px 14px;
+    background: #191919;
+  }
+
+  .radar-search-sheet .radar-discovery,
+  .radar-search-sheet .radar-discovery.has-radius,
+  .radar-filter-sheet .filter-primary-fields,
+  .radar-filter-sheet .advanced-filters {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .radar-search-sheet .radar-location-field,
+  .radar-search-sheet .radar-niche-field,
+  .radar-filter-sheet .filter-primary-fields .smart-select:last-child {
+    grid-column: auto;
+  }
+
+  .radar-search-sheet .radar-search-field,
+  .radar-search-sheet .smart-select,
+  .radar-filter-sheet .smart-select,
+  .radar-filter-sheet input,
+  .radar-filter-sheet button {
+    min-height: 44px;
+  }
+
+  .radar-search-sheet .form-actions,
+  .radar-filter-sheet .form-actions {
+    position: sticky;
+    bottom: calc(-18px - env(safe-area-inset-bottom));
+    z-index: 12;
+    margin: 24px -18px calc(-18px - env(safe-area-inset-bottom));
+    padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+    background: #191919;
+    border-top: 1px solid #383838;
+  }
+
+  .radar-search-sheet .form-actions .button,
+  .radar-filter-sheet .form-actions .button {
+    min-height: 46px;
+  }
+
+  .context-panel {
+    inset: auto 0 0;
+    width: 100%;
+    height: min(62dvh, 620px);
+    max-height: calc(min(100dvh, var(--dialog-viewport-height, 100dvh)) - 10px);
+    border-radius: 18px 18px 0 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    transition: height 180ms var(--ease-out);
+  }
+
+  .context-panel.context-mobile-expanded {
+    height: calc(100dvh - 10px);
+  }
+
+  .context-sheet-handle {
+    display: flex;
+    width: 100%;
+    min-height: 28px;
+    flex: 0 0 28px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+  }
+
+  .context-sheet-handle i {
+    width: 38px;
+    height: 4px;
+    border-radius: 999px;
+    background: #686868;
+  }
+
+  .context-panel:not(.context-mobile-expanded) .context-tabs {
+    display: none;
+  }
+
+  .context-panel-header {
+    padding: 0 12px 0 18px;
+  }
+
+  .context-identity {
+    padding: 12px 18px 16px;
+  }
+
+  .context-panel:not(.context-mobile-expanded) .context-identity {
+    padding-bottom: 12px;
+  }
+
+  .context-panel:not(.context-mobile-expanded) .context-body {
+    padding-top: 10px;
+  }
+
+  .context-panel.context-mobile-expanded .context-tabs {
+    padding-inline: 18px;
+  }
+
+  .context-panel.context-mobile-expanded .context-body {
+    padding: 22px 18px;
+  }
+
+  .context-footer {
+    padding: 12px 18px calc(12px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 380px) {
+
+  dialog.modal.radar-search-sheet,
+  dialog.modal.radar-filter-sheet,
+  dialog.modal.radar-saved-sheet {
+    padding-inline: 14px;
+  }
+
+  .radar-search-sheet .modal-head,
+  .radar-filter-sheet .modal-head,
+  .radar-saved-sheet .modal-head {
+    margin-inline: -14px;
+    padding-inline: 14px;
+  }
+}
+

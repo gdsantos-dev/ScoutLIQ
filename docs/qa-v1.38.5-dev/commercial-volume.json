@@ -1,0 +1,16 @@
+{
+  "companies": 1000,
+  "index_blocks": 4,
+  "pending_after_each_block": [
+    750,
+    500,
+    250,
+    0
+  ],
+  "cold_index_seconds": 1.266,
+  "warm_page_seconds": 0.109,
+  "warm_page_queries": 15,
+  "rows_per_page": 50,
+  "real_provider_calls": 0,
+  "scope": "SQLite local fixture; not a production latency guarantee"
+}

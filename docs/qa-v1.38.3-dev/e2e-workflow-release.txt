@@ -1,0 +1,12 @@
+
+Running 5 tests using 1 worker
+
+(node:21516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\workflow.spec.ts:37:1 › evidence, draft, approval and CRM persist without a send (12.1s)
+  ok 2 e2e\workflow.spec.ts:96:1 › mobile widths, keyboard, reduced motion and empty state (4.1s)
+  ok 3 e2e\workflow.spec.ts:117:1 › server error and retry are visible without false success (3.1s)
+  ok 4 e2e\workflow.spec.ts:126:1 › server worker finishes a controlled batch after closing the page (11.0s)
+  ok 5 e2e\workflow.spec.ts:161:1 › concurrent draft edits preserve local text and allow explicit recovery (5.0s)
+
+  5 passed (39.3s)

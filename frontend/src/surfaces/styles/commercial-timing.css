@@ -1,0 +1,66 @@
+/* v1.15.0 · Score Engine 2.0 / commercial structure + timing */
+.commercial-readout-section {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.commercial-readout-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.86fr) minmax(0, 1.14fr);
+  gap: 18px;
+  padding: 14px 0;
+}
+.commercial-readout-row + .commercial-readout-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.commercial-readout-row > div:first-child {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+.commercial-readout-row strong {
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 620;
+}
+.commercial-readout-row > div:first-child > small {
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.45;
+  max-width: 280px;
+}
+.commercial-readout-signals {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+}
+.commercial-readout-signals > span {
+  display: grid;
+  gap: 2px;
+  padding: 6px 0 6px 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.35;
+}
+.commercial-readout-signals > span[data-effect="negative"] {
+  color: #a8a8a8;
+}
+.commercial-readout-signals small {
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.timing-readout[data-level="high"] strong {
+  color: #d7b0b9;
+}
+@media (max-width: 720px) {
+  .commercial-readout-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .commercial-readout-signals > span {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+

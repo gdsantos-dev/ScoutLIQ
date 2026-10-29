@@ -1,0 +1,14 @@
+{
+  "version": "1.38.7-dev",
+  "base_sha256": "dbf392f49ae3c13e699b7b345743f164774953717747f39c06b136e1e1a04f79",
+  "scope": "Source payload and incremental patch; archive hashes are external to avoid self-reference.",
+  "payload_manifest_sha256": "518e7c889f0c561dba61b47f340f0a12aa9332a3a878fbc00debfe636703b624",
+  "manifest_verified": true,
+  "dry_run_no_writes": true,
+  "conflict_refused_without_writes": true,
+  "patch_matches_full": true,
+  "runtime_preserved": true,
+  "reapply_refused": true,
+  "source_rollback_verified": true,
+  "production_ready": false
+}

@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:60768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\investigation.spec.ts:56:1 › manual selection, queued arrival, pause/resume and commercial review on desktop (13.1s)
+  ok 2 e2e\investigation.spec.ts:125:1 › explicit opt-in settings persist at 320px (3.9s)
+  ok 3 e2e\investigation.spec.ts:161:1 › absorption opt-in schedules once and manual action reuses pending work on mobile (8.3s)
+
+  3 passed (28.1s)

@@ -1,0 +1,56 @@
+/* ---------- boot / fatal ---------- */
+.boot-screen {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 14px;
+  background: #090909;
+}
+.boot-screen .brand {
+  font-size: 22px;
+}
+.boot-line {
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--scout-crimson), transparent);
+  animation: boot 1.2s var(--ease-out) infinite alternate;
+}
+@keyframes boot {
+  from {
+    transform: scaleX(0.2);
+    transform-origin: left;
+    opacity: 0.4;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+.fatal {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: #090909;
+  color: var(--liq-text);
+  padding: 30px;
+}
+.fatal h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 520;
+}
+.fatal p {
+  color: var(--liq-muted);
+}
+.fatal button {
+  justify-self: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 9px;
+  background: #111111;
+  color: #ffffff;
+  cursor: pointer;
+}
+

@@ -1,0 +1,8 @@
+{"suite": "general-search", "port": 8250, "exit_code": 0, "seconds": 34.88}
+{"suite": "unified-search", "port": 8251, "exit_code": 0, "seconds": 61.11}
+{"suite": "map-search", "port": 8252, "exit_code": 0, "seconds": 15.0}
+{"suite": "smart-search", "port": 8253, "exit_code": 0, "seconds": 31.16}
+{"suite": "absorption", "port": 8254, "exit_code": 0, "seconds": 28.34}
+{"suite": "autonomy", "port": 8255, "exit_code": 0, "seconds": 38.58}
+{"suite": "experience", "port": 8256, "exit_code": 0, "seconds": 38.77}
+{"suite": "workflow", "port": 8257, "exit_code": 0, "seconds": 47.73}

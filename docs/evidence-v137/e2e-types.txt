@@ -1,0 +1,4 @@
+
+> scoutliq@1.37.0 typecheck:e2e
+> tsc -p tsconfig.e2e.json
+

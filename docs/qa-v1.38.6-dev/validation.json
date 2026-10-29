@@ -1,0 +1,85 @@
+{
+  "version": "1.38.6-dev",
+  "status": "validated_locally",
+  "backend": 551,
+  "new_backend": 37,
+  "frontend_unit": 27,
+  "e2e": 75,
+  "suites": {
+    "general-search": 3,
+    "unified-search": 9,
+    "map-search": 1,
+    "smart-search": 3,
+    "absorption": 5,
+    "autonomy": 2,
+    "experience": 3,
+    "workflow": 5,
+    "absorption-intelligent": 4,
+    "redesign": 25,
+    "learning": 2,
+    "intelligence": 2,
+    "communication": 1,
+    "investigation": 3,
+    "operations": 3,
+    "commercial-queue": 2,
+    "followup": 2
+  },
+  "typescript": true,
+  "typescript_e2e": true,
+  "vite": true,
+  "volumes": [
+    {
+      "companies": 1000,
+      "activities": 1000,
+      "reviews": 1000,
+      "queries": 15,
+      "seconds": 0.1549,
+      "response_bytes": 20872,
+      "providers": 0,
+      "scope": "SQLite sintético local; não é SLA de produção"
+    },
+    {
+      "companies": 10000,
+      "activities": 10000,
+      "reviews": 10000,
+      "queries": 15,
+      "seconds": 2.465,
+      "response_bytes": 20908,
+      "providers": 0,
+      "scope": "SQLite sintético local; não é SLA de produção"
+    }
+  ],
+  "preserved_files": 62,
+  "migration": "032",
+  "new_migration": null,
+  "real_sends": 0,
+  "real_provider_calls": 0,
+  "deployment": false,
+  "production_database_touched": false,
+  "production_ready": false,
+  "partial": [
+    "Historical discovery/eligibility",
+    "Current classification cache coverage",
+    "Worker consumption coverage",
+    "Commercial outcome histories"
+  ],
+  "unavailable": [
+    "Human effort",
+    "Minutes saved",
+    "Monetary cost",
+    "Hypothetical requests avoided",
+    "Time until available for review"
+  ],
+  "not_homologated": [
+    "PostgreSQL repeatable read",
+    "Production deployment",
+    "Real providers",
+    "Physical mobile devices",
+    "Safari",
+    "Screen readers"
+  ],
+  "warnings": [
+    "Existing Starlette/httpx and anyio deprecations",
+    "Existing Vite map chunk size warning"
+  ]
+}

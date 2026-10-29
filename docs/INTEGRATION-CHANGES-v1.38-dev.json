@@ -1,0 +1,173 @@
+{
+  "note": "Changed source and evidence paths relative to v1.37. This index and the regenerated RELEASE-MANIFEST.json are additional generated files. Exact hashes are in release/INTEGRATION-VALIDATION.json.",
+  "changes": [
+    {
+      "path": "DEV-OVERLAY-MANIFEST.json",
+      "kind": "added"
+    },
+    {
+      "path": "README.md",
+      "kind": "modified"
+    },
+    {
+      "path": "backend/absorption.py",
+      "kind": "added"
+    },
+    {
+      "path": "backend/absorption_models.py",
+      "kind": "added"
+    },
+    {
+      "path": "backend/main.py",
+      "kind": "modified"
+    },
+    {
+      "path": "docs/ABSORPTION-MVP-v1.38-dev.md",
+      "kind": "added"
+    },
+    {
+      "path": "docs/INSTALL-v1.38-dev.md",
+      "kind": "added"
+    },
+    {
+      "path": "docs/INTEGRATION-v1.38-dev.md",
+      "kind": "added"
+    },
+    {
+      "path": "docs/NEXT-v1.38-dev.md",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/absorption-320.png",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/absorption-390.png",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/absorption-desktop.png",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/absorption-local.xml",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/backend-full.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/backend-full.xml",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/browser-group-integration.json",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/build-final.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/e2e-absorption-release.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/e2e-types.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/e2e-unified-search-release.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/e2e-workflow-release.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/frontend-unit-final.txt",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/frontend-unit-final.xml",
+      "kind": "added"
+    },
+    {
+      "path": "docs/evidence-v138/integration-base.json",
+      "kind": "added"
+    },
+    {
+      "path": "frontend/e2e/absorption.spec.ts",
+      "kind": "added"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/package.json",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/src/components/AbsorptionDialog.tsx",
+      "kind": "added"
+    },
+    {
+      "path": "frontend/src/components/absorption-dialog.css",
+      "kind": "added"
+    },
+    {
+      "path": "frontend/src/ecosystemBridge.ts",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/src/pages/About.tsx",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/src/pages/Pipeline.tsx",
+      "kind": "modified"
+    },
+    {
+      "path": "frontend/src/pages/Settings.tsx",
+      "kind": "modified"
+    },
+    {
+      "path": "migrations/env.py",
+      "kind": "modified"
+    },
+    {
+      "path": "migrations/versions/028_absorption_staging.py",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/package_integration_v138.py",
+      "kind": "added"
+    },
+    {
+      "path": "scripts/validate_browser_v138.py",
+      "kind": "added"
+    },
+    {
+      "path": "tests/conftest.py",
+      "kind": "modified"
+    },
+    {
+      "path": "tests/test_absorption.py",
+      "kind": "added"
+    },
+    {
+      "path": "tests/test_absorption_migration.py",
+      "kind": "added"
+    },
+    {
+      "path": "tests/test_location_migration.py",
+      "kind": "modified"
+    }
+  ]
+}

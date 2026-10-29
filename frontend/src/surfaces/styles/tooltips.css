@@ -1,0 +1,45 @@
+/* custom tooltips for icon-only actions */
+.icon-button[data-tooltip]::after,
+.map-controls button[data-tooltip]::after,
+.drawer-google-link[data-tooltip]::after,
+.result-row [data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 260;
+  left: 50%;
+  top: calc(100% + 7px);
+  transform: translate(-50%, -3px);
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  padding: 6px 8px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 7px;
+  background: rgba(19, 19, 19, 0.97);
+  color: #c2c2c2;
+  font-size: 13px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease;
+}
+.icon-button[data-tooltip]:hover::after,
+.map-controls button[data-tooltip]:hover::after,
+.drawer-google-link[data-tooltip]:hover::after,
+.result-row [data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.map-controls button[data-tooltip] {
+  position: relative;
+}
+.map-controls button[data-tooltip]::after {
+  left: auto;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translate(4px, -50%);
+}
+.map-controls button[data-tooltip]:hover::after {
+  transform: translate(0, -50%);
+}
+

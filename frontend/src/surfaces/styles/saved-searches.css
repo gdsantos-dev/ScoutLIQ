@@ -1,0 +1,318 @@
+/* ---------- v1.10 · commercial history, smart lists and saved Radar searches ---------- */
+.radar-saved-searches {
+  margin-top: 10px;
+  padding: 10px 0 11px;
+  border-top: 1px solid var(--liq-hairline);
+  border-bottom: 1px solid var(--liq-hairline);
+}
+.radar-saved-searches-head {
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.radar-saved-searches-head > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.radar-saved-searches-head small {
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.radar-saved-searches-head .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.radar-save-search-form {
+  display: grid;
+  grid-template-columns: minmax(180px, 320px) auto auto;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+}
+.radar-save-search-form input {
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--liq-border);
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: #d6d6d6;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+.radar-save-search-form input:focus {
+  border-color: var(--liq-accent-line);
+}
+.radar-save-search-form .button {
+  min-height: 34px;
+}
+.radar-saved-search-list {
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+  margin-top: 8px;
+  padding-bottom: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.radar-saved-search-list::-webkit-scrollbar {
+  display: none;
+}
+.radar-saved-search-item {
+  flex: 0 0 min(230px, 72vw);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px;
+  align-items: stretch;
+  border: 1px solid var(--liq-border);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.012);
+  overflow: hidden;
+}
+.radar-saved-search-run {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.radar-saved-search-run:hover {
+  background: rgba(255, 255, 255, 0.018);
+}
+.radar-saved-search-run:disabled {
+  opacity: 0.48;
+  cursor: wait;
+}
+.radar-saved-search-run span {
+  overflow: hidden;
+  color: #b6b6b6;
+  font-size: 13px;
+  font-weight: 560;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.radar-saved-search-run small {
+  overflow: hidden;
+  color: #a8a8a8;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.radar-saved-search-run b {
+  width: fit-content;
+  color: #c86d80;
+  font-size: 13px;
+  font-weight: 650;
+}
+.radar-saved-search-item > .icon-button {
+  width: 28px;
+  height: auto;
+  min-height: 100%;
+  border-left: 1px solid var(--liq-hairline);
+  border-radius: 0;
+  color: #a8a8a8;
+}
+.radar-saved-search-item > .icon-button:hover {
+  color: #bf7484;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.commercial-history-section {
+  margin-top: 22px;
+  padding-top: 2px;
+}
+.commercial-history-head {
+  justify-content: space-between;
+}
+.commercial-history-head .muted {
+  font-size: 13px;
+}
+.commercial-log-form {
+  display: grid;
+  grid-template-columns: 126px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  margin-top: 11px;
+}
+.commercial-log-form > .smart-select {
+  min-width: 0;
+}
+.commercial-log-form input {
+  min-width: 0;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--liq-border);
+  border-radius: 8px;
+  background: #0d0d0d;
+  color: #d1d1d1;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+.commercial-log-form input:focus {
+  border-color: var(--liq-accent-line);
+}
+.commercial-log-save {
+  min-height: 36px;
+  padding-inline: 11px;
+}
+.commercial-history-loading,
+.commercial-history-empty {
+  margin: 12px 0 0;
+  font-size: 13px;
+}
+.commercial-timeline {
+  margin-top: 12px;
+}
+.commercial-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  min-height: 54px;
+  padding: 0 0 12px;
+}
+.commercial-timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 22px;
+  bottom: -1px;
+  width: 1px;
+  background: var(--liq-hairline);
+}
+.commercial-timeline-mark {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--liq-border);
+  border-radius: 50%;
+  background: #0c0c0c;
+  color: #a8a8a8;
+}
+.commercial-timeline-item > div {
+  min-width: 0;
+  padding-top: 2px;
+}
+.commercial-timeline-item strong {
+  display: block;
+  color: #a4a4a4;
+  font-size: 13px;
+  font-weight: 560;
+  line-height: 1.35;
+}
+.commercial-timeline-item p {
+  margin: 4px 0 0;
+  color: #a8a8a8;
+  font-size: 13px;
+  line-height: 1.48;
+  white-space: pre-wrap;
+}
+.commercial-timeline-item small {
+  display: block;
+  margin-top: 4px;
+  color: #a8a8a8;
+  font-size: 13px;
+}
+
+@media (max-width: 860px) {
+  .radar-discovery ~ .filter-bar > .smart-select {
+    display: block;
+    min-width: 0;
+  }
+  .radar-discovery ~ .filter-bar {
+    grid-template-columns:
+      minmax(0, 1fr) minmax(150px, 190px) minmax(150px, 190px)
+      auto auto;
+  }
+  .radar-discovery ~ .filter-bar > .search-input {
+    min-width: 220px;
+  }
+}
+@media (max-width: 640px) {
+  .radar-discovery ~ .filter-bar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: 7px;
+  }
+  .radar-discovery ~ .filter-bar > .search-input {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+  .radar-discovery ~ .filter-bar > .smart-select {
+    width: 100%;
+  }
+  .radar-discovery ~ .filter-bar > .button {
+    display: inline-flex;
+  }
+  .radar-discovery ~ .filter-bar > .view-toggle {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .radar-save-search-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .radar-save-search-form > .text-link {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+  .commercial-log-form {
+    grid-template-columns: 1fr;
+  }
+  .commercial-log-save {
+    justify-content: center;
+  }
+}
+
+/* v1.10 filter-bar layout after adding Smart Lists */
+.radar-discovery ~ .filter-bar {
+  grid-template-columns:
+    minmax(260px, 1fr) minmax(150px, 210px) minmax(150px, 210px)
+    auto auto;
+}
+@media (max-width: 860px) and (min-width: 641px) {
+  .radar-discovery ~ .filter-bar {
+    grid-template-columns:
+      minmax(220px, 1fr) minmax(130px, 160px) minmax(130px, 160px)
+      auto auto;
+  }
+}
+@media (max-width: 640px) {
+  .radar-discovery ~ .filter-bar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .radar-discovery ~ .filter-bar > .search-input {
+    grid-column: 1 / -1;
+  }
+  .radar-discovery ~ .filter-bar > .smart-select:nth-child(2) {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .radar-discovery ~ .filter-bar > .smart-select:nth-child(3) {
+    display: block;
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .radar-discovery ~ .filter-bar > .button {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+  }
+  .radar-discovery ~ .filter-bar > .view-toggle {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+  }
+}
+

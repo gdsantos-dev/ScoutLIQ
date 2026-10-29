@@ -1,0 +1,632 @@
+[
+  {
+    "id": "sparse",
+    "input": {
+      "name": "Oficina Aurora",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "unknown",
+      "source": "geoapify",
+      "phone": "",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": null,
+      "rating": null,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "insufficient",
+    "controlled_reason": "Sem investigação",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 10,
+      "dimensions": {
+        "digital_need": {
+          "value": 10,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 0,
+          "max": 20
+        },
+        "reachability": {
+          "value": 0,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 49,
+      "status": "insufficient",
+      "coverage": 25,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 65,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Categoria comercial identificada; sem exclusão conhecida."
+        },
+        "need": {
+          "value": null,
+          "max": 100,
+          "weight": 25,
+          "state": "uninvestigated",
+          "reason": "Site ainda não verificado."
+        },
+        "impact": {
+          "value": null,
+          "max": 100,
+          "weight": 20,
+          "state": "uninvestigated",
+          "reason": "Investigar a necessidade antes de estimar impacto."
+        },
+        "viability": {
+          "value": null,
+          "max": 100,
+          "weight": 20,
+          "state": "uninvestigated",
+          "reason": "Canal comercial não verificado."
+        },
+        "activity": {
+          "value": null,
+          "max": 100,
+          "weight": 10,
+          "state": "uninvestigated",
+          "reason": "Atividade recente não verificada."
+        }
+      }
+    }
+  },
+  {
+    "id": "independent_verified",
+    "input": {
+      "name": "Oficina Aurora",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "none",
+      "source": "geoapify",
+      "phone": "5581999999999",
+      "whatsapp": "",
+      "instagram": "https://instagram.com/aurora",
+      "instagram_active": true,
+      "reviews": 180,
+      "rating": 4.8,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "qualified",
+    "controlled_reason": "Atividade e necessidade verificadas",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 78,
+      "dimensions": {
+        "digital_need": {
+          "value": 50,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 16,
+          "max": 20
+        },
+        "reachability": {
+          "value": 6,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 6,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 85,
+      "status": "qualified",
+      "coverage": 100,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 65,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Categoria comercial identificada; sem exclusão conhecida."
+        },
+        "need": {
+          "value": 95,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Ausência registrada de site."
+        },
+        "impact": {
+          "value": 100,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Potencial estimado a partir da lacuna e do setor; não representa receita garantida."
+        },
+        "viability": {
+          "value": 80,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Canal público disponível; envio exige autorização própria."
+        },
+        "activity": {
+          "value": 90,
+          "max": 100,
+          "weight": 10,
+          "state": "verified",
+          "reason": "Atividade registrada."
+        }
+      }
+    }
+  },
+  {
+    "id": "chain",
+    "input": {
+      "name": "Starbucks Recife",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "none",
+      "source": "geoapify",
+      "phone": "5581999999999",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": 1500,
+      "rating": 4.8,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "discarded",
+    "controlled_reason": "Rede centralizada",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 76,
+      "dimensions": {
+        "digital_need": {
+          "value": 50,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 20,
+          "max": 20
+        },
+        "reachability": {
+          "value": 6,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 0,
+      "status": "incompatible",
+      "coverage": 90,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 0,
+          "max": 100,
+          "weight": 25,
+          "state": "unfavorable",
+          "reason": "Rede identificada; autonomia local precisa de revisão."
+        },
+        "need": {
+          "value": 95,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Ausência registrada de site."
+        },
+        "impact": {
+          "value": 100,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Potencial estimado a partir da lacuna e do setor; não representa receita garantida."
+        },
+        "viability": {
+          "value": 80,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Canal público disponível; envio exige autorização própria."
+        },
+        "activity": {
+          "value": null,
+          "max": 100,
+          "weight": 10,
+          "state": "uninvestigated",
+          "reason": "Atividade recente não verificada."
+        }
+      }
+    }
+  },
+  {
+    "id": "government",
+    "input": {
+      "name": "Prefeitura do Recife",
+      "category": "Órgão público",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "none",
+      "source": "geoapify",
+      "phone": "5581999999999",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": null,
+      "rating": null,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "discarded",
+    "controlled_reason": "Administração pública",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 56,
+      "dimensions": {
+        "digital_need": {
+          "value": 50,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 0,
+          "max": 20
+        },
+        "reachability": {
+          "value": 6,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 0,
+      "status": "incompatible",
+      "coverage": 90,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 0,
+          "max": 100,
+          "weight": 25,
+          "state": "unfavorable",
+          "reason": "Órgão público identificado pelo nome ou categoria."
+        },
+        "need": {
+          "value": 95,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Ausência registrada de site."
+        },
+        "impact": {
+          "value": 60,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Potencial estimado a partir da lacuna e do setor; não representa receita garantida."
+        },
+        "viability": {
+          "value": 80,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Canal público disponível; envio exige autorização própria."
+        },
+        "activity": {
+          "value": null,
+          "max": 100,
+          "weight": 10,
+          "state": "uninvestigated",
+          "reason": "Atividade recente não verificada."
+        }
+      }
+    }
+  },
+  {
+    "id": "reviews_only",
+    "input": {
+      "name": "Oficina Aurora",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "unknown",
+      "source": "geoapify",
+      "phone": "",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": 1500,
+      "rating": 4.9,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "insufficient",
+    "controlled_reason": "Avaliações não provam necessidade",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 30,
+      "dimensions": {
+        "digital_need": {
+          "value": 10,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 20,
+          "max": 20
+        },
+        "reachability": {
+          "value": 0,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 49,
+      "status": "insufficient",
+      "coverage": 25,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 65,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Categoria comercial identificada; sem exclusão conhecida."
+        },
+        "need": {
+          "value": null,
+          "max": 100,
+          "weight": 25,
+          "state": "uninvestigated",
+          "reason": "Site ainda não verificado."
+        },
+        "impact": {
+          "value": null,
+          "max": 100,
+          "weight": 20,
+          "state": "uninvestigated",
+          "reason": "Investigar a necessidade antes de estimar impacto."
+        },
+        "viability": {
+          "value": null,
+          "max": 100,
+          "weight": 20,
+          "state": "uninvestigated",
+          "reason": "Canal comercial não verificado."
+        },
+        "activity": {
+          "value": null,
+          "max": 100,
+          "weight": 10,
+          "state": "uninvestigated",
+          "reason": "Atividade recente não verificada."
+        }
+      }
+    }
+  },
+  {
+    "id": "no_site_only",
+    "input": {
+      "name": "Oficina Aurora",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "",
+      "website_status": "none",
+      "source": "geoapify",
+      "phone": "",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": null,
+      "rating": null,
+      "website_intelligence_json": "{}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "insufficient",
+    "controlled_reason": "Ausência não prova viabilidade",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 50,
+      "dimensions": {
+        "digital_need": {
+          "value": 50,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 0,
+          "max": 20
+        },
+        "reachability": {
+          "value": 0,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 49,
+      "status": "provisional",
+      "coverage": 70,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 65,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Categoria comercial identificada; sem exclusão conhecida."
+        },
+        "need": {
+          "value": 95,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Ausência registrada de site."
+        },
+        "impact": {
+          "value": 80,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Potencial estimado a partir da lacuna e do setor; não representa receita garantida."
+        },
+        "viability": {
+          "value": null,
+          "max": 100,
+          "weight": 20,
+          "state": "uninvestigated",
+          "reason": "Canal comercial não verificado."
+        },
+        "activity": {
+          "value": null,
+          "max": 100,
+          "weight": 10,
+          "state": "uninvestigated",
+          "reason": "Atividade recente não verificada."
+        }
+      }
+    }
+  },
+  {
+    "id": "healthy_site",
+    "input": {
+      "name": "Oficina Aurora",
+      "category": "Oficina mecânica",
+      "city": "Recife",
+      "country": "BR",
+      "website": "https://example.com",
+      "website_status": "good",
+      "source": "geoapify",
+      "phone": "5581999999999",
+      "whatsapp": "",
+      "instagram": "",
+      "instagram_active": false,
+      "reviews": null,
+      "rating": null,
+      "website_intelligence_json": "{\"pages_checked\": 3, \"quality_score\": 92, \"forms\": 1}"
+    },
+    "outcome": null,
+    "expected_controlled_label": "investigating",
+    "controlled_reason": "Sem necessidade material demonstrada",
+    "human_label": null,
+    "human_reason": null,
+    "data_origin": "synthetic acceptance fixture; not a real business assessment",
+    "before": {
+      "version": "2.5",
+      "value": 21,
+      "dimensions": {
+        "digital_need": {
+          "value": 13,
+          "max": 50
+        },
+        "public_demand": {
+          "value": 0,
+          "max": 20
+        },
+        "reachability": {
+          "value": 8,
+          "max": 20
+        },
+        "digital_activity": {
+          "value": 0,
+          "max": 10
+        }
+      }
+    },
+    "after": {
+      "version": "3.0",
+      "value": 46,
+      "status": "evaluated",
+      "coverage": 100,
+      "commercial_dimensions": {
+        "target_fit": {
+          "value": 65,
+          "max": 100,
+          "weight": 25,
+          "state": "verified",
+          "reason": "Categoria comercial identificada; sem exclusão conhecida."
+        },
+        "need": {
+          "value": 15,
+          "max": 100,
+          "weight": 25,
+          "state": "unfavorable",
+          "reason": "Análise das páginas consultadas."
+        },
+        "impact": {
+          "value": 20,
+          "max": 100,
+          "weight": 20,
+          "state": "unfavorable",
+          "reason": "Potencial estimado a partir da lacuna e do setor; não representa receita garantida."
+        },
+        "viability": {
+          "value": 80,
+          "max": 100,
+          "weight": 20,
+          "state": "verified",
+          "reason": "Canal público disponível; envio exige autorização própria."
+        },
+        "activity": {
+          "value": 55,
+          "max": 100,
+          "weight": 10,
+          "state": "verified",
+          "reason": "Site acessível; atividade operacional não confirmada."
+        }
+      }
+    }
+  }
+]

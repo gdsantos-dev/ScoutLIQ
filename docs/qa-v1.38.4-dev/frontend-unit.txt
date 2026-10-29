@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.38.4-dev/ScoutLIQ/frontend
+
+
+ Test Files  7 passed (7)
+      Tests  24 passed (24)
+   Start at  20:17:31
+   Duration  8.60s (transform 19.66s, setup 0ms, import 22.82s, tests 1.79s, environment 3ms)
+

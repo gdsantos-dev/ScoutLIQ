@@ -1,0 +1,10 @@
+{
+  "companies": 1000,
+  "activities": 1000,
+  "reviews": 1000,
+  "queries": 15,
+  "seconds": 0.1549,
+  "response_bytes": 20872,
+  "providers": 0,
+  "scope": "SQLite sint\u00e9tico local; n\u00e3o \u00e9 SLA de produ\u00e7\u00e3o"
+}

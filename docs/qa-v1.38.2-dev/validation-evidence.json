@@ -1,0 +1,125 @@
+{
+  "version": "1.38.2-dev",
+  "base_sha256": "2a92b87a7eb4c0d513698df05fc18dca7ac5e3d373d41a6a0d0b42bcb7879229",
+  "backend_full_passed": 407,
+  "backend_final_focused_passed": 59,
+  "additional_cases_after_full": 5,
+  "frontend_passed": 23,
+  "e2e_passed": 65,
+  "suites": [
+    {
+      "suite": "absorption-intelligent",
+      "passed": 4,
+      "sha256": "1dd1dcaa1bc094e3b699aa297cd0b23c417765fa94ec52de66a0401b99480dea"
+    },
+    {
+      "suite": "absorption",
+      "passed": 5,
+      "sha256": "a8e44630407353c6a190833a0997e75f245491fda8b46503cea9d46ee4f1f1cd"
+    },
+    {
+      "suite": "autonomy",
+      "passed": 2,
+      "sha256": "fee4f8a0c98debdb432de162defb92670e7e170a28ee82cccad6e1c5a87392af"
+    },
+    {
+      "suite": "communication",
+      "passed": 1,
+      "sha256": "70f1db273c60b61448c4ce9ebad871eb91377ef0619dac9930684a7282a52b1c"
+    },
+    {
+      "suite": "experience",
+      "passed": 3,
+      "sha256": "19e8ab56de624d94d09ef639a5da164b648fc0f1cef7756185bb7091303b0f1b"
+    },
+    {
+      "suite": "general-search",
+      "passed": 3,
+      "sha256": "29d6a2003ac45d17a24f30d737b5c5e39750e5facecf450f06c99fd68823ea81"
+    },
+    {
+      "suite": "intelligence",
+      "passed": 2,
+      "sha256": "8e195388b72c14b32650a8a78f4f9df942f88942a36065429bb0b918520b6c1c"
+    },
+    {
+      "suite": "learning",
+      "passed": 2,
+      "sha256": "54311f4430e7e671a807de67d1f0c1dfe6e5f8e15589533018c76865ba40179c"
+    },
+    {
+      "suite": "map-search",
+      "passed": 1,
+      "sha256": "b459c72e8f682bf6c46ab0d0c80a0752c22da6ab37a95965ccef979a5d861921"
+    },
+    {
+      "suite": "redesign",
+      "passed": 25,
+      "sha256": "0254b5fa95869d81d71abaaaafe11e3a16a2f5422acface4e2a1352201f56861"
+    },
+    {
+      "suite": "smart-search",
+      "passed": 3,
+      "sha256": "b42c3289eb92172b56add29d7333f2db0fec4a0fff21760c6ba5bb2324afcabf"
+    },
+    {
+      "suite": "unified-search",
+      "passed": 9,
+      "sha256": "6203f28eb685decee411de6e0aa613ec8632762865769e2f857fb1c07e2c6382"
+    },
+    {
+      "suite": "workflow",
+      "passed": 5,
+      "sha256": "a242705454b2ca88e885d3bdc8c0e32c8b0f66c38ba005753a1c68252eaee788"
+    }
+  ],
+  "external_provider_calls": 0,
+  "external_homologation": false,
+  "production_deploy": false,
+  "database": "synthetic SQLite",
+  "preserved_components": {
+    "backend/scoring.py": true,
+    "backend/commercial_fit.py": true,
+    "backend/main.py": true,
+    "backend/smart_search.py": true,
+    "backend/discovery_plan.py": true,
+    "backend/providers.py": true,
+    "frontend/src/App.tsx": true,
+    "frontend/src/pages/Pipeline.tsx": true,
+    "migrations/versions/001_initial.py": true,
+    "migrations/versions/002_sites.py": true,
+    "migrations/versions/003_account_auth.py": true,
+    "migrations/versions/004_orliq_admin_users.py": true,
+    "migrations/versions/005_i18n_currency.py": true,
+    "migrations/versions/006_lead_research.py": true,
+    "migrations/versions/007_deep_site_audit.py": true,
+    "migrations/versions/007_site_audit.py": true,
+    "migrations/versions/009_research_batches.py": true,
+    "migrations/versions/010_pipeline_next_action.py": true,
+    "migrations/versions/011_commercial_history_saved_searches.py": true,
+    "migrations/versions/012_score_engine_site_intelligence.py": true,
+    "migrations/versions/013_competitive_context.py": true,
+    "migrations/versions/014_commercial_signals_timing.py": true,
+    "migrations/versions/015_radar_research_automation.py": true,
+    "migrations/versions/016_watchlist_territory.py": true,
+    "migrations/versions/017_enrichment_automation_engine.py": true,
+    "migrations/versions/018_campaigns_outcome_learning.py": true,
+    "migrations/versions/019_opportunity_workflow.py": true,
+    "migrations/versions/020_applied_intelligence.py": true,
+    "migrations/versions/021_smart_search.py": true,
+    "migrations/versions/022_operational_autonomy.py": true,
+    "migrations/versions/023_semantic_intent_budget.py": true,
+    "migrations/versions/024_supervised_learning.py": true,
+    "migrations/versions/025_score_calibration.py": true,
+    "migrations/versions/026_communication.py": true,
+    "migrations/versions/027_location_cache.py": true,
+    "migrations/versions/028_absorption_staging.py": true
+  },
+  "logs": {
+    "backend-final.txt": "f64ddabfd999af672c46aa5c2e19946f82a9a1d64cfa3364b2ad89fb1a0d0b58",
+    "absorption-delivery-tests.txt": "4279cb8b0b5a0b1e3e8095922b0b6a03261b161be2594a98d4cb7171eaed8f73",
+    "frontend-final.txt": "55ed19ac627e050e62b3758439835be9fa798d08647d4b00e87fce0e05f5af24",
+    "build-final-ui.txt": "fe6204dc5ecbe7f8b64691798848c6c6494cc70496115bc3e5fb1121e3aed007",
+    "e2e-typecheck-final.txt": "8aabbf676d6d673dac763154f447b5dd04d6bef5359a01ad684bafd3f3661a52"
+  }
+}

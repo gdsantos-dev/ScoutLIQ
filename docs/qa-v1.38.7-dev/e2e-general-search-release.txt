@@ -1,0 +1,10 @@
+
+Running 3 tests using 1 worker
+
+(node:11540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\general-search.spec.ts:44:1 › empty query runs broad discovery through worker and restores saved general intent (14.1s)
+  ok 2 e2e\general-search.spec.ts:90:1 › optional niches, filters, responsive form, keyboard and accessibility (8.3s)
+  ok 3 e2e\general-search.spec.ts:125:1 › unknown one-character text cannot silently start a general search (3.1s)
+
+  3 passed (29.6s)

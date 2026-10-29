@@ -1,0 +1,26 @@
+[
+  {
+    "suite": "redesign",
+    "port": 8120,
+    "exit_code": 0,
+    "seconds": 309.64
+  },
+  {
+    "suite": "workflow",
+    "port": 8121,
+    "exit_code": 0,
+    "seconds": 42.98
+  },
+  {
+    "suite": "learning",
+    "port": 8122,
+    "exit_code": 0,
+    "seconds": 22.25
+  },
+  {
+    "suite": "experience",
+    "port": 8123,
+    "exit_code": 0,
+    "seconds": 30.14
+  }
+]

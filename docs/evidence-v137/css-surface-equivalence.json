@@ -1,0 +1,16 @@
+[
+  {
+    "source": "workspace.css",
+    "original_sha256": "80a3c4335aca167ec145ee1ef9297cf0a341817cd41ee3990beffb9057b351d9",
+    "concatenated_sha256": "80a3c4335aca167ec145ee1ef9297cf0a341817cd41ee3990beffb9057b351d9",
+    "modules": 13,
+    "bytes": 103223
+  },
+  {
+    "source": "styles.css",
+    "original_sha256": "540c454f6d4dd3afa0edea836a4b5f549e154f929182c9296539ddd920afc44d",
+    "concatenated_sha256": "540c454f6d4dd3afa0edea836a4b5f549e154f929182c9296539ddd920afc44d",
+    "modules": 31,
+    "bytes": 131228
+  }
+]

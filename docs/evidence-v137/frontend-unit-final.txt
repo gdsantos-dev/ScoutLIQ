@@ -1,0 +1,24 @@
+
+> scoutliq@1.37.0 test
+> vitest run --maxWorkers=1 --pool=threads --reporter=default --reporter=junit --outputFile=../artifacts/frontend-unit-final-version.xml
+
+
+ RUN  v4.1.12 C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.37.0/ScoutLIQ/frontend
+
+ ✓ src/format.test.ts (3 tests) 56ms
+ ✓ src/api.test.ts (2 tests) 41ms
+ ✓ src/ecosystemBridge.test.ts (3 tests) 9ms
+ ✓ src/outreach.test.ts (5 tests) 9ms
+ ✓ src/actionQueue.test.ts (3 tests) 7ms
+ ✓ src/historyIntelligence.test.ts (3 tests) 9ms
+ ✓ src/opportunity.test.ts (4 tests) 7ms
+
+ Test Files  7 passed (7)
+      Tests  23 passed (23)
+   Start at  16:11:51
+   Duration  3.23s (transform 354ms, setup 0ms, import 620ms, tests 139ms, environment 2ms)
+
+JUNIT report written to C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.37.0/ScoutLIQ/artifacts/frontend-unit-final-version.xml
+close timed out after 10000ms
+Tests closed successfully but something prevents Vite server from exiting
+You can try to identify the cause by enabling "hanging-process" reporter. See https://vitest.dev/guide/reporters.html#hanging-process-reporter

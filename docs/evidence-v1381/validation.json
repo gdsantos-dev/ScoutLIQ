@@ -1,0 +1,155 @@
+{
+  "version": "1.38.1-dev",
+  "date": "2026-10-24",
+  "base": "1.38.0-dev integrated FULL",
+  "backend": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "373",
+    "time": "342.119",
+    "timestamp": "2026-10-24T01:57:28.454915-03:00",
+    "hostname": "ASPIRE"
+  },
+  "frontend_unit_passed": 23,
+  "typescript_vite_build": "passed",
+  "e2e_typecheck": "passed",
+  "browser": [
+    {
+      "suite": "general-search",
+      "port": 8250,
+      "exit_code": 0,
+      "seconds": 34.88,
+      "tests_passed": 3
+    },
+    {
+      "suite": "unified-search",
+      "port": 8251,
+      "exit_code": 0,
+      "seconds": 61.11,
+      "tests_passed": 9
+    },
+    {
+      "suite": "map-search",
+      "port": 8252,
+      "exit_code": 0,
+      "seconds": 15.0,
+      "tests_passed": 1
+    },
+    {
+      "suite": "smart-search",
+      "port": 8253,
+      "exit_code": 0,
+      "seconds": 31.16,
+      "tests_passed": 3
+    },
+    {
+      "suite": "absorption",
+      "port": 8254,
+      "exit_code": 0,
+      "seconds": 28.34,
+      "tests_passed": 5
+    },
+    {
+      "suite": "autonomy",
+      "port": 8255,
+      "exit_code": 0,
+      "seconds": 38.58,
+      "tests_passed": 2
+    },
+    {
+      "suite": "experience",
+      "port": 8256,
+      "exit_code": 0,
+      "seconds": 38.77,
+      "tests_passed": 3
+    },
+    {
+      "suite": "workflow",
+      "port": 8257,
+      "exit_code": 0,
+      "seconds": 47.73,
+      "tests_passed": 5
+    }
+  ],
+  "e2e_passed": 31,
+  "additional_osm_malformed_tags_check": "passed after full suite start",
+  "preservation": {
+    "base_sha256": "f66a5097486760825f3f3ba1b33c5cab7036a81bd1ce282010b414afe916232b",
+    "preserved": {
+      "backend/absorption.py": "65d5ecbdfda69cd967fc86c51757f7af01b086872c83918b0b74d76fe74ae533",
+      "backend/absorption_models.py": "a6dc39bc5a5fdc3c37a98587b715ede9e8f85e5b7bff364af6b110cb198b34a7",
+      "backend/commercial_fit.py": "fe9a9d976443d4443742e98c1b02f047ce1e69bba567ad991a6fe5434ddf93c0",
+      "backend/main.py": "f7cac63d60c0eeafa57ba7c46f77e83942d02e583a8a24dcc353fb362e5c9a8c",
+      "backend/research_worker.py": "c186c44e7ce56e800b45ead663774f0e9b525e63263fc09ef567ecb10c32d2af",
+      "backend/scoring.py": "242bd95e190e7dacd8378f4ad0612a8773b5c996360524e1ed86c8445661d746",
+      "frontend/e2e/absorption.spec.ts": "e5ab640abc866715815056d63be6dd386368525fccc45b2cb91cef43e00780fe",
+      "frontend/src/App.tsx": "2c8ff513221aa8efb7fc75fa834318a2feceb8dd99ce33a1841281a97661a20e",
+      "frontend/src/components/absorption-dialog.css": "4efbacc9d96209479162dd90d85bbd2c0ef900ad149bcf9b9b37bddeb160cc85",
+      "frontend/src/components/AbsorptionDialog.tsx": "bd12fc2c802b052241d36a19ae744c8008a9c381ecb9ed3f47f7ec3fa6fb5585",
+      "frontend/src/pages/Pipeline.tsx": "f3f9d2d87ab20ac23b0178b414cfad9f62090247960f24b4c9070bc8cfb3147a",
+      "migrations/env.py": "4e2ae9c13a5391f9a7cc5056bd6e26b07bcc670fc57c9bc7a2a581be434f33c6",
+      "migrations/versions/001_initial.py": "476c37a8b1824a39591e43fa3b528c3a38986d804a26784c5ad07151b796e088",
+      "migrations/versions/002_sites.py": "6a7a7f2f3dbc761c162508ae2477f334d32ccfd29a84c4c195f7e8c6c8a080cd",
+      "migrations/versions/003_account_auth.py": "ff2f42675f69dd4ddf8baf033aa0c590380c0384bb087f5f14afaa60db7d97f6",
+      "migrations/versions/004_orliq_admin_users.py": "76cbfdf5af094d3ff90656f226abe01389ad8c790cb1d283c43c9e5577d47c6b",
+      "migrations/versions/005_i18n_currency.py": "81f25b351cb6656f367e2b9ddd7e8390cb5a9877f5c9acdc39332310f3d47c69",
+      "migrations/versions/006_lead_research.py": "aeb9b9363eb506fa3fe0e15578bfd79d28e13d78983222f8c95bf11861abadbe",
+      "migrations/versions/007_deep_site_audit.py": "4d3e1034a51bb269d053dcf4d72f62f435b356f57027de5026df1171dff82233",
+      "migrations/versions/007_site_audit.py": "1bf6b1b169b296c41f75defc8167b6c60eeb6060958d9dab5540dbc854e5b9ce",
+      "migrations/versions/009_research_batches.py": "025af6d88d36b4c6468d5fba2bdb47b8ff1026f0b5f2db36cf926d8e366551bb",
+      "migrations/versions/010_pipeline_next_action.py": "ed3ae480a32a3f252308222916669f6a19d40c7eca231497c3750a033d5ce3ec",
+      "migrations/versions/011_commercial_history_saved_searches.py": "1d36b155645d55f74b98d4884dd629295c7e417efc4bdd768084708c9527e968",
+      "migrations/versions/012_score_engine_site_intelligence.py": "15483c61418273119aedf182fdb5e2d7ae1597545ac731e13ab716c79dac4dfd",
+      "migrations/versions/013_competitive_context.py": "892d8bf470801f3ec5096b84c5dda407fd7085bcded95e597bf8dcf9da7859c2",
+      "migrations/versions/014_commercial_signals_timing.py": "760a2766a81fcc00b610ca9681a6f45b74f13c92d32f03188362554267a32671",
+      "migrations/versions/015_radar_research_automation.py": "e3f3a26df5d37335ebbfe6863b457c29db735ac7af5b7665618faecdb9fa7a55",
+      "migrations/versions/016_watchlist_territory.py": "5a161666980f2b5a84e4ed88b909dabdfcc46b9963c9eac4e746360c4b02de1b",
+      "migrations/versions/017_enrichment_automation_engine.py": "42aa0c5b42cd57c44abbe21890e5ea6f05d3d523c22e0ad6b0239f5f3504d88b",
+      "migrations/versions/018_campaigns_outcome_learning.py": "9e54df5bbc38a65ef86bcdf751f1ae17944efa7f0dfc1caf78ab50fdfe4ec358",
+      "migrations/versions/019_opportunity_workflow.py": "d4a7a928c5ff85b29241978b92ff0d80d9ec81b4f9d6aa4610787ae6111a7bc4",
+      "migrations/versions/020_applied_intelligence.py": "19e28ae3276791d3ac6f7065f1259ed2dc67123b290ce0136b60e9e8788df70d",
+      "migrations/versions/021_smart_search.py": "27acea33a5e85d6f218427017e2e76cc2fe708d681510167d6355e40974b83e2",
+      "migrations/versions/022_operational_autonomy.py": "8c255ce2ea1146ebeebcc85d0befe040b24d6eb882b9c8a06cd2075a8cbc5fc1",
+      "migrations/versions/023_semantic_intent_budget.py": "1ee0f9a6a91c3ab6cca4a5f329fd4c0ba11dc3d25eb6be8a68bd9c4bc064d0f8",
+      "migrations/versions/024_supervised_learning.py": "0324f9545c05fb42af71ab368fa42384ca7ddccacc0aad0dbf5599dc2b74db9a",
+      "migrations/versions/025_score_calibration.py": "070717a855e5b234b12eca546c637e52dbc7902bc54fbd40cca07e82c09a5c93",
+      "migrations/versions/026_communication.py": "b5fa717a4fb329750aedd87b5aa724e1ac0bc3f41e1dbe84464bf8801c0d0a28",
+      "migrations/versions/027_location_cache.py": "b8fcccd3f80945e55e79530b496f816a663ca0cf10d2d52d802efb06dc2922dc",
+      "migrations/versions/028_absorption_staging.py": "bc239e7844ceaba544cacb82cddf79cc9adc7093b2f19053639099c9bffbc51d",
+      "tests/test_absorption.py": "7b4c5834074209c1ed56597a93e3e2692dcdc25c7c73e89cdfdac56d22a35c01",
+      "tests/test_absorption_migration.py": "d5c1b6fb704cb6533caff9c22daad3642796405a90a36d0ec200d7ff9295dff3"
+    }
+  },
+  "dependencies": {
+    "frontend_dependency_lock_unchanged": true,
+    "new_runtime_dependencies": false,
+    "external_vulnerability_scan_performed": false
+  },
+  "accessibility": {
+    "measures": [
+      {
+        "viewport": 1440,
+        "width": 598,
+        "scroll": 598
+      },
+      {
+        "viewport": 390,
+        "width": 388,
+        "scroll": 388
+      },
+      {
+        "viewport": 320,
+        "width": 318,
+        "scroll": 318
+      }
+    ],
+    "violations": []
+  },
+  "provider_validation": "controlled fixtures only",
+  "real_commercial_quality_measured": false,
+  "deployment_performed": false,
+  "production_database_modified": false,
+  "real_messages_sent": false
+}

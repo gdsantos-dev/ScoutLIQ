@@ -1,0 +1,540 @@
+/* v1.26 · action queue / commercial execution */
+.actions-workspace {
+  width: 100%;
+}
+
+.action-brief {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.25fr) repeat(2, minmax(150px, 0.75fr));
+  gap: 28px;
+  padding: 4px 0 30px;
+  border-bottom: 1px solid var(--liq-hairline);
+}
+
+.action-brief > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.action-brief > div:first-child {
+  padding-right: 24px;
+  border-right: 1px solid var(--liq-hairline);
+}
+
+.action-brief span,
+.action-brief small {
+  color: var(--liq-muted);
+}
+
+.action-brief span {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.action-brief strong {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.action-brief span,
+.action-brief small {
+  grid-column: 2;
+}
+
+.action-brief small {
+  font-size: 13px;
+}
+
+.action-tabs {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--liq-hairline);
+  scrollbar-width: none;
+}
+
+.action-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.action-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 54px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: #8e8e8e;
+  font-weight: 500;
+}
+
+.action-tabs button[aria-selected="true"] {
+  color: #f1f1f1;
+  border-bottom-color: var(--liq-accent-bright);
+}
+
+.action-tabs button span {
+  color: #a3a3a3;
+  font-variant-numeric: tabular-nums;
+}
+
+.action-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0 12px;
+  color: var(--liq-muted);
+  font-size: 13px;
+}
+
+.action-tools .search-input {
+  width: min(420px, 100%);
+}
+
+.action-error {
+  margin: 8px 0 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--liq-accent-bright) 45%, transparent);
+  color: #f2b3bf;
+  font-size: 13px;
+}
+
+.action-list {
+  width: 100%;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px auto;
+  align-items: center;
+  gap: 22px;
+  padding: 21px 0;
+  border-bottom: 1px solid var(--liq-hairline);
+}
+
+.action-main {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 126px minmax(150px, 0.9fr) minmax(180px, 1.25fr);
+  grid-template-areas:
+    "due company action"
+    "due company reasons";
+  align-items: center;
+  column-gap: 22px;
+  row-gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
+.action-main:hover .action-company strong,
+.action-main:hover .action-name {
+  color: #fff;
+}
+
+.action-due {
+  grid-area: due;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #969696;
+  font-size: 12px;
+  font-weight: 520;
+  white-space: nowrap;
+}
+
+.action-due-overdue {
+  color: #e8a6b2;
+}
+
+.action-due-today {
+  color: #d6d6d6;
+}
+
+.action-company {
+  grid-area: company;
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.action-company strong {
+  overflow: hidden;
+  color: #e8e8e8;
+  font-size: 15px;
+  font-weight: 550;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 140ms ease;
+}
+
+.action-company small {
+  overflow: hidden;
+  color: var(--liq-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action-name {
+  grid-area: action;
+  overflow: hidden;
+  color: #d2d2d2;
+  font-size: 14px;
+  font-weight: 520;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 140ms ease;
+}
+
+.action-reasons {
+  grid-area: reasons;
+  display: flex;
+  gap: 5px 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.action-reasons small {
+  color: #787878;
+  white-space: nowrap;
+}
+
+.action-reasons small + small::before {
+  content: "·";
+  margin-right: 12px;
+  color: #4f4f4f;
+}
+
+.action-value {
+  display: grid;
+  gap: 5px;
+  justify-items: end;
+  text-align: right;
+}
+
+.action-value span {
+  color: var(--liq-muted);
+  font-size: 12px;
+}
+
+.action-value b {
+  color: #d8d8d8;
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.action-row-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.action-row-controls a.icon-button {
+  color: #9c9c9c;
+  text-decoration: none;
+}
+
+.action-row-controls .button.compact {
+  min-height: 36px;
+  padding-inline: 12px;
+}
+
+.action-drawer {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: end;
+  gap: 22px;
+  margin-top: 2px;
+  padding: 18px 0 2px 148px;
+  border-top: 1px solid var(--liq-hairline);
+}
+
+.action-register {
+  display: grid;
+  gap: 9px;
+}
+
+.action-register > span,
+.action-reschedule label > span {
+  color: var(--liq-muted);
+  font-size: 12px;
+}
+
+.action-register > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.action-register button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--liq-border);
+  border-radius: 5px;
+  background: #151515;
+  color: #bdbdbd;
+  font-size: 12px;
+}
+
+.action-register button:hover:not(:disabled) {
+  border-color: #555;
+  color: #fff;
+}
+
+.action-reschedule {
+  display: flex;
+  align-items: end;
+  gap: 7px;
+}
+
+.action-reschedule label {
+  display: grid;
+  gap: 5px;
+}
+
+.action-reschedule input {
+  min-height: 36px;
+  width: 148px;
+}
+
+.action-reschedule .button,
+.action-complete {
+  min-height: 36px;
+}
+
+.action-complete {
+  align-self: end;
+}
+
+.action-updated {
+  grid-column: 1 / -1;
+  color: #686868;
+  font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+  .action-main {
+    grid-template-columns: 104px minmax(140px, 0.8fr) minmax(160px, 1.2fr);
+    column-gap: 16px;
+  }
+
+  .action-row {
+    grid-template-columns: minmax(0, 1fr) 120px auto;
+    gap: 14px;
+  }
+
+  .action-drawer {
+    padding-left: 120px;
+  }
+}
+
+@media (max-width: 760px) {
+
+  .actions-workspace .page-head {
+    padding-bottom: 12px;
+  }
+
+  .action-brief {
+    grid-template-columns: 1.25fr 1fr 1fr;
+    gap: 0;
+    margin-inline: -2px;
+    padding: 6px 0 20px;
+  }
+
+  .action-brief > div,
+  .action-brief > div:first-child {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 0 12px;
+    border-right: 1px solid var(--liq-hairline);
+  }
+
+  .action-brief > div:first-child {
+    padding-left: 2px;
+  }
+
+  .action-brief > div:last-child {
+    border-right: 0;
+  }
+
+  .action-brief strong,
+  .action-brief span,
+  .action-brief small {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .action-brief strong {
+    order: 1;
+    font-size: 30px;
+  }
+
+  .action-brief span {
+    order: 0;
+    font-size: 10px;
+  }
+
+  .action-brief small {
+    order: 2;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .action-tabs {
+    gap: 22px;
+  }
+
+  .action-tabs button {
+    min-height: 50px;
+  }
+
+  .action-tools {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 9px;
+    padding-top: 18px;
+  }
+
+  .action-tools > span {
+    display: none;
+  }
+
+  .action-row {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 17px 0;
+  }
+
+  .action-main {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "company due"
+      "action action"
+      "reasons reasons";
+    gap: 5px 12px;
+  }
+
+  .action-company strong {
+    font-size: 16px;
+  }
+
+  .action-company small {
+    font-size: 12px;
+  }
+
+  .action-due {
+    justify-self: end;
+    font-size: 11px;
+  }
+
+  .action-due svg {
+    display: none;
+  }
+
+  .action-name {
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .action-reasons {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .action-reasons small:nth-child(n + 3) {
+    display: none;
+  }
+
+  .action-value {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .action-value span {
+    display: none;
+  }
+
+  .action-row-controls {
+    justify-self: end;
+  }
+
+  .action-row-controls > a.icon-button {
+    display: none;
+  }
+
+  .action-row-controls > .icon-button:last-child {
+    display: none;
+  }
+
+  .action-row-controls .button.compact {
+    min-width: 72px;
+  }
+
+  .action-drawer {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0 2px;
+  }
+
+  .action-register > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .action-register button {
+    min-height: 40px;
+  }
+
+  .action-reschedule {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .action-reschedule label,
+  .action-reschedule input {
+    width: 100%;
+  }
+
+  .action-complete {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .action-brief > div,
+  .action-brief > div:first-child {
+    padding-inline: 9px;
+  }
+
+  .action-brief > div:first-child {
+    padding-left: 0;
+  }
+
+  .action-brief strong {
+    font-size: 27px;
+  }
+
+  .action-register > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

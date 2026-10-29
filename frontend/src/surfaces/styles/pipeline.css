@@ -1,0 +1,213 @@
+/* ---------- pipeline ---------- */
+.pipeline-toolbar {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--liq-border);
+}
+.pipeline-search {
+  width: min(520px, 58vw);
+  border: 0;
+  background: transparent;
+  padding-left: 8px;
+}
+.pipeline-search:focus-within {
+  box-shadow: none;
+}
+.pipeline-potential {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.pipeline-potential span {
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.pipeline-potential strong {
+  color: #e0e0e0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.pipeline-ledger {
+  margin-top: 14px;
+  border-top: 1px solid var(--liq-border);
+}
+.pipeline-stage {
+  display: grid;
+  grid-template-columns: 195px minmax(0, 1fr);
+  min-height: 150px;
+  border-bottom: 1px solid var(--liq-border);
+  transition: background 0.15s ease;
+}
+.pipeline-stage.drop-target {
+  background: rgba(195, 21, 62, 0.045);
+}
+.pipeline-stage-head {
+  position: relative;
+  min-width: 0;
+  padding: 20px 18px 18px 4px;
+  border-right: 1px solid var(--liq-hairline);
+}
+.pipeline-stage-index {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: #3b3b3b;
+  font-size: 13px;
+}
+.pipeline-stage-head h2 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d7d7d7;
+  font-size: 13px;
+  font-weight: 560;
+}
+.pipeline-stage-head > div > span {
+  display: block;
+  margin-top: 5px;
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.stage-symbol {
+  color: var(--scout-crimson-hi);
+}
+.stage-won {
+  color: var(--liq-success);
+}
+.stage-lost {
+  color: #a8a8a8;
+}
+.pipeline-stage-total {
+  position: absolute;
+  left: 4px;
+  bottom: 17px;
+  display: grid;
+  gap: 3px;
+}
+.pipeline-stage-total span {
+  color: #a8a8a8;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.pipeline-stage-total strong {
+  color: #d2d2d2;
+  font-size: 13px;
+  font-weight: 540;
+}
+.pipeline-stage-track {
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  padding: 12px;
+  overflow-x: auto;
+}
+.deal-card {
+  flex: 0 0 252px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--liq-border);
+  border-radius: 11px;
+  background: #0e0e0e;
+  overflow: visible;
+  transition:
+    border-color 0.16s ease,
+    transform 0.16s ease,
+    background 0.16s ease;
+}
+.deal-card:hover {
+  border-color: var(--liq-border-strong);
+  background: #111111;
+  transform: translateY(-1px);
+}
+.deal-card:has(.smart-select.open) {
+  position: relative;
+  z-index: 8;
+}
+.deal-main {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  flex: 1;
+  padding: 12px 12px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.deal-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #a8a8a8;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.deal-category svg {
+  opacity: 0.45;
+}
+.deal-main > strong {
+  color: #e0e0e0;
+  font-size: 13px;
+  font-weight: 570;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.deal-location {
+  color: #a8a8a8;
+  font-size: 13px;
+}
+.deal-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 5px;
+  padding-top: 8px;
+  border-top: 1px solid var(--liq-hairline);
+}
+.deal-value span {
+  color: #a6a6a6;
+  font-size: 13px;
+}
+.deal-value b {
+  color: #e0e0e0;
+  font-size: 13px;
+  font-weight: 560;
+}
+.deal-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px;
+  align-items: center;
+  border-top: 1px solid var(--liq-hairline);
+  min-height: 38px;
+}
+.deal-open {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #a8a8a8;
+  cursor: pointer;
+}
+.deal-open:hover {
+  color: #ffffff;
+}
+.pipeline-stage-track .empty {
+  flex: 1 0 100%;
+  min-height: 118px;
+  border: 0;
+}
+

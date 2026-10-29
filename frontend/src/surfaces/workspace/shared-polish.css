@@ -1,0 +1,498 @@
+/* v1.25.0 · visual polish geral — desktop + mobile */
+
+html,
+body {
+  background: var(--liq-bg);
+}
+
+body {
+  background-image: none;
+  color: var(--liq-text);
+  letter-spacing: -0.003em;
+}
+
+/* Shell: menos moldura, mais hierarquia. */
+
+.brand {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
+kbd {
+  border-color: var(--liq-border-strong);
+  background: #141414;
+  color: #9b9b9b;
+}
+
+.demo-indicator {
+  border-right-color: var(--liq-hairline);
+  color: #929292;
+}
+
+/* Page rhythm: títulos respiram; linhas deixam de fazer o trabalho do spacing. */
+.page-head {
+  min-height: 84px;
+  padding: 2px 0 30px;
+  align-items: flex-end;
+  border-bottom: 0;
+}
+
+.page-head h1 {
+  font-size: clamp(30px, 2.35vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.043em;
+  font-weight: 490;
+}
+
+.section-title h2,
+.field-head h2,
+.priority-head h2 {
+  font-weight: 520;
+}
+
+.management-context {
+  min-height: 78px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  gap: 24px;
+  border-bottom-color: var(--liq-hairline);
+}
+
+.management-context-title {
+  color: #929292;
+}
+
+.context-action {
+  gap: 18px;
+  padding-left: 22px;
+  border-left-color: var(--liq-hairline);
+  transition: color var(--duration-fast) var(--ease-soft);
+}
+
+.context-action:hover b,
+.context-action:hover > svg {
+  color: #ffffff;
+}
+
+/* Controles: superfícies discretas, labels próximos e foco claro sem glow decorativo. */
+.button,
+.secondary-button {
+  min-height: 42px;
+  padding-inline: 14px;
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.button {
+  border-color: var(--liq-border-strong);
+  background: #121212;
+  color: #cfcfcf;
+}
+
+.button:hover:not(:disabled) {
+  border-color: rgb(255 255 255 / 22%);
+  background: #171717;
+  color: #ffffff;
+}
+
+.button.primary {
+  border-color: var(--liq-accent);
+  background: var(--liq-accent);
+  box-shadow: none;
+}
+
+.button.primary:hover:not(:disabled) {
+  border-color: var(--liq-accent-hover);
+  background: var(--liq-accent-hover);
+}
+
+.button.ghost {
+  background: transparent;
+}
+
+.icon-button {
+  border-radius: 7px;
+}
+
+.icon-button:hover:not(:disabled) {
+  background: #161616;
+  border-color: var(--liq-border);
+}
+
+.field {
+  gap: 5px;
+}
+
+.field > span,
+.control-label,
+.field-hint {
+  color: #9a9a9a;
+}
+
+.field > span,
+.control-label {
+  font-size: 12.5px;
+  font-weight: 520;
+}
+
+input:not([type="hidden"]),
+textarea,
+.smart-select-trigger,
+.date-trigger,
+.search-input {
+  border-color: var(--liq-border);
+  border-radius: 7px;
+  background: #121212;
+}
+
+input:not([type="hidden"]),
+textarea,
+.smart-select-trigger,
+.date-trigger {
+  min-height: 44px;
+}
+
+input:focus,
+textarea:focus,
+.search-input:focus-within,
+.smart-select.open .smart-select-trigger {
+  border-color: rgb(239 120 148 / 52%);
+  box-shadow: 0 0 0 2px rgb(198 33 72 / 12%);
+  background: #141414;
+}
+
+.form-grid {
+  column-gap: 16px;
+  row-gap: 18px;
+}
+
+.form-actions {
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.smart-select-menu,
+.date-popover,
+.command-surface,
+dialog.modal {
+  border-color: var(--liq-border-strong);
+  background: #171717;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.smart-select-menu {
+  border-radius: 9px;
+  box-shadow: 0 18px 52px rgb(0 0 0 / 45%);
+}
+
+.smart-select-option {
+  border-radius: 6px;
+}
+
+.smart-select-option:hover,
+.smart-select-option.active {
+  background: rgb(255 255 255 / 4%);
+}
+
+.smart-select-option.selected {
+  background: rgb(198 33 72 / 10%);
+}
+
+/* Navegação secundária e filtros sem “card dentro de card”. */
+.filter-bar {
+  gap: 12px;
+  padding: 0 0 20px;
+  border-bottom: 0;
+}
+
+.tabs,
+.segmented {
+  gap: 3px;
+}
+
+.tabs button,
+.segmented button {
+  min-height: 38px;
+  padding-inline: 12px;
+  border-radius: 6px;
+  color: #929292;
+}
+
+.tabs button.active,
+.segmented button.active {
+  border-color: var(--liq-border);
+  background: #181818;
+  color: #f0f0f0;
+}
+
+/* Dados: linhas finas, números e conteúdo fazem a hierarquia. */
+.table-panel {
+  margin-top: 14px;
+  border-top: 1px solid var(--liq-hairline);
+}
+
+table th {
+  padding: 15px 14px;
+  color: #8f8f8f;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+table td {
+  padding: 18px 14px;
+  border-color: var(--liq-hairline);
+}
+
+tbody tr {
+  transition: background var(--duration-fast) var(--ease-soft);
+}
+
+tbody tr:hover {
+  background: rgb(255 255 255 / 1.5%);
+}
+
+.table-avatar {
+  border-color: var(--liq-border);
+  background: #181818;
+}
+
+.badge {
+  min-height: 24px;
+  padding-inline: 8px;
+  border-color: var(--liq-border);
+  border-radius: 5px;
+  background: #171717;
+  color: #a8a8a8;
+}
+
+.status-active,
+.status-progress,
+.status-finished {
+  background: #171717;
+}
+
+/* Workspaces: reduzir a parede de divisórias duras. */
+.negotiation-stages,
+.negotiation-column-head,
+.negotiation-row,
+.finance-trend,
+.site-summary,
+.campaign-metrics,
+.outcome-panel,
+.settings-panel,
+.automation-list,
+.monitor-overview,
+.about-hero,
+.about-section,
+.campaign-list {
+  border-color: var(--liq-hairline);
+}
+
+.negotiation-row,
+.automation-row,
+.campaign-member-row,
+.radar-saved-search-item {
+  transition:
+    background var(--duration-fast) var(--ease-soft),
+    border-color var(--duration-fast) var(--ease-soft);
+}
+
+.negotiation-row:hover,
+.automation-row:hover,
+.campaign-member-row:hover,
+.radar-saved-search-item:hover {
+  background: rgb(255 255 255 / 1.5%);
+}
+
+.negotiation-overview > button {
+  background: #141414;
+  border-color: var(--liq-border);
+}
+
+.negotiation-stages button {
+  color: #929292;
+}
+
+.negotiation-stages button[aria-pressed="true"] {
+  color: #f4f4f4;
+}
+
+.finance-trend {
+  padding-top: 24px;
+}
+
+/* Empty/loading states: editoriais, não “card de placeholder”. */
+.empty {
+  min-height: 0;
+  padding: 40px 0;
+  align-content: start;
+  justify-items: start;
+  gap: 8px;
+  border: 0;
+  border-block: 1px solid var(--liq-hairline);
+  border-radius: 0;
+  text-align: left;
+}
+
+.empty > svg {
+  width: 24px;
+  height: 24px;
+  color: #727272;
+}
+
+.empty h3 {
+  margin-top: 8px;
+  color: #d8d8d8;
+  font-size: 17px;
+  font-weight: 520;
+}
+
+.empty p {
+  max-width: 38rem;
+  color: #969696;
+  line-height: 1.55;
+}
+
+.skeleton {
+  border-radius: 6px;
+  background: #181818;
+}
+
+/* Dialogs/menus: sólidos e funcionais, sem glass decorativo. */
+dialog.modal {
+  border-radius: 10px;
+  box-shadow: 0 28px 80px rgb(0 0 0 / 58%);
+}
+
+.modal-head {
+  border-bottom-color: var(--liq-hairline);
+  background: #171717;
+}
+
+dialog.modal h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.command-surface {
+  border-radius: 10px;
+  box-shadow: 0 28px 90px rgb(0 0 0 / 58%);
+}
+
+.command-input {
+  border-bottom-color: var(--liq-hairline);
+}
+
+.command-result {
+  border-radius: 6px;
+}
+
+.workspace-notice {
+  border-color: rgb(255 255 255 / 78%);
+  border-radius: 7px;
+  box-shadow: 0 14px 36px rgb(0 0 0 / 42%);
+}
+
+/* Crimson só aparece onde existe intenção/estado selecionado. */
+
+@media (max-width: 760px) {
+
+  .page-head {
+    min-height: 0;
+    padding-bottom: 20px;
+    gap: 12px;
+  }
+
+  .page-head h1 {
+    font-size: clamp(27px, 8vw, 32px);
+  }
+
+  .head-actions {
+    gap: 7px;
+  }
+
+  .management-context {
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom-color: var(--liq-hairline);
+  }
+
+  .filter-bar {
+    padding-bottom: 16px;
+  }
+
+  .field {
+    gap: 4px;
+  }
+
+  input:not([type="hidden"]),
+  textarea,
+  .smart-select-trigger,
+  .date-trigger,
+  .search-input {
+    background: #131313;
+  }
+
+  .management-mobile-row,
+  .finance-mobile-row,
+  .negotiation-row,
+  .automation-row,
+  .campaign-member-row {
+    border-color: var(--liq-hairline);
+  }
+
+  .management-mobile-row,
+  .finance-mobile-row,
+  .negotiation-row,
+  .automation-row {
+    padding-block: 15px;
+  }
+
+  .management-mobile-actions,
+  .finance-mobile-meta {
+    min-height: 36px;
+  }
+
+  .site-summary,
+  .finance-secondary,
+  .campaign-metrics,
+  .monitor-overview,
+  .about-release {
+    border-color: var(--liq-hairline) !important;
+  }
+
+  .automation-condition-row,
+  .automation-action-row,
+  .automation-stop-stages label,
+  .automation-stop-toggle {
+    border-color: var(--liq-border);
+    background: #151515;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) {
+    background: #141414;
+  }
+
+  .automation-form-actions,
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) .form-actions {
+    border-color: var(--liq-hairline);
+    background: #141414;
+    backdrop-filter: none;
+  }
+
+  dialog.modal:not(.radar-search-sheet):not(.radar-filter-sheet):not(.radar-saved-sheet) {
+    border-color: var(--liq-border-strong);
+    border-radius: 16px 16px 0 0;
+  }
+
+  .empty {
+    padding: 30px 0;
+  }
+
+  .workspace-notice {
+    bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}
+

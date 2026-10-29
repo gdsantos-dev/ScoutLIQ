@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:50172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\map-search.spec.ts:3:1 › visible map area and drawn polygon use the unified worker launch and saved intent (9.9s)
+
+  1 passed (13.3s)

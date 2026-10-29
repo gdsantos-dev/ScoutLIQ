@@ -1,0 +1,80 @@
+/* ---------- modal / notices ---------- */
+dialog.modal {
+  width: min(560px, calc(100vw - 28px));
+  max-height: min(760px, calc(100vh - 36px));
+  padding: 22px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 16px;
+  background: rgba(15, 15, 15, 0.96);
+  color: var(--liq-text);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+dialog.modal.wide {
+  width: min(860px, calc(100vw - 28px));
+}
+dialog.modal::backdrop {
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--liq-hairline);
+  margin-bottom: 18px;
+}
+.modal-head h2 {
+  margin: 0;
+  color: #e7e7e7;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+  font-weight: 520;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 18px;
+}
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 240;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 420px;
+  padding: 10px 10px 10px 13px;
+  border: 1px solid var(--liq-border-strong);
+  border-radius: 10px;
+  background: rgba(20, 20, 20, 0.93);
+  color: #c5c5c5;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  font-size: 13px;
+}
+.error-banner {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 8px 9px 8px 12px;
+  border: 1px solid rgba(233, 130, 151, 0.22);
+  border-radius: 9px;
+  background: var(--liq-danger-soft);
+  color: #dca0ae;
+  font-size: 13px;
+}
+.error-banner > span {
+  flex: 1;
+}
+

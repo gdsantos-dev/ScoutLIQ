@@ -1,0 +1,388 @@
+/* v1.27 · assisted outreach + reusable local templates */
+.outreach-toggle {
+  grid-column: 1 / -1;
+  justify-self: start;
+  min-height: 36px;
+}
+
+.outreach-composer {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 16px;
+  padding: 20px 0 4px;
+  border-top: 1px solid var(--liq-hairline);
+}
+
+.outreach-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.outreach-head > div {
+  display: grid;
+  gap: 4px;
+}
+
+.outreach-head span {
+  color: #e7e7e7;
+  font-size: 13px;
+  font-weight: 560;
+}
+
+.outreach-head small,
+.outreach-context > span,
+.outreach-controls label > span,
+.outreach-subject > span,
+.outreach-body > span,
+.template-editor label > span,
+.template-variables > span {
+  color: var(--liq-muted);
+  font-size: 11px;
+}
+
+.outreach-controls {
+  display: grid;
+  grid-template-columns: auto minmax(220px, 1fr);
+  align-items: end;
+  gap: 18px;
+}
+
+.outreach-channel {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  border-bottom: 1px solid var(--liq-hairline);
+}
+
+.outreach-channel button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: #7f7f7f;
+  font-size: 12px;
+}
+
+.outreach-channel button:first-child {
+  padding-left: 0;
+}
+
+.outreach-channel button[aria-selected="true"] {
+  border-bottom-color: var(--liq-accent-bright);
+  color: #ededed;
+}
+
+.outreach-controls label,
+.outreach-subject,
+.outreach-body,
+.template-editor label {
+  display: grid;
+  gap: 6px;
+}
+
+.outreach-controls select,
+.outreach-subject input,
+.outreach-body textarea,
+.template-editor input,
+.template-editor select,
+.template-editor textarea {
+  width: 100%;
+}
+
+.outreach-body textarea,
+.template-editor textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.outreach-context {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.outreach-context > div {
+  display: flex;
+  align-items: center;
+  gap: 7px 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.outreach-context small {
+  position: relative;
+  overflow: hidden;
+  max-width: 220px;
+  color: #818181;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.outreach-context small + small::before {
+  content: "·";
+  margin-right: 12px;
+  color: #4f4f4f;
+}
+
+.outreach-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.outreach-template-modal.wide {
+  width: min(980px, calc(100vw - 40px));
+}
+
+.template-library {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  min-height: 520px;
+  border-top: 1px solid var(--liq-hairline);
+}
+
+.template-library-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px 18px 0 0;
+  border-right: 1px solid var(--liq-hairline);
+}
+
+.template-library-add {
+  display: flex;
+  gap: 6px;
+  padding-bottom: 14px;
+}
+
+.template-library-items {
+  display: grid;
+  align-content: start;
+}
+
+.template-library-items > button {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  min-height: 58px;
+  padding: 10px 10px 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--liq-hairline);
+  background: transparent;
+  color: #8a8a8a;
+  text-align: left;
+}
+
+.template-library-items > button[aria-current="true"] {
+  color: #f0f0f0;
+}
+
+.template-library-items > button span {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.template-library-items strong {
+  overflow: hidden;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 540;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.template-library-items small {
+  color: #666;
+  font-size: 10px;
+}
+
+.template-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding: 14px 0;
+  border: 0;
+  background: transparent;
+  color: #6f6f6f;
+  font-size: 11px;
+  text-align: left;
+}
+
+.template-reset:hover {
+  color: #bdbdbd;
+}
+
+.template-editor {
+  display: grid;
+  align-content: start;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 16px 18px;
+  padding: 18px 0 0 24px;
+}
+
+.template-body-field,
+.template-variables,
+.template-editor-actions {
+  grid-column: 1 / -1;
+}
+
+.template-variables {
+  display: grid;
+  gap: 8px;
+  padding-top: 3px;
+}
+
+.template-variables > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.template-variables button {
+  min-height: 29px;
+  padding: 5px 8px;
+  border: 1px solid var(--liq-border);
+  border-radius: 4px;
+  background: transparent;
+  color: #898989;
+  font-size: 10px;
+}
+
+.template-variables button:hover {
+  border-color: #555;
+  color: #ddd;
+}
+
+.template-editor-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid var(--liq-hairline);
+}
+
+.template-editor-actions small {
+  color: #666;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .outreach-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .outreach-composer {
+    gap: 14px;
+    padding-top: 16px;
+  }
+
+  .outreach-head {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .outreach-head .button {
+    align-self: start;
+  }
+
+  .outreach-controls {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .outreach-channel button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .outreach-channel button:first-child {
+    padding-left: 14px;
+  }
+
+  .outreach-context {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .outreach-context > div {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .outreach-context small {
+    max-width: 100%;
+  }
+
+  .outreach-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .outreach-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .outreach-template-modal.wide {
+    width: 100%;
+  }
+
+  .template-library {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-top: 0;
+  }
+
+  .template-library-list {
+    max-height: 210px;
+    padding: 0 0 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--liq-hairline);
+  }
+
+  .template-library-items {
+    overflow-y: auto;
+  }
+
+  .template-library-items > button {
+    min-height: 48px;
+  }
+
+  .template-reset {
+    margin-top: 8px;
+    padding-bottom: 0;
+  }
+
+  .template-editor {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 16px 0 0;
+  }
+
+  .template-body-field,
+  .template-variables,
+  .template-editor-actions {
+    grid-column: 1;
+  }
+
+  .template-editor-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+

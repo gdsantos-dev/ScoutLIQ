@@ -1,0 +1,16 @@
+.git
+.env
+.venv
+data
+sources
+artifacts
+frontend/node_modules
+frontend/.npm-cache
+frontend/dist
+__pycache__
+.pytest_cache
+.test-tmp
+tests
+*.log
+
+release

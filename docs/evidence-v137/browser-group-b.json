@@ -1,0 +1,38 @@
+[
+  {
+    "suite": "unified-search",
+    "port": 8130,
+    "exit_code": 0,
+    "seconds": 61.02
+  },
+  {
+    "suite": "smart-search",
+    "port": 8131,
+    "exit_code": 0,
+    "seconds": 33.61
+  },
+  {
+    "suite": "map-search",
+    "port": 8132,
+    "exit_code": 0,
+    "seconds": 15.81
+  },
+  {
+    "suite": "autonomy",
+    "port": 8133,
+    "exit_code": 0,
+    "seconds": 35.48
+  },
+  {
+    "suite": "intelligence",
+    "port": 8134,
+    "exit_code": 0,
+    "seconds": 33.0
+  },
+  {
+    "suite": "communication",
+    "port": 8135,
+    "exit_code": 0,
+    "seconds": 23.91
+  }
+]

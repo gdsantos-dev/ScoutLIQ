@@ -1,0 +1,11 @@
+{
+  "base_sha256": "4e7848fe58ade25bf96b87be0f16dbdb5f8086a9105c72dcf7e0367eb3b8b687",
+  "patch_sha256": "eb30ef708d243198d38138f6f9a057cc64ecfc3e071bdcb3b0f81adef3903636",
+  "base_manifest_entries": 447,
+  "base_workspace_matches_full": true,
+  "overlay_hashes_verified": true,
+  "git_branch": "master",
+  "git_head": null,
+  "git_state": "unborn; existing sources untracked; no commits or staging performed",
+  "integration_path": "work\\v1.38-dev\\ScoutLIQ"
+}

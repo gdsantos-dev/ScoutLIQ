@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\learning.spec.ts:11:1 › human review, preview import, frozen evaluation, approved calibration and rollback in existing views (17.1s)
+  ok 2 e2e\learning.spec.ts:103:1 › invalid imported records stay reviewable and cannot commit; HTML remains text (5.4s)
+
+  2 passed (28.0s)

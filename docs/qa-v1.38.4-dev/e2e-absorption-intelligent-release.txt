@@ -1,0 +1,11 @@
+
+Running 4 tests using 1 worker
+
+(node:82528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\absorption-intelligent.spec.ts:51:1 › CSV mapping, partial commit, correction and incremental confirmation at 320px (6.8s)
+  ok 2 e2e\absorption-intelligent.spec.ts:113:1 › persistent worker recovery pauses, resumes and fills POI without auto import (17.2s)
+  ok 3 e2e\absorption-intelligent.spec.ts:155:1 › ambiguous company requires justified decision; rejects and later accepts safely (15.6s)
+  ok 4 e2e\absorption-intelligent.spec.ts:200:1 › table unknown column requires mapping, local row errors and cancellation persist (9.4s)
+
+  4 passed (52.9s)

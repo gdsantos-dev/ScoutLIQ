@@ -1,0 +1,21 @@
+
+> scoutliq@1.38.0-dev test
+> vitest run --maxWorkers=1 --reporter=default --reporter=junit --outputFile=../artifacts/frontend-unit-final.xml
+
+
+ RUN  v4.1.12 C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.38-dev/ScoutLIQ/frontend
+
+ ✓ src/api.test.ts (2 tests) 149ms
+ ✓ src/format.test.ts (3 tests) 85ms
+ ✓ src/outreach.test.ts (5 tests) 21ms
+ ✓ src/opportunity.test.ts (4 tests) 21ms
+ ✓ src/ecosystemBridge.test.ts (3 tests) 17ms
+ ✓ src/historyIntelligence.test.ts (3 tests) 16ms
+ ✓ src/actionQueue.test.ts (3 tests) 12ms
+
+ Test Files  7 passed (7)
+      Tests  23 passed (23)
+   Start at  20:42:07
+   Duration  6.17s (transform 739ms, setup 0ms, import 1.19s, tests 320ms, environment 3ms)
+
+JUNIT report written to C:/Users/ACER/OneDrive/Documentos/ChatGPT/ScoutLIQ/work/v1.38-dev/ScoutLIQ/artifacts/frontend-unit-final.xml

@@ -1,0 +1,536 @@
+/* v1.23.0 · Gestão mobile workspace */
+.management-mobile-list {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .management-desktop-table {
+    display: none !important;
+  }
+
+  .management-mobile-list {
+    display: block;
+  }
+
+  .management-mobile-row {
+    padding: 18px 0;
+    border-bottom: 1px solid #303030;
+  }
+
+  .management-mobile-row:first-child {
+    border-top: 1px solid #303030;
+  }
+
+  .management-mobile-row-head,
+  .finance-mobile-primary,
+  .finance-mobile-meta,
+  .management-mobile-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .management-mobile-row-head {
+    align-items: flex-start;
+  }
+
+  .management-mobile-identity {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+  }
+
+  .management-mobile-identity > span:last-child,
+  .finance-mobile-primary > span {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+  }
+
+  .management-mobile-identity strong,
+  .finance-mobile-primary strong {
+    display: block;
+    overflow: hidden;
+    color: #f2f2f2;
+    font-size: 15px;
+    font-weight: 560;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .management-mobile-identity small,
+  .finance-mobile-primary small,
+  .site-mobile-domain small {
+    color: #969696;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .management-mobile-row .badge {
+    flex: 0 0 auto;
+    max-width: 42%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .management-mobile-service,
+  .site-mobile-domain {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0 12px;
+    color: #c4c4c4;
+    font-size: 13px;
+  }
+
+  .management-mobile-service > span,
+  .site-mobile-domain > span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .management-mobile-service small {
+    flex: 0 0 auto;
+    color: #999;
+    font-size: 12px;
+  }
+
+  .management-mobile-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 0 14px;
+    border-block: 1px solid #2d2d2d;
+  }
+
+  .management-mobile-metrics > div {
+    min-width: 0;
+    padding: 11px 12px 11px 0;
+  }
+
+  .management-mobile-metrics > div + div {
+    padding-left: 12px;
+    border-left: 1px solid #2d2d2d;
+  }
+
+  .management-mobile-metrics span {
+    display: block;
+    color: #8f8f8f;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .management-mobile-metrics b {
+    display: block;
+    margin-top: 4px;
+    overflow: hidden;
+    color: #d9d9d9;
+    font-size: 14px;
+    font-weight: 540;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .management-mobile-actions {
+    justify-content: flex-end;
+    min-height: 38px;
+  }
+
+  .management-mobile-actions .text-link {
+    margin-right: auto;
+  }
+
+  .management-mobile-actions .button.small,
+  .finance-mobile-meta .button.small {
+    min-height: 36px;
+  }
+
+  /* Negociações: lista operacional, sem tabela fingindo ser mobile. */
+  .negotiations-workspace .page-head {
+    min-height: 72px;
+    padding-bottom: 12px;
+  }
+
+  .negotiations-workspace .page-head .button.primary {
+    width: 44px;
+    min-width: 44px;
+    padding-inline: 0;
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  .negotiations-workspace .page-head .button.primary svg {
+    margin: auto;
+  }
+
+  .negotiation-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 4px 0 18px;
+    border-bottom: 1px solid #333;
+  }
+
+  .negotiation-overview > div {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+    padding-right: 14px;
+  }
+
+  .negotiation-overview > div + div {
+    padding-left: 14px;
+    border-left: 1px solid #303030;
+  }
+
+  .negotiation-overview strong {
+    font-size: 30px;
+  }
+
+  .negotiation-overview > div:nth-child(2) span {
+    order: 2;
+    font-size: 12px;
+  }
+
+  .negotiation-overview > div:nth-child(2) b {
+    order: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .negotiation-overview > button {
+    grid-column: 1 / -1;
+    margin-top: 14px;
+    min-height: 42px;
+    background: transparent;
+    border-color: #333;
+  }
+
+  .negotiation-stages {
+    width: 100%;
+    margin-left: 0;
+    padding-inline: 0;
+    gap: 18px;
+    scrollbar-width: none;
+  }
+
+  .negotiation-stages::-webkit-scrollbar,
+  .filter-bar .tabs::-webkit-scrollbar,
+  .ledger .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .negotiation-stages button {
+    min-height: 48px;
+    font-size: 13px;
+  }
+
+  .negotiation-tools {
+    padding: 18px 0 10px;
+  }
+
+  .negotiation-tools > span {
+    font-size: 12px;
+  }
+
+  .negotiation-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 12px;
+    padding: 17px 0;
+  }
+
+  .negotiation-company,
+  .negotiation-next {
+    grid-column: 1 / -1;
+  }
+
+  .negotiation-company {
+    min-height: auto !important;
+  }
+
+  .negotiation-company strong {
+    font-size: 15px;
+  }
+
+  .negotiation-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: auto !important;
+    padding: 10px 0 11px;
+    border-block: 1px solid #2c2c2c;
+  }
+
+  .negotiation-next > span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .negotiation-next small {
+    flex: 0 0 auto;
+  }
+
+  .negotiation-value {
+    align-self: center;
+    color: #d8d8d8;
+  }
+
+  .negotiation-stage-control {
+    width: min(48vw, 186px);
+  }
+
+  .negotiation-stage-control .smart-select {
+    min-height: 40px;
+  }
+
+  /* Clientes */
+  .client-mobile-list {
+    margin-top: 8px;
+  }
+
+  .client-mobile-row .table-avatar {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
+  /* Sites / Entregas */
+  .site-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 4px;
+  }
+
+  .site-summary > span {
+    min-width: 0;
+    padding: 12px 10px 12px 0;
+  }
+
+  .site-summary > span + span {
+    padding-left: 10px;
+    border-left: 1px solid #303030;
+    border-top: 0;
+  }
+
+  .site-summary > span:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid #303030;
+  }
+
+  .site-summary > span:nth-child(4) {
+    border-top: 1px solid #303030;
+  }
+
+  .site-summary strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-scope {
+    margin-top: 10px;
+    line-height: 1.45;
+  }
+
+  .site-mobile-list {
+    margin-top: 8px;
+  }
+
+  .site-mobile-identity {
+    flex: 1;
+  }
+
+  .site-mobile-domain {
+    padding-top: 13px;
+  }
+
+  .site-mobile-alert {
+    margin: -2px 0 13px;
+    line-height: 1.45;
+  }
+
+  /* Financeiro */
+  .finance-summary {
+    display: block;
+    min-height: 0;
+    margin-top: 2px;
+  }
+
+  .finance-main {
+    padding: 18px 0 20px;
+  }
+
+  .finance-main strong {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .finance-main p {
+    max-width: 290px;
+    line-height: 1.45;
+  }
+
+  .finance-stat {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+    border-left: 0;
+    border-top: 1px solid #303030;
+  }
+
+  .finance-stat span,
+  .finance-stat b {
+    margin: 0;
+  }
+
+  .finance-stat span {
+    font-size: 11px;
+  }
+
+  .finance-stat b {
+    font-size: 15px;
+  }
+
+  .finance-secondary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: hidden;
+  }
+
+  .finance-secondary > div {
+    min-width: 0;
+    padding: 13px 8px 13px 0;
+    border-top: 0 !important;
+  }
+
+  .finance-secondary > div + div {
+    padding-left: 8px;
+    border-left: 1px solid #303030;
+  }
+
+  .finance-secondary span {
+    min-height: 30px;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .finance-secondary b {
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .finance-trend {
+    padding: 22px 0 26px;
+  }
+
+  .finance-trend > div:first-child {
+    margin-bottom: 10px;
+  }
+
+  .trend-chart {
+    height: 190px;
+  }
+
+  .ledger {
+    margin-top: 12px;
+  }
+
+  .ledger .section-title {
+    min-height: 48px;
+  }
+
+  .ledger .tabs,
+  .filter-bar .tabs {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    padding-inline: 20px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .ledger .tabs button,
+  .filter-bar .tabs button {
+    flex: 0 0 auto;
+    min-height: 44px;
+  }
+
+  .finance-mobile-ledger {
+    margin-top: 2px;
+  }
+
+  .finance-mobile-row {
+    padding: 16px 0;
+  }
+
+  .finance-mobile-primary {
+    align-items: flex-start;
+  }
+
+  .finance-mobile-primary > span {
+    flex: 1;
+  }
+
+  .finance-mobile-primary > b {
+    flex: 0 0 auto;
+    color: #dedede;
+    font-size: 15px;
+    font-weight: 560;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .finance-mobile-meta {
+    min-height: 38px;
+    margin-top: 11px;
+    color: #969696;
+    font-size: 12px;
+  }
+
+  .finance-mobile-meta > span:first-child {
+    min-width: 0;
+    line-height: 1.4;
+  }
+
+  .finance-mobile-meta .icon-button {
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  /* Gestão: filtros ocupam a largura real e controles viram alvos touch. */
+}
+
+@media (max-width: 420px) {
+  .finance-secondary span {
+    min-height: 42px;
+  }
+
+  .management-mobile-actions {
+    gap: 8px;
+  }
+
+  .management-mobile-actions .button.small {
+    padding-inline: 10px;
+  }
+
+  .site-summary > span {
+    font-size: 12px;
+  }
+}
+

@@ -1,0 +1,35 @@
+
+Running 25 tests using 1 worker
+
+(node:25352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok  1 e2e\redesign.spec.ts:161:1 › desktop: environments, all destinations, accessibility (40.0s)
+  ok  2 e2e\redesign.spec.ts:222:1 › v1.26 action queue: management opens on execution surface (9.5s)
+  ok  3 e2e\redesign.spec.ts:240:1 › v1.25 visual polish: quiet shell, fields and responsive navigation (4.8s)
+  ok  4 e2e\redesign.spec.ts:277:1 › context: progressive data, keyboard tabs, focus and Escape (8.8s)
+  ok  5 e2e\redesign.spec.ts:310:1 › commands: accent-insensitive search, Enter and natural-search handoff (4.8s)
+  ok  6 e2e\redesign.spec.ts:340:1 › filters: custom select in dialog, reset and empty state (8.1s)
+  ok  7 e2e\redesign.spec.ts:366:1 › mobile radar: list-first, contextual map and progressive context (20.9s)
+  ok  8 e2e\redesign.spec.ts:410:1 › mobile remaining modules: opportunities, monitors, campaigns, automations, settings and about (5.7s)
+  ok  9 e2e\redesign.spec.ts:450:1 › real workflow: lead, watchlist, action, contact, sale, payment, cost and export (18.7s)
+  ok 10 e2e\redesign.spec.ts:555:1 › mobile management: native lists replace desktop tables (9.1s)
+  ok 11 e2e\redesign.spec.ts:582:3 › responsive 320: navigation, map sheet, forms and context (41.5s)
+  ok 12 e2e\redesign.spec.ts:582:3 › responsive 375: navigation, map sheet, forms and context (23.0s)
+  ok 13 e2e\redesign.spec.ts:582:3 › responsive 390: navigation, map sheet, forms and context (20.8s)
+  ok 14 e2e\redesign.spec.ts:582:3 › responsive 393: navigation, map sheet, forms and context (19.5s)
+  ok 15 e2e\redesign.spec.ts:582:3 › responsive 430: navigation, map sheet, forms and context (20.1s)
+  ok 16 e2e\redesign.spec.ts:582:3 › responsive 768: navigation, map sheet, forms and context (17.8s)
+  ok 17 e2e\redesign.spec.ts:582:3 › responsive 1920: navigation, map sheet, forms and context (17.7s)
+  ok 18 e2e\redesign.spec.ts:659:1 › sites: create, calendar, edit, reload, mobile detail and remove test record (11.3s)
+  ok 19 e2e\redesign.spec.ts:720:1 › failure states: API retry, offline notice and session expiry (3.4s)
+
+  ok 20 e2e\redesign.spec.ts:753:1 › saved searches: area query, persisted monitor and opportunities isolation (15.5s)
+  ok 21 e2e\redesign.spec.ts:802:1 › campaigns and automations: real CRUD, membership, status and command deep link (17.1s)
+  ok 22 e2e\redesign.spec.ts:883:1 › large result sets: progressive list, bounded markers and no page overflow (9.2s)
+  ok 23 e2e\redesign.spec.ts:913:1 › preferences: English and Spanish, currency and persisted crimson identity (10.2s)
+  ok 24 e2e\redesign.spec.ts:966:1 › research context: explicit actions, enrichment, deep audit and error recovery (9.3s)
+  ok 25 e2e\redesign.spec.ts:1095:1 › authentication: responsive forms, password visibility and invalid login (11.7s)
+
+  Slow test file: e2e\redesign.spec.ts (6.3m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  25 passed (6.5m)

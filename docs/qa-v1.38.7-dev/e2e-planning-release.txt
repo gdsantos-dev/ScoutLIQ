@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:19676) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\planning.spec.ts:19:1 › explicit plan consent, real worker, pause/resume and audited history (31.7s)
+  ok 2 e2e\planning.spec.ts:66:1 › mobile planning form, failure recovery, keyboard and reduced motion (5.0s)
+
+  2 passed (39.2s)

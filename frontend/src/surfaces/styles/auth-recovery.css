@@ -1,0 +1,257 @@
+/* v1.21.0 · auth identity recovery */
+.login-page {
+  min-height: 100dvh;
+  grid-template-rows: 68px 1fr;
+  padding-inline: clamp(20px, 4vw, 64px);
+  background:
+    radial-gradient(circle at 25% 45%, rgba(151, 18, 49, 0.10), transparent 31rem),
+    linear-gradient(180deg, #0a0a0a 0%, #080808 100%);
+}
+.login-page > header {
+  border-bottom: 0;
+  gap: 16px;
+}
+.login-page .orliq-signature {
+  margin-left: 0;
+  color: #d7d0c7;
+  font-size: 12px;
+  font-weight: 620;
+  letter-spacing: 0.22em;
+}
+.login-page .auth-locale {
+  margin-left: auto;
+}
+.login-layout {
+  grid-template-columns: minmax(420px, 1.1fr) minmax(360px, 0.72fr);
+  gap: clamp(56px, 8vw, 132px);
+  width: min(1260px, 100%);
+  padding: 48px 0 72px;
+}
+.login-story {
+  min-height: 520px;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+}
+.login-story::before,
+.login-story::after {
+  content: none;
+}
+.login-hero-mark {
+  --mark-rx: 8deg;
+  --mark-ry: -16deg;
+  --mark-rz: 4deg;
+  --mark-lift: 0px;
+  position: relative;
+  width: min(510px, 42vw);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  perspective: 1150px;
+  transform-style: preserve-3d;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.login-hero-mark::before {
+  content: "";
+  position: absolute;
+  inset: 19%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193, 22, 63, 0.14), transparent 68%);
+  filter: blur(34px);
+  transform: translateZ(-24px);
+  pointer-events: none;
+}
+.login-hero-mark img {
+  position: relative;
+  z-index: 2;
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  transform:
+    rotateX(var(--mark-rx))
+    rotateY(var(--mark-ry))
+    rotateZ(var(--mark-rz))
+    translateZ(calc(20px + var(--mark-lift)));
+  filter:
+    drop-shadow(0 34px 46px rgba(0, 0, 0, 0.48))
+    drop-shadow(0 0 24px rgba(177, 18, 56, 0.13));
+  transition: transform 180ms cubic-bezier(.2,.72,.2,1), filter 180ms ease;
+  will-change: transform;
+  pointer-events: none;
+}
+.login-hero-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.login-hero-orbit.orbit-a {
+  width: 92%;
+  height: 35%;
+  transform: rotate(-16deg) translateZ(-10px);
+}
+.login-hero-orbit.orbit-b {
+  width: 68%;
+  height: 24%;
+  opacity: 0.55;
+  transform: rotate(18deg) translateZ(-8px);
+}
+.login-story-copy {
+  position: relative;
+  z-index: 3;
+  margin-top: -34px;
+  padding-left: 6px;
+}
+.login-story-copy strong {
+  display: block;
+  color: #ececec;
+  font-size: 22px;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+.login-story-copy p {
+  max-width: 390px;
+  margin: 7px 0 0;
+  color: #a7a7a7;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.login-card {
+  width: min(440px, 100%);
+  padding: 0;
+  border: 0;
+}
+.login-card-icon {
+  margin-bottom: 20px;
+  border-color: #393939;
+  background: rgba(255,255,255,0.018);
+}
+.login-card h2 {
+  font-size: 30px;
+  font-weight: 510;
+}
+.login-card h2 + form {
+  margin-top: 28px;
+}
+.login-card form {
+  gap: 16px;
+}
+.login-card .field {
+  gap: 7px;
+}
+.login-card input {
+  min-height: 48px;
+  border-color: #373737;
+  background: #121212;
+}
+.login-card input:focus {
+  border-color: #6f3a47;
+  box-shadow: 0 0 0 3px rgba(151, 18, 49, 0.08);
+}
+.login-card .button.primary {
+  min-height: 48px;
+  margin-top: 4px;
+  border-color: #9d1635;
+  background: linear-gradient(180deg, #a8183a, #8f1230);
+  box-shadow: 0 10px 26px rgba(87, 4, 25, 0.22);
+}
+.login-card .button.primary:hover {
+  background: linear-gradient(180deg, #b11b40, #991333);
+}
+.login-card .auth-links {
+  margin-top: 20px;
+}
+
+@media (max-width: 980px) {
+  .login-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    width: min(560px, 100%);
+    padding-top: 30px;
+  }
+  .login-story {
+    min-height: 330px;
+    align-items: center;
+  }
+  .login-hero-mark {
+    width: min(390px, 68vw);
+  }
+  .login-story-copy {
+    margin-top: -42px;
+    padding-left: 0;
+    text-align: center;
+  }
+  .login-story-copy p {
+    margin-inline: auto;
+  }
+  .login-card {
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page {
+    grid-template-rows: 58px 1fr;
+    padding-inline: 18px;
+  }
+  .login-page .orliq-signature {
+    display: inline-block;
+    font-size: 11px;
+  }
+  .login-page .auth-locale {
+    width: 138px;
+  }
+  .login-layout {
+    gap: 24px;
+    padding: 18px 0 40px;
+  }
+  .login-story {
+    min-height: 250px;
+  }
+  .login-hero-mark {
+    width: min(300px, 78vw);
+  }
+  .login-story-copy {
+    margin-top: -32px;
+  }
+  .login-story-copy strong {
+    font-size: 19px;
+  }
+  .login-story-copy p {
+    max-width: 310px;
+    font-size: 13px;
+  }
+  .login-card h2 {
+    font-size: 27px;
+  }
+  .login-card h2 + form {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .login-page {
+    padding-inline: 16px;
+  }
+  .login-page .auth-locale {
+    width: 126px;
+  }
+  .login-story {
+    min-height: 220px;
+  }
+  .login-hero-mark {
+    width: min(260px, 76vw);
+  }
+  .login-story-copy {
+    margin-top: -28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-hero-mark img {
+    transform: rotateX(8deg) rotateY(-16deg) rotateZ(4deg) translateZ(20px) !important;
+    transition: none !important;
+  }
+}

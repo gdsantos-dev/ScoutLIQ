@@ -1,0 +1,5 @@
+.steps { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 16px; border-bottom: 1px solid var(--liq-border); margin: 24px 0 20px; }
+.steps button { flex: 1; min-width: 110px; min-height: 44px; padding: 10px 12px; border: 1px solid transparent; border-radius: 6px; color: var(--liq-muted); background: transparent; font: inherit; font-size: 13px; cursor: pointer; }
+.steps button[aria-pressed="true"] { background: var(--liq-surface-3); color: var(--liq-text-strong); }
+.steps button:hover { border-color: var(--liq-border); }
+.blocker { padding: 14px 16px; border-left: 3px solid var(--liq-accent); background: var(--liq-accent-soft); font-size: 13px; }

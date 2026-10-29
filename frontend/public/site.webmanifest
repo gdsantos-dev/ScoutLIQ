@@ -1,0 +1,21 @@
+{
+  "name": "ScoutLIQ",
+  "short_name": "ScoutLIQ",
+  "description": "Prospecção comercial, clientes, finanças e gestão de sites da ORLIQ.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090b10",
+  "theme_color": "#090b10",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

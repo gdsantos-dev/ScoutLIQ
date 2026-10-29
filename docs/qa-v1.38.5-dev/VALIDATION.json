@@ -1,0 +1,195 @@
+{
+  "version": "1.38.5-dev",
+  "base": {
+    "base": "integrated v1.38.4-dev",
+    "sha256": "bdf663153db126da40474ac7001cd6a811ffdd95fbdc8d95dd64f0be77e1360e",
+    "verified_files": 618,
+    "local_changes": [],
+    "external_receipts_different_scope": true
+  },
+  "migration": "032 over 031",
+  "backend_tests": 514,
+  "frontend_unit_tests": 24,
+  "e2e_tests": 72,
+  "typescript": true,
+  "e2e_typescript": true,
+  "vite_build": true,
+  "suites": [
+    {
+      "suite": "general-search",
+      "port": 8920,
+      "exit_code": 0,
+      "seconds": 28.45
+    },
+    {
+      "suite": "unified-search",
+      "port": 8921,
+      "exit_code": 0,
+      "seconds": 46.59
+    },
+    {
+      "suite": "map-search",
+      "port": 8922,
+      "exit_code": 0,
+      "seconds": 13.69
+    },
+    {
+      "suite": "smart-search",
+      "port": 8923,
+      "exit_code": 0,
+      "seconds": 23.22
+    },
+    {
+      "suite": "absorption",
+      "port": 8924,
+      "exit_code": 0,
+      "seconds": 24.84
+    },
+    {
+      "suite": "autonomy",
+      "port": 8925,
+      "exit_code": 0,
+      "seconds": 41.3
+    },
+    {
+      "suite": "experience",
+      "port": 8926,
+      "exit_code": 0,
+      "seconds": 28.81
+    },
+    {
+      "suite": "workflow",
+      "port": 8927,
+      "exit_code": 0,
+      "seconds": 41.89
+    },
+    {
+      "suite": "absorption-intelligent",
+      "port": 8928,
+      "exit_code": 0,
+      "seconds": 52.14
+    },
+    {
+      "suite": "redesign",
+      "port": 8929,
+      "exit_code": 0,
+      "seconds": 317.5
+    },
+    {
+      "suite": "learning",
+      "port": 8930,
+      "exit_code": 0,
+      "seconds": 26.47
+    },
+    {
+      "suite": "intelligence",
+      "port": 8931,
+      "exit_code": 0,
+      "seconds": 23.3
+    },
+    {
+      "suite": "communication",
+      "port": 8932,
+      "exit_code": 0,
+      "seconds": 15.91
+    },
+    {
+      "suite": "investigation",
+      "port": 8933,
+      "exit_code": 0,
+      "seconds": 35.89
+    },
+    {
+      "suite": "commercial-queue",
+      "port": 8903,
+      "exit_code": 0,
+      "seconds": 29.5
+    },
+    {
+      "suite": "followup",
+      "port": 8905,
+      "exit_code": 0,
+      "seconds": 28.83
+    }
+  ],
+  "protected_files": {
+    "backend/scoring.py": true,
+    "backend/commercial_fit.py": true,
+    "backend/research.py": true,
+    "backend/evidence_intelligence.py": true,
+    "backend/investigation.py": true,
+    "backend/research_worker.py": true,
+    "backend/communication.py": true,
+    "backend/outreach_intelligence.py": true,
+    "backend/radar_query.py": true,
+    "backend/absorption.py": true,
+    "backend/smart_search.py": true,
+    "frontend/src/components/ContextPanel.tsx": true,
+    "frontend/src/components/OpportunityWorkflow.tsx": true,
+    "frontend/src/components/Communication.tsx": true,
+    "migrations/versions/001_initial.py": true,
+    "migrations/versions/002_sites.py": true,
+    "migrations/versions/003_account_auth.py": true,
+    "migrations/versions/004_orliq_admin_users.py": true,
+    "migrations/versions/005_i18n_currency.py": true,
+    "migrations/versions/006_lead_research.py": true,
+    "migrations/versions/007_deep_site_audit.py": true,
+    "migrations/versions/007_site_audit.py": true,
+    "migrations/versions/009_research_batches.py": true,
+    "migrations/versions/010_pipeline_next_action.py": true,
+    "migrations/versions/011_commercial_history_saved_searches.py": true,
+    "migrations/versions/012_score_engine_site_intelligence.py": true,
+    "migrations/versions/013_competitive_context.py": true,
+    "migrations/versions/014_commercial_signals_timing.py": true,
+    "migrations/versions/015_radar_research_automation.py": true,
+    "migrations/versions/016_watchlist_territory.py": true,
+    "migrations/versions/017_enrichment_automation_engine.py": true,
+    "migrations/versions/018_campaigns_outcome_learning.py": true,
+    "migrations/versions/019_opportunity_workflow.py": true,
+    "migrations/versions/020_applied_intelligence.py": true,
+    "migrations/versions/021_smart_search.py": true,
+    "migrations/versions/022_operational_autonomy.py": true,
+    "migrations/versions/023_semantic_intent_budget.py": true,
+    "migrations/versions/024_supervised_learning.py": true,
+    "migrations/versions/025_score_calibration.py": true,
+    "migrations/versions/026_communication.py": true,
+    "migrations/versions/027_location_cache.py": true,
+    "migrations/versions/028_absorption_staging.py": true,
+    "migrations/versions/029_absorption_recovery.py": true,
+    "migrations/versions/030_progressive_investigation.py": true,
+    "backend/automation.py": true,
+    "backend/opportunity_workflow.py": true,
+    "backend/providers.py": true,
+    "backend/discovery_plan.py": true,
+    "migrations/versions/031_commercial_review.py": true
+  },
+  "volume": {
+    "companies": 1000,
+    "index_blocks": 4,
+    "pending_after_each_block": [
+      750,
+      500,
+      250,
+      0
+    ],
+    "cold_index_seconds": 1.266,
+    "warm_page_seconds": 0.109,
+    "warm_page_queries": 15,
+    "rows_per_page": 50,
+    "real_provider_calls": 0,
+    "scope": "SQLite local fixture; not a production latency guarantee"
+  },
+  "external_sends": 0,
+  "real_provider_calls": 0,
+  "deployed": false,
+  "production_database_changed": false,
+  "externally_homologated": false,
+  "external_pending": [
+    "PostgreSQL target",
+    "physical devices and Safari",
+    "live providers",
+    "HTTPS deployment",
+    "real commercial outcomes",
+    "fresh dependency audit before publication"
+  ]
+}

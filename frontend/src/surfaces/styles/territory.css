@@ -1,0 +1,53 @@
+/* v1.3.0 · region-wide Radar */
+.radar-scope-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  color: var(--liq-muted);
+}
+.radar-scope-field > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.radar-scope-field small {
+  color: #a8a8a8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.radar-scope-field strong {
+  color: var(--liq-text);
+  font-size: 13px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.radar-coverage-status {
+  margin-left: 5px;
+  color: #a8a8a8;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+}
+@media (min-width: 1241px) {
+  .radar-discovery {
+    grid-template-columns: minmax(300px, 1.35fr) minmax(230px, 0.8fr) 150px auto;
+  }
+}
+@media (max-width: 1240px) and (min-width: 861px) {
+  .radar-discovery {
+    grid-template-columns: minmax(250px, 1fr) minmax(200px, 0.8fr) 150px;
+  }
+  .radar-search-submit {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  .radar-scope-field {
+    min-height: 48px;
+    border-bottom: 1px solid var(--liq-hairline);
+  }
+}
+

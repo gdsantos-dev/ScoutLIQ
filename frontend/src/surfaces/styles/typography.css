@@ -1,0 +1,88 @@
+/* ---------- common typography ---------- */
+.page-head {
+  min-height: 98px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 6px 0 22px;
+  border-bottom: 1px solid var(--liq-border);
+}
+.page-head > div:first-child {
+  min-width: 0;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: #a8a8a8;
+  font-size: 13px;
+  font-weight: 660;
+  text-transform: uppercase;
+  letter-spacing: 0.19em;
+}
+.page-head h1 {
+  margin: 0;
+  color: var(--liq-text-strong);
+  font-size: clamp(30px, 2.6vw, 42px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 520;
+}
+.head-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.section-title h2,
+.field-head h2,
+.priority-head h2 {
+  margin: 0;
+  color: var(--liq-text-strong);
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-weight: 540;
+}
+.muted {
+  color: var(--liq-muted);
+}
+.positive {
+  color: var(--liq-success) !important;
+}
+.negative,
+.overdue {
+  color: var(--liq-danger) !important;
+}
+.count-label {
+  color: var(--liq-muted);
+  font-size: 13px;
+}
+.date-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #a4a4a4;
+  font-size: 13px;
+}
+.page-footer {
+  margin-top: 54px;
+  padding-top: 16px;
+  border-top: 1px solid var(--liq-hairline);
+  display: flex;
+  justify-content: space-between;
+  color: #a8a8a8;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.page-footer b {
+  color: var(--orliq-champagne);
+  font-weight: 620;
+}
+

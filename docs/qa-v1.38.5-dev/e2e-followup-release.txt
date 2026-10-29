@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:22204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\followup.spec.ts:14:1 › desktop manual provenance, partial followup and canonical editor without sending (11.4s)
+  ok 2 e2e\followup.spec.ts:40:1 › mobile explicit overwrite, pause, reopen and settings persist (11.8s)
+
+  2 passed (27.1s)

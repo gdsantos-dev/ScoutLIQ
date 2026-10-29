@@ -1,0 +1,20 @@
+[
+  {
+    "suite": "absorption",
+    "port": 8170,
+    "exit_code": 0,
+    "seconds": 37.72
+  },
+  {
+    "suite": "unified-search",
+    "port": 8171,
+    "exit_code": 0,
+    "seconds": 67.81
+  },
+  {
+    "suite": "workflow",
+    "port": 8172,
+    "exit_code": 0,
+    "seconds": 51.5
+  }
+]
