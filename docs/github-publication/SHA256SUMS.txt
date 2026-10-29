@@ -1,0 +1,2 @@
+2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac  ScoutLIQ-v1.38.7-dev-FULL.zip
+85206caacab5b406676f88cb3dd98d5a019aafab91590050a4505ede12aba897  ScoutLIQ-v1.38.6-dev-to-v1.38.7-dev-PATCH.zip

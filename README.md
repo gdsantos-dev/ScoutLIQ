@@ -1,3 +1,11 @@
+# ScoutLIQ — código principal
+
+Repositório privado: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
+
+Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. Próximas alterações seguem [CONTRIBUTING](CONTRIBUTING.md), em branches e commits. As seções abaixo preservam o histórico das entregas; não substituem essas instruções de continuidade.
+
+---
+
 ## v1.38.7-dev — Planejamento de prospecção
 
 Plano diário em Automações, com autorização explícita, limites persistentes e execução pelo worker existente. Revisão **033 sobre 032**. Pacote de desenvolvimento; sem deploy ou homologação externa.

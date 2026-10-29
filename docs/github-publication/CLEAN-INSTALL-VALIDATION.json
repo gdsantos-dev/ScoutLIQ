@@ -1,0 +1,15 @@
+{
+  "version": "1.38.7-dev",
+  "full_sha256": "2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac",
+  "clean_extract": true,
+  "no_artifacts_preparation": true,
+  "no_frontend_dist_or_dependencies": true,
+  "tests_passed": 79,
+  "volume_test_passed": true,
+  "output_created_by_test": true,
+  "source_manifest_unchanged_after_test": true,
+  "packaged_source_matches_candidate": true,
+  "archive_crc_and_hashes_verified": true,
+  "runtime_exclusions_verified": true,
+  "scope": "Local isolated SQLite; no production, external providers or sends."
+}

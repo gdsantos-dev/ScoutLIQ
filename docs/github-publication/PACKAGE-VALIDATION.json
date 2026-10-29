@@ -1,0 +1,400 @@
+{
+  "designation": "v1.38.7-dev; valida\u00e7\u00e3o local, sem homologa\u00e7\u00e3o externa",
+  "source_files": 779,
+  "changes": [
+    {
+      "path": "DEV-OVERLAY-MANIFEST.json",
+      "before_sha256": "a81d2eba79f1c6b5a8bfc44267d8c1121faccc4e19496c90a06750bf9524fce8",
+      "after_sha256": "b2f99285c1e9cfa8e61ec4512a01b314608fcf611571d0f4ad634f792b3ca197"
+    },
+    {
+      "path": "README.md",
+      "before_sha256": "12f1718cdb9da29c2becf9e92242ccda8be119d8fb30734066d3fbab141c3a25",
+      "after_sha256": "e65165113fb6c84e415073d1eee03d3cd68c9321a22b738bb20291f2d8e9fce9"
+    },
+    {
+      "path": "RELEASE-MANIFEST.json",
+      "before_sha256": "0bf0a628bb08d51dbfbd819894ff3c4b9d76f766b93a4d10bbb5832b73e98783",
+      "after_sha256": "ec40eeccb46dd3b3a6c4d4a39994c991315f67b4c1fffc00ca11e73aa1b68d1d"
+    },
+    {
+      "path": "backend/consumption.py",
+      "before_sha256": "acb1576e98cf9cea6fa98b3d054e66c966037a30079251d8c1aa2ba9382ee5c8",
+      "after_sha256": "b0fe0a4a7ed22e23a2f61628c183e068002d69922936a3845687490d8911df3c"
+    },
+    {
+      "path": "backend/main.py",
+      "before_sha256": "08e033a60553c7fd6fcf659ce31991a214a36e3cb81b08e62d270c1c57872f5b",
+      "after_sha256": "fc3a7c7a3c3eb2f9fbee2e659693b0e6d7b4093c3453815cc355646ac9f40249"
+    },
+    {
+      "path": "backend/prospecting.py",
+      "before_sha256": null,
+      "after_sha256": "cef455c87da10a3d27acbf6cebcc5059e7a5c31f29efd16dc99b798cd3d10a55"
+    },
+    {
+      "path": "backend/prospecting_models.py",
+      "before_sha256": null,
+      "after_sha256": "e3728988c918d74603f78d19c5522384cee3d64be0d2f91ef769aae8f946f025"
+    },
+    {
+      "path": "backend/routines.py",
+      "before_sha256": "2d2c5591468215ca5badacc158aedc5f048230d3bc559b8c105c48c398d77fc1",
+      "after_sha256": "6a0629dc4d3cb09f241e856377abc436dcae86cbcad90f20246c154e2d3dd9b3"
+    },
+    {
+      "path": "backend/smart_search.py",
+      "before_sha256": "69b045a34d03c40f1bccc5351825ed4ecabc0b68214f384ee12a523c4ca4ca8f",
+      "after_sha256": "609a365ff8e4597250b6da1aa574c1873bd1ad4cda560ea3771277eae7a9bbb4"
+    },
+    {
+      "path": "docs/ARCHITECTURE-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "1fad794afb28e4eba4f6c6c771c7d368b6c0ff016381242c61c5d2c2bae242ca"
+    },
+    {
+      "path": "docs/CHANGED-FILES-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "ca820917d20eaa6e6e7bb3a3971e1cf7e7b72bd149c8624342aa10b8b494b37c"
+    },
+    {
+      "path": "docs/CHANGELOG-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "5b6e2b126c9fa39d02d9f84f3a7c0ef768322b2846e12ae127275f0a069f2b50"
+    },
+    {
+      "path": "docs/CHECKPOINT-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "8cd356aca7875afd405f6aad011559ff7776c28c341d9a134c35832a9d78d0b0"
+    },
+    {
+      "path": "docs/INSTALL-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "25b3aeb2b20ffa03e42db71c434bf5b718bd8f75b595714e41f4429b346eec43"
+    },
+    {
+      "path": "docs/METRICS-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "cb74b22b8ca6260cbf258c023aa90ae1bc30922bb67202311687294d982204b6"
+    },
+    {
+      "path": "docs/VALIDATION-v1.38.7-dev.md",
+      "before_sha256": null,
+      "after_sha256": "ab14920ea1f43b90f7f32c942d60f39f84aaff5a6facb4bd6fd2529aef6f3b0d"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/backend-final.txt",
+      "before_sha256": null,
+      "after_sha256": "5d662488850301eaae97cd7b68fada7599767e6eefa1addd81bc54376047b27c"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/base-verification.json",
+      "before_sha256": null,
+      "after_sha256": "0389209e571d67712fb0db2fcf8ae9ed25d456e6ac92074d3e6645619f2c5e6c"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/browser-group-commercial.json",
+      "before_sha256": null,
+      "after_sha256": "20419765e839ebee3e4a295073057fc8def95b5acd0f2a57b67bc886dc265f44"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/browser-group-complete.json",
+      "before_sha256": null,
+      "after_sha256": "a10289886496ebc28fe64c6ac35e29189ab0cee8835f4d8aa918cfbaa17e761c"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/browser-group-followup.json",
+      "before_sha256": null,
+      "after_sha256": "6ad7367e38266f5b74e1451ae4f57919fd11965fc22cac3a627a8771feae3363"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/browser-group-operations.json",
+      "before_sha256": null,
+      "after_sha256": "308a458ee3af6ca4ce5945b466a66168f14839be858c30cab493dbcfdbac4835"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/browser-group-planning.json",
+      "before_sha256": null,
+      "after_sha256": "4723ce7fa3a20951a4b7c756016a3c46a65a964ae377141dab2f46144e47c958"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-absorption-intelligent-release.txt",
+      "before_sha256": null,
+      "after_sha256": "012584daa1feeb60fd7da1658ba162c6b9d6c37b70f287393c95cb3ad8b9d961"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-absorption-release.txt",
+      "before_sha256": null,
+      "after_sha256": "aea43c1947bfaf45540df6f215dc596172da1de9d8ee57c6c3dbf8c70901ea57"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-autonomy-release.txt",
+      "before_sha256": null,
+      "after_sha256": "60693db53fc8a8c8f8a77f4fabba5c76c866f56e48cd5ff0984f1b21f0426f36"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-commercial-queue-release.txt",
+      "before_sha256": null,
+      "after_sha256": "b6174d94017fbcd96a28d6b5497f483fd60be635cd0d82faebc2e462a0191aaf"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-communication-release.txt",
+      "before_sha256": null,
+      "after_sha256": "7733309069c2a172ed09ed120cf5a4243f409d1f8af0561bc21a30b7c9281e58"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-experience-release.txt",
+      "before_sha256": null,
+      "after_sha256": "f568bbc93fd3b746e3d277346c5e2f0eb5d11abf75d7368378162b29bb6f4498"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-followup-release.txt",
+      "before_sha256": null,
+      "after_sha256": "a5d40c27df8137bef4750e06b17ac27f9d43d15a58b9b5edd08b6742309fbf06"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-general-search-release.txt",
+      "before_sha256": null,
+      "after_sha256": "8fa822beefbbde1289dcf0f4b2464b9b9b53aae1414488c3161efddb8e4c4c0f"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-intelligence-release.txt",
+      "before_sha256": null,
+      "after_sha256": "da332716f266a42d075ababc7321c3358047a583efbda0b23ba037d2922bac08"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-investigation-release.txt",
+      "before_sha256": null,
+      "after_sha256": "29a3334a494279943110e32f9d5e97ea40c74812255d13206a03d580f0c7fc91"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-learning-release.txt",
+      "before_sha256": null,
+      "after_sha256": "a5e93db8211a7056536be99375fb95007bb6469642555e9cc34c43accb6c58f5"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-map-search-release.txt",
+      "before_sha256": null,
+      "after_sha256": "d8228789d550af9d0895e1d76b1412cc217dc6dfec7f1032f466f8bbb814aa93"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-operations-release.txt",
+      "before_sha256": null,
+      "after_sha256": "c1243b735f316a4567cbf8d5a975ef4bc6541a1165e95617753dd3c02f2d9e3b"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-planning-release.txt",
+      "before_sha256": null,
+      "after_sha256": "b2df35c96b99633fa60caef5f0f2c21c9a7240ab0ef2b15d4c0fa7ef8833ae5f"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-redesign-release.txt",
+      "before_sha256": null,
+      "after_sha256": "2bbd39b2780a99c0806f08ca67565c01461598177767a11035e9ad869d504525"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-smart-search-release.txt",
+      "before_sha256": null,
+      "after_sha256": "3ee47f16ee31be179488185e0d0187c8e029a9e30daf2952bd8f52c8ccb07462"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-unified-search-release.txt",
+      "before_sha256": null,
+      "after_sha256": "389493a1b58a5e340cf3449e2a44e7e40065e358af818983987b39e814a9eb8a"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/e2e-workflow-release.txt",
+      "before_sha256": null,
+      "after_sha256": "bff2fd183a68bf6b5ec20109e57cdebd210d1e0cc00c301cb18ddbc74e6f4e28"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/frontend-build-final.txt",
+      "before_sha256": null,
+      "after_sha256": "2f62d880803478e1c1407c61ad4bbec8849ae589353a3caa54bb03b50666a982"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/frontend-unit-final.txt",
+      "before_sha256": null,
+      "after_sha256": "b7d679e69d6dbcd0d95dda136852990eda7033d2199c63574978044ee8342541"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-320.png",
+      "before_sha256": null,
+      "after_sha256": "cdd527d1be26c272454c021b7c263479402aed78ed1d7d18a397996e765a3802"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-390.png",
+      "before_sha256": null,
+      "after_sha256": "1d0cd8b1f6f3a6b95c3d6a3db5f58e56b0ae8adbf59bdfa52e8d2a294350e3c7"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-desktop.png",
+      "before_sha256": null,
+      "after_sha256": "5897bfb08b12100f43af2bb4792132b28aa3de3a138f03833a6544769901ca6b"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-progress-desktop.png",
+      "before_sha256": null,
+      "after_sha256": "092054956bf3efd188bd3a83b4335ea81e0635b25fa162b830edd57dbef3d849"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-volume-1000.json",
+      "before_sha256": null,
+      "after_sha256": "90e195022f8e4fbd71d60ebbaf41022ada5503b902da2e46fca522d8455108c0"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/planning-volume-10000.json",
+      "before_sha256": null,
+      "after_sha256": "875a7509f4f738369d1da39f776bb205e07e9aaf32702194d238a7cfd06a9901"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/preserved-engines.json",
+      "before_sha256": null,
+      "after_sha256": "a2af964e52005ee6599dea34738839fa504a797cbb2f4a01eecc53146dd1c73e"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/typescript-e2e-final.txt",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/typescript-final.txt",
+      "before_sha256": null,
+      "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qa-v1.38.7-dev/validation.json",
+      "before_sha256": null,
+      "after_sha256": "8bdd4eb1f352db68167b40b687d20aebc5afecbcd6118a1f9b59ec168e3e4925"
+    },
+    {
+      "path": "frontend/e2e/planning.spec.ts",
+      "before_sha256": null,
+      "after_sha256": "54b764b4e490a89ca815ac02e70004503a14e4450523b7d60292559d84f48450"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "before_sha256": "7619827204570b4d185b294014fd8ce8ea64976725b7d06623371c397b69cd83",
+      "after_sha256": "199fb17c65c0d7c717bb9e7685a16032436d374aa90f7be1ab84792dec226c60"
+    },
+    {
+      "path": "frontend/package.json",
+      "before_sha256": "d021c8e0effbc17e6a38e2c30f87110fe1f4a8ed3cf47bd699bdbc0bd9378f27",
+      "after_sha256": "a6b6090de21d9d5de574bcfac0cd10650e4f8354309a722561c33e4fff71faf1"
+    },
+    {
+      "path": "frontend/src/components/ProspectingPlan.tsx",
+      "before_sha256": null,
+      "after_sha256": "917be32d6704f58936d0c9daa901eea2032943b5644d95e223bb86dd2171f710"
+    },
+    {
+      "path": "frontend/src/components/prospecting-plan.css",
+      "before_sha256": null,
+      "after_sha256": "99030a9e5e8238783ec5f042168a4e6c07add63b033c13b1f1acd4d31a9fd6b8"
+    },
+    {
+      "path": "frontend/src/ecosystemBridge.ts",
+      "before_sha256": "1e0b36be44f03fed150f2962609fb90e1dc2798aa13f901c368afa6862ef6fdb",
+      "after_sha256": "b2c75f1d3e8a19cb00088487a6a9d2a9b161d7ff957c77becac8c432f616a259"
+    },
+    {
+      "path": "frontend/src/pages/About.tsx",
+      "before_sha256": "f204b87abd4e28588028b32fa88ebe0ad4306fdb71fb9c3947db37303745ead7",
+      "after_sha256": "4f01da61fbdc08d998b43da2b9266845de97e3db798de181565c1881e62ad059"
+    },
+    {
+      "path": "frontend/src/pages/Automations.tsx",
+      "before_sha256": "d1e643232740e019f74d7cec97699f0f9d503491dd9dac664c782e556dcf4403",
+      "after_sha256": "e03231d085196a566dc20a6c6b4f0d3a065d481914d02bc6d632c371ee439fc8"
+    },
+    {
+      "path": "migrations/env.py",
+      "before_sha256": "154fcad141151e2ea154339f84838b5a327dce072013cd505021384a60154200",
+      "after_sha256": "262dc276c17bb99a4663428dbebf9c8918abea3a547627ebc4d173515ad1c09a"
+    },
+    {
+      "path": "migrations/versions/033_prospecting_plans.py",
+      "before_sha256": null,
+      "after_sha256": "d421edc8c6e5c2cc1f96ff5641bb75184d02e45fb5f10d52210e6e7baa05325a"
+    },
+    {
+      "path": "release/PACKAGE-VALIDATION.json",
+      "before_sha256": "5c17513f9cbd63cc7fa46598aebeac05a6b1c06f71a0e74b43e046257951059c",
+      "after_sha256": "f5a192c907653830ee83001fabe9b1c0aa07e7d95cee9a092f9b19966762f9af"
+    },
+    {
+      "path": "release/SHA256SUMS.txt",
+      "before_sha256": "708d20a6eb6e6db7333d6ebe137cac569f8d5cee2b983fce0fa1529cc14ca859",
+      "after_sha256": "6a0dabf18c1a5339449b0f6fec62d1ca41f063e362ec34feb02e66e6cb592220"
+    },
+    {
+      "path": "scripts/finalize_planning_reports.py",
+      "before_sha256": null,
+      "after_sha256": "038b53b2354d000596ef4a78474d44f6f916290d4d22a0eb16ac00b5d05052ad"
+    },
+    {
+      "path": "scripts/package_planning_v1387.py",
+      "before_sha256": null,
+      "after_sha256": "0d505c1191b347394c5ba73acb24fbdaca69de6a70c9d18d62adb2212f131fa9"
+    },
+    {
+      "path": "scripts/prepare_planning_packages.py",
+      "before_sha256": null,
+      "after_sha256": "a2189fd448a2ba51ba9ee818092993ae214679a10cad7bf334ce05ac68651fff"
+    },
+    {
+      "path": "scripts/prepare_planning_release.py",
+      "before_sha256": null,
+      "after_sha256": "80b70df46b1dd4765a3d820edbddd333ec4867642cbfd40db4906e3c95fd392e"
+    },
+    {
+      "path": "scripts/validate_browser_v1387.py",
+      "before_sha256": null,
+      "after_sha256": "8544dc747497699815a2c8a4ef62c87e3c2bcc9a69b29904bc8e97275c2a834f"
+    },
+    {
+      "path": "scripts/verify_planning_clean_install.py",
+      "before_sha256": null,
+      "after_sha256": "72cc87919b82edb2978861a043b6c034de7df6eefa4363aea47450379be8f3cf"
+    },
+    {
+      "path": "scripts/verify_planning_package.py",
+      "before_sha256": null,
+      "after_sha256": "02d57bd4760b0f6c9be96604a871ed39d39f70bc8e4e1cbb00b25eb4c5508da6"
+    },
+    {
+      "path": "tests/planning_browser_fixture.py",
+      "before_sha256": null,
+      "after_sha256": "caa53d33142e22e79798398c2bd0aa821e9f7cb15bdf2b59cb057d84ba2bc2de"
+    },
+    {
+      "path": "tests/test_followup_migration.py",
+      "before_sha256": "0d3848afe80f73941bddf10cf442385b7cd3b7befb666c7814303ee6fc2abfff",
+      "after_sha256": "9ce3610fe3ad2ff7d477486071f37a8b41ce8c08e8d1c9f2554368517ea1ed85"
+    },
+    {
+      "path": "tests/test_prospecting.py",
+      "before_sha256": null,
+      "after_sha256": "07dd160ac5c57ba0bc827282dfa6c5c19e0e8ad6345a31c4318b0d0708ce7bdc"
+    },
+    {
+      "path": "tests/test_prospecting_migration.py",
+      "before_sha256": null,
+      "after_sha256": "2c93d75a3c3241161f02f79be8509467afdc4404c2abad53501470d6967f8a8b"
+    }
+  ],
+  "base_sha256": "dbf392f49ae3c13e699b7b345743f164774953717747f39c06b136e1e1a04f79",
+  "manifest_verified": true,
+  "dry_run_no_writes": true,
+  "conflict_refused_without_writes": true,
+  "patch_matches_full": true,
+  "runtime_preserved": true,
+  "reapply_refused": true,
+  "source_rollback_verified": true,
+  "production_ready": false,
+  "sha256": {
+    "ScoutLIQ-v1.38.7-dev-FULL.zip": "2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac",
+    "ScoutLIQ-v1.38.6-dev-to-v1.38.7-dev-PATCH.zip": "85206caacab5b406676f88cb3dd98d5a019aafab91590050a4505ede12aba897"
+  },
+  "embedded_receipts_verified": true
+}

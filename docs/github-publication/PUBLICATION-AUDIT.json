@@ -1,0 +1,30 @@
+{
+  "version": "1.38.7-dev",
+  "repository": "gdsantos-dev/ScoutLIQ",
+  "source_full_sha256": "2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac",
+  "import_commit": "7f7c4db2ce7bc10b3b1887d785da848b8f22c0f8",
+  "source_files_in_full": 779,
+  "imported_files_byte_identical": true,
+  "changed_original_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "functional_sources_changed": false,
+  "scan_candidates_in_publication": {
+    "credential_url": 6,
+    "literal_secret": 29,
+    "non_utf8_review": 1
+  },
+  "candidate_review": "Only synthetic test fixtures, security URL fixtures in test reports, generated-password source, and favicon ICO. No live credential identified. Pattern review is not an exhaustive security audit.",
+  "ignored_generated_cache_files": 1,
+  "ignore_cases_checked": 26,
+  "functional_regression_rerun_for_publication": false,
+  "prior_release_tests": {
+    "backend": 592,
+    "frontend_unit": 27,
+    "browser_e2e": 77,
+    "clean_extract": 79
+  },
+  "production_deployed": false,
+  "commercial_sends": false
+}
