@@ -135,51 +135,67 @@ def known_recipient(lead, channel):
 
 @router.get('/queue')
 def queue(classification: Classification | None = None, state: State = 'main', source: str = Query(default='', max_length=50),
-          view: Literal['triage','followup'] = 'triage', attention: Literal['all','today','overdue','awaiting','response','review','execution','pending','blocked','closed','paused','completed'] = 'all',
+          view: Literal['triage','followup','daily'] = 'triage',
+          cohort: Literal['all','today','plan'] = 'all',
+          lead_ids: list[UUID] = Query(default=[], max_length=50), attention: Literal['all','today','overdue','awaiting','response','review','execution','pending','blocked','closed','paused','completed','ready','stale'] = 'all',
           search: str = Query(default='', max_length=100), offset: int = Query(default=0, ge=0, le=100000),
           limit: int = Query(default=25, ge=1, le=50), user: User = Depends(current_user), db: Session = Depends(get_db)):
     limiter.check('commercial-queue:'+user.id, 120, 60)
     lock_user(db, user)
     now = int(time.time())
-    from . import followup
+    from . import followup, daily_operations as daily
     stale = select(Lead.id).outerjoin(Review, Review.lead_id == Lead.id).where(Lead.user_id == user.id, Lead.demo == False,
         or_(Review.lead_id.is_(None), Review.dirty == 1, Review.refresh_at <= now,
-            *([Review.followup_dirty == 1, Review.followup_refresh_at <= now] if view=='followup' else [])))
+            *([Review.followup_dirty == 1, Review.followup_refresh_at <= now] if view in ('followup','daily') else [])))
+    if lead_ids: stale=stale.where(Lead.id.in_([str(i) for i in lead_ids]))
     ids = db.scalars(stale.order_by(Lead.id).limit(250)).all()
     if ids:
-        if view=='followup': followup.index(db,user,ids)
+        if view in ('followup','daily'): followup.index(db,user,ids)
         else: index_contexts(db, user.id, ids)
     remaining = db.scalar(select(func.count()).select_from(stale.subquery()))
     filters = [Lead.user_id == user.id, Lead.demo == False, Review.user_id == user.id, Review.dirty == 0, Review.refresh_at > now]
+    if lead_ids: filters.append(Lead.id.in_([str(i) for i in lead_ids]))
     if classification: filters.append(Review.classification == classification)
     if source: filters.append(Lead.source == source)
     if search: filters.append(or_(Lead.name.icontains(search, autoescape=True), Lead.city.icontains(search, autoescape=True), Lead.category.icontains(search, autoescape=True)))
-    if view=='followup':
+    if view=='daily':
+        filters.extend([Review.followup_dirty==0,Review.followup_refresh_at>now,*daily.attention_scope(user.id)])
+        focus=daily.focus_filter(user,attention)
+        if focus is not None: filters.append(focus)
+        if cohort in ('today','plan'): filters.extend(daily.day_scope(user,now))
+        if cohort=='plan': filters.append(Lead.id.in_(daily.plan_leads(user,now)))
+    elif view=='followup':
         filters.extend([Review.followup_dirty==0,Review.followup_refresh_at>now])
         if attention=='today': filters.append(Review.followup_rank<=4)
         elif attention!='all': filters.append(Review.followup_category==attention)
     elif state == 'main': filters.append(or_(Review.state == 'unreviewed', Review.context_hash != Review.review_hash))
     elif state != 'all': filters.append(Review.state == state)
     query = select(Lead, Review).join(Review, Review.lead_id == Lead.id).where(*filters)
+    if view=='daily': query=query.add_columns(daily.ready(user.id))
     total = db.scalar(select(func.count()).select_from(query.subquery()))
     ordering = [Review.followup_rank, case((Review.followup_due=='','9999-12-31'),else_=Review.followup_due),
         case((Lead.stage=='negotiating',0),(Lead.stage=='replied',1),else_=2),Review.score_cache.desc(),Review.followup_confidence.desc(),Review.followup_last,Lead.id] if view=='followup' else [Review.score_cache.desc(),Lead.id]
+    if view=='daily':
+        ordering=[daily.attention_rank(user.id),case((Review.followup_due=='','9999-12-31'),else_=Review.followup_due),Review.score_cache.desc(),Lead.id]
     pairs = db.execute(query.order_by(*ordering).offset(offset).limit(limit)).all()
-    selected = [lead.id for lead, _ in pairs]
+    selected = [pair[0].id for pair in pairs]
     data = contexts(db, user.id, selected) if selected else {}
     evidence = shortlist_evidence(db, user.id, selected) if selected else {}
     draft_counts = dict(db.execute(select(OutreachDraft.lead_id, func.count()).where(OutreachDraft.user_id == user.id,
         OutreachDraft.lead_id.in_(selected)).group_by(OutreachDraft.lead_id)).all()) if selected else {}
     rows = []
-    for lead, review in pairs:
+    for pair in pairs:
+        lead, review = pair[:2]
         ctx = data[lead.id]
         rows.append({'id': lead.id, 'version': lead.version, 'name': lead.name, 'city': lead.city, 'category': lead.category,
             'source': lead.source, 'stage': lead.stage, 'qualification': ctx['qualification'], 'review': review_row(review),
             'summary': summary(ctx, evidence[lead.id]), 'evidence_count': ctx['evidence_count'], 'confirmed_count': ctx['confirmed'],
-            'draft_count': draft_counts.get(lead.id, 0), 'followup': json.loads(review.followup_json) if view=='followup' else None,
+            'draft_count': draft_counts.get(lead.id, 0), 'followup': json.loads(review.followup_json) if view in ('followup','daily') else None,
+            'daily_attention': daily.row_reason(review,pair[2]) if view=='daily' else None,
             'contact': {'email': lead.contact, 'whatsapp': lead.whatsapp, 'phone': lead.phone}})
+    daily_state=daily.snapshot(db,user,now) if view=='daily' else None
     db.commit()
-    return {'items': rows, 'total': total, 'offset': offset, 'limit': limit, 'index_pending': remaining}
+    return {'items': rows, 'total': total, 'offset': offset, 'limit': limit, 'index_pending': remaining, 'daily':daily_state}
 
 
 @router.get('/leads/{lead_id}')

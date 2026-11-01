@@ -1615,7 +1615,10 @@ export default function Radar({
   if (surface === "radar" && commercialMode) return <div className="radar-surface ledger-mode">
     <div className="radar-canvas-heading"><div className="radar-title"><h1>Radar</h1><span>Revisão comercial</span></div></div>
     <div className="commercial-mode"><button className="button" onClick={()=>changeCommercialMode(false)}>Descoberta</button><button className="button" aria-pressed="true">Fila comercial</button></div>
-    <CommercialQueue storageKey={storageKey} onOpenLead={onSelect} onLeadUpdated={onLeadUpdated}/>
+    <CommercialQueue storageKey={storageKey} onOpenLead={onSelect} onLeadUpdated={onLeadUpdated} onDiscovery={()=>changeCommercialMode(false)} onInvestigation={async id=>{
+      changeCommercialMode(false);if(id)await selectInvestigationBatch(id);
+      requestAnimationFrame(()=>{const el=document.getElementById('radar-investigations');el?.scrollIntoView({block:'start'});el?.focus();});
+    }}/>
   </div>;
   const sheetExpanded = mobileSheet === "full";
   return (
@@ -2349,7 +2352,7 @@ export default function Radar({
           {searchError}
         </div>
       )}
-      <div className="radar-process-state">
+      <div className="radar-process-state" id="radar-investigations" tabIndex={-1}>
         {investigationQueue.length > 0 && (
           <label className="field investigation-queue-selector">
             <span>Fila de investigação</span>

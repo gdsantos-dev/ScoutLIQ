@@ -1248,7 +1248,7 @@ def radar_search(data:DiscoveryQuery,user:User=Depends(current_user),db:DBSessio
     return _persist_discovery(data, batch, user, db)
 
 
-def _persist_discovery(data, batch, user, db, *, commit=True):
+def _persist_discovery(data, batch, user, db, *, commit=True, auto_investigation=True):
     current=db.scalars(select(Lead).where(Lead.user_id==user.id)).all()
     by_source={(lead.source,lead.source_id):lead for lead in current if lead.source_id}
     by_identity={_lead_identity(lead):lead for lead in current}
@@ -1324,7 +1324,8 @@ def _persist_discovery(data, batch, user, db, *, commit=True):
             if new_value!=old_value:
                 run_automation_event(db,lead,'score_changed',{'from':old_value,'to':new_value})
     from .investigation import enqueue
-    enqueue(db,user,investigation_ids,source='search')
+    if auto_investigation:
+        enqueue(db,user,investigation_ids,source='search')
     if commit: db.commit()
     rows=sorted((lead_row(lead) for lead in found),key=lambda item:item['score']['value'],reverse=True)
     return {

@@ -1,6 +1,6 @@
 # ScoutLIQ: instruções para continuidade
 
-- Fonte principal: repositório privado `gdsantos-dev/ScoutLIQ`, branch `main`. Ler HANDOFF.md e CONTRIBUTING.md antes de continuar.
+- Fonte principal: repositório `gdsantos-dev/ScoutLIQ`, branch `main`. Ler HANDOFF.md e CONTRIBUTING.md antes de continuar.
 - Atualizar a referência remota, criar branch `codex/<assunto>`, fazer commits descritivos e usar pull request para integrar próximas alterações. Não sobrescrever histórico remoto.
 - A base desta publicação é o FULL v1.38.7-dev, migração 033. Não reconstruir mecanismos já concluídos. Preservar estrutura, dados, autenticação, autorização, Score 3.0, rotinas e worker.
 - Não versionar `.env`, secrets, tokens, bancos, dados pessoais, backups ou logs de runtime. `.env.example` deve conter somente exemplos sem segredos.

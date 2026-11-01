@@ -4,13 +4,14 @@ import type { Lead } from '../types';
 import { Modal } from './UI';
 import OpportunityWorkflow from './OpportunityWorkflow';
 import './commercial-queue.css';
+import DailyOperations, {type DailySnapshot} from './DailyOperations';
 
 type Selection = { id: string; version: number; review_version: number; followup_version?: number };
 type Followup = {code:string;title:string;reason:string;category:string;due_on:string;confidence:string;blocks:string[];unknown:string[];manual_action:string;manual_due_on:string|null;version:number;source:{type:string;id:string};communication:{state:string;delivery:string};response:{text:string}|null};
 type Review = { state: string; version: number; needs_review: boolean; decided_at: number | null; reason: string };
 type Entry = { id: string; version: number; name: string; city: string; category: string; source: string; stage: string;
   qualification: { class: string; score: number; confidence?: { value: number }; pending: string[] };
-  review: Review; followup?:Followup; confirmed_count: number; evidence_count: number; draft_count: number;
+  review: Review; followup?:Followup; daily_attention?:{kind:string;label:string;reason:string}; confirmed_count: number; evidence_count: number; draft_count: number;
   contact: { email: string; whatsapp: string; phone: string };
   summary: { attention: string; services: { name: string; basis: string; type: string }[];
     facts: { id: string; statement: string; source_url: string; scope: string }[]; unknown: string[]; recommended_action: string } };
@@ -32,9 +33,10 @@ function restore(key: string): Selection[] {
   } catch { return []; }
 }
 
-export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated, initialFollowup=false }: {
-  storageKey: string; onOpenLead: (lead: Lead) => void; onLeadUpdated: (lead: Lead) => void; initialFollowup?:boolean;
+export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated, initialFollowup=false, onInvestigation, onDiscovery }: {
+  storageKey: string; onOpenLead: (lead: Lead) => void; onLeadUpdated: (lead: Lead) => void; initialFollowup?:boolean; onInvestigation?:(id?:string)=>void; onDiscovery?:()=>void;
 }) {
+  const [daily,setDaily]=useState(false), [dailyState,setDailyState]=useState<DailySnapshot|null>(null), [cohort,setCohort]=useState('all');
   const [following,setFollowing]=useState(initialFollowup), [attention,setAttention]=useState('all');
   const [nextAction,setNextAction]=useState(''),[dueOn,setDueOn]=useState(''),[overwrite,setOverwrite]=useState(false);
   const [settings,setSettings]=useState({interval_days:7,version:0,timezone:''});
@@ -55,14 +57,16 @@ export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated,
     const id=++request.current; setLoading(true);
     try {
       const query=new URLSearchParams({state,offset:String(offset),limit:'25',search,source});
-      if(following){query.set('view','followup');query.set('attention',attention);}
+      if(daily){query.set('view','daily');query.set('attention',attention);query.set('cohort',cohort);}
+      else if(following){query.set('view','followup');query.set('attention',attention);}
       if(classification) query.set('classification',classification);
-      const result=await api<{items:Entry[];total:number;index_pending:number}>('/commercial-review/queue?'+query);
+      const result=await api<{items:Entry[];total:number;index_pending:number;daily:DailySnapshot|null}>('/commercial-review/queue?'+query);
       if(id!==request.current) return;
-      setRows(result.items);setTotal(result.total);setPending(result.index_pending);setError('');
+      setRows(result.items);setTotal(result.total);setPending(result.index_pending);setDailyState(result.daily);setError('');
     } catch(e) { if(id===request.current)setError((e as Error).message); }
     finally { if(id===request.current)setLoading(false); }
-  },[classification,state,offset,search,source,following,attention]);
+  },[classification,state,offset,search,source,following,attention,daily,cohort]);
+  useEffect(()=>{if(daily){const t=setInterval(()=>{if(!document.hidden&&!busy&&!operation)void load();},15000);return()=>clearInterval(t);}},[daily,busy,operation,load]);
   useEffect(()=>{if(following)void api<typeof settings>('/followup/settings').then(setSettings).catch(e=>setError(e.message));},[following]);
   useEffect(()=>{const timer=setTimeout(()=>void load(),200);return()=>{clearTimeout(timer);request.current++;};},[load]);
   useEffect(()=>{if(!pending)return;const timer=setTimeout(()=>void load(),1000);return()=>clearTimeout(timer);},[pending,load,rows]);
@@ -94,35 +98,50 @@ export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated,
     if(!operation||!confirmed)return;setBusy(true);setError('');
     try {
       const result=await api<Operation>('/commercial-review/operations/'+operation.id+'/confirm','POST',{confirm:true},60000);
-      setOperation(result);setSelection([]);await load();await loadHistory();
+      setOperation(result);
+      const query=new URLSearchParams({state:'all',view:'followup',limit:'50'});selection.forEach(s=>query.append('lead_ids',s.id));
+      const refreshed=await api<{items:Entry[]}>('/commercial-review/queue?'+query);
+      setSelection(refreshed.items.map(r=>({id:r.id,version:r.version,review_version:r.review.version,followup_version:r.followup?.version})));
+      await load();await loadHistory();
     }catch(e){setError((e as Error).message);}finally{setBusy(false);}
+  }
+  async function investigateDetail(id:string){
+    if(selection.length>=50&&!selection.some(s=>s.id===id)){setError('A seleção já contém 50 empresas. Remova uma antes de incluir esta.');return;}
+    try{const data=await api<{items:Entry[]}>('/commercial-review/queue?state=all&view=followup&lead_ids='+encodeURIComponent(id));
+      const row=data.items[0];if(!row)throw new Error('Empresa indisponível para seleção.');
+      setSelection(current=>[...current.filter(s=>s.id!==id),{id,version:row.version,review_version:row.review.version,followup_version:row.followup?.version}]);
+      setAction('investigate');setDetail(null);requestAnimationFrame(()=>document.getElementById('commercial-batch-action')?.focus());
+    }catch(e){setError((e as Error).message);}
   }
   return <section className="commercial-queue" aria-label="Fila comercial">
     <div className="commercial-view" role="group" aria-label="Visão comercial">
-      <button className="button compact" aria-pressed={!following} onClick={()=>{setFollowing(false);setAction('reviewed');setOffset(0);setSelection([]);}}>Triagem</button>
-      <button className="button compact" aria-pressed={following} onClick={()=>{setFollowing(true);setAction('followup_set');setOffset(0);setSelection([]);}}>Acompanhamento</button>
+      <button className="button compact" aria-pressed={!following&&!daily} onClick={()=>{setDaily(false);setFollowing(false);setAction('reviewed');setAttention('all');setOffset(0);}}>Triagem</button>
+      <button className="button compact" aria-pressed={following&&!daily} onClick={()=>{setDaily(false);setFollowing(true);setAction('followup_set');setAttention('all');setOffset(0);}}>Acompanhamento</button>
+      {!initialFollowup&&<button className="button compact" aria-pressed={daily} onClick={()=>{setDaily(true);setFollowing(false);setAttention('all');setCohort('all');setAction('reviewed');setOffset(0);}}>Operação do dia</button>}
     </div>
+    {daily&&dailyState&&<DailyOperations data={dailyState} onFilter={(c,f,q='')=>{setCohort(c);setAttention(f);setClassification(q);setSearch('');setSource('');setOffset(0);}} onInvestigation={onInvestigation} onDiscovery={onDiscovery} onOperation={id=>void showOperation(id)}/>}
     {following&&<details><summary>Intervalo de acompanhamento</summary><form className="commercial-filters" onSubmit={e=>{e.preventDefault();setBusy(true);void api<typeof settings>('/followup/settings','PUT',settings.timezone?{interval_days:settings.interval_days,version:settings.version}:{interval_days:settings.interval_days,version:0}).then(s=>{setSettings(s);void load();}).catch(e=>setError(e.message)).finally(()=>setBusy(false));}}><label>Dias após contato<input type="number" min={1} max={90} value={settings.interval_days} onChange={e=>setSettings({...settings,interval_days:Number(e.target.value)})}/></label><p>Fuso: {settings.timezone}. Intervalo para revisão, sem envio automático.</p><button className="button" disabled={busy}>Salvar intervalo</button></form></details>}
     <div className="commercial-filters">
-      {following?<label>Acompanhamento<select value={attention} onChange={e=>{setAttention(e.target.value);setOffset(0);}}>{Object.entries(attentionLabels).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>:<label>Revisão<select value={state} onChange={e=>{setState(e.target.value);setOffset(0);}}>{Object.entries(states).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>}
+      {daily?<><label>Atenção<select value={attention} onChange={e=>{setAttention(e.target.value);setOffset(0);}}>{Object.entries({all:'Todas as pendências',response:'Respostas a revisar',ready:'Prontas para revisão',stale:'Revisões desatualizadas',pending:'Dados ou investigação',blocked:'Bloqueios operacionais'}).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label><label>Empresas<select value={cohort} onChange={e=>{setCohort(e.target.value);setOffset(0);}}><option value="all">Todo o estoque de atenção</option><option value="today">Incorporadas hoje</option><option value="plan">Atribuídas ao plano hoje</option></select></label></>:following?<label>Acompanhamento<select value={attention} onChange={e=>{setAttention(e.target.value);setOffset(0);}}>{Object.entries(attentionLabels).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>:<label>Revisão<select value={state} onChange={e=>{setState(e.target.value);setOffset(0);}}>{Object.entries(states).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>}
       <label>Classificação<select value={classification} onChange={e=>{setClassification(e.target.value);setOffset(0);}}><option value="">Todas as classificações</option>{Object.entries(classes).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
       <label>Empresa, cidade ou setor<input value={search} maxLength={100} onChange={e=>{setSearch(e.target.value);setOffset(0);}} /></label>
       <label>Origem<input value={source} maxLength={50} placeholder="Todas" onChange={e=>{setSource(e.target.value);setOffset(0);}} /></label>
     </div>
     {error&&<div role="alert"><p>{error}</p><button className="button" onClick={()=>void load()}>Atualizar fila</button></div>}
     {pending>0&&<p role="status">Atualizando avaliações locais: {pending} empresas restantes.</p>}
-    <div className="commercial-list-heading"><span>{total} empresas · {following?'Urgência, data e Score':'Score decrescente'}</span><button className="button compact" disabled={loading} onClick={()=>void load()}>Atualizar</button></div>
+    <div className="commercial-list-heading"><span>{total} empresas · {daily?'Atenção, data, Score e ID':following?'Urgência, data e Score':'Score decrescente'}</span><button className="button compact" disabled={loading} onClick={()=>void load()}>Atualizar</button></div>
+    {daily&&<p className="daily-context">A fila inclui pendências anteriores. Decisões, adiamentos e bloqueios humanos são preservados.</p>}
     {loading&&<p role="status">Carregando fila…</p>}
     {!loading&&!rows.length&&<p>Nenhuma empresa neste filtro.</p>}
     <ul className="commercial-list">{rows.map(row=><li key={row.id}>
       <label className="commercial-select"><input type="checkbox" aria-label={`Selecionar ${row.name}`} checked={selection.some(s=>s.id===row.id)} disabled={busy||selection.length>=50&&!selection.some(s=>s.id===row.id)} onChange={()=>toggle(row)} /></label>
       <div className="commercial-company"><strong>{row.name}</strong><span>{row.city} · {row.category}</span><small>Origem: {row.source} · {states[row.review.state]}</small></div>
       <div className="commercial-priority"><strong>Score {row.qualification.score}</strong><span>{classes[row.qualification.class]}</span><small>Confiança {row.qualification.confidence?.value ?? '—'}/100</small></div>
-      <div className="commercial-reason"><p>{following&&row.followup?<><strong>{row.followup.title}</strong><br/>{row.followup.reason}{row.followup.due_on&&<small>Data: {row.followup.due_on.split('-').reverse().join('/')}</small>}</>:row.summary.attention}</p><small>{row.confirmed_count}/{row.evidence_count} evidências confirmadas · {row.draft_count} rascunhos</small><span>{row.contact.email||row.contact.whatsapp||row.contact.phone||'Contato pendente'}</span>
+      <div className="commercial-reason">{daily&&row.daily_attention&&<p className="daily-attention">{row.daily_attention.label}: {row.daily_attention.reason}</p>}<p>{following&&row.followup?<><strong>{row.followup.title}</strong><br/>{row.followup.reason}{row.followup.due_on&&<small>Data: {row.followup.due_on.split('-').reverse().join('/')}</small>}</>:row.summary.attention}</p><small>{row.confirmed_count}/{row.evidence_count} evidências confirmadas · {row.draft_count} rascunhos</small><span>{row.contact.email||row.contact.whatsapp||row.contact.phone||'Contato pendente'}</span>
         {row.review.needs_review&&<p className="commercial-recheck">Novos dados: reavaliar decisão anterior.</p>}
       </div>
       <details className="commercial-summary"><summary>Resumo de {row.name}</summary>
-        {following&&row.followup&&<><p>Ação registrada: {row.followup.manual_action||'Nenhuma'}{row.followup.manual_due_on?' · '+row.followup.manual_due_on:''}</p><p>Base: {row.followup.source.type==='operator_declared'?'declaração do operador':row.followup.source.type==='provider_reply'?'resposta associada pelo sincronizador':row.followup.source.type==='provider_accepted'?'aceitação pelo provedor':'registro interno'} · {row.followup.confidence==='needs_human_review'?'Classificação a revisar':row.followup.confidence==='limited'?'Informação limitada':'Evento registrado'}</p>{row.followup.response&&<blockquote>{row.followup.response.text}</blockquote>}{[...row.followup.blocks,...row.followup.unknown].map((s,i)=><p key={i}>{s}</p>)}<button className="button compact" disabled={busy} onClick={()=>{setManual(row);setManualBody('');setManualDate('');manualRequest.current=crypto.randomUUID();}}>Registrar atividade de {row.name}</button></>}
+        {(following||daily)&&row.followup&&<><p>Ação registrada: {row.followup.manual_action||'Nenhuma'}{row.followup.manual_due_on?' · '+row.followup.manual_due_on:''}</p><p>Base: {row.followup.source.type==='operator_declared'?'declaração do operador':row.followup.source.type==='provider_reply'?'resposta associada pelo sincronizador':row.followup.source.type==='provider_accepted'?'aceitação pelo provedor':'registro interno'} · {row.followup.confidence==='needs_human_review'?'Classificação a revisar':row.followup.confidence==='limited'?'Informação limitada':'Evento registrado'}</p>{row.followup.response&&<blockquote>{row.followup.response.text}</blockquote>}{[...row.followup.blocks,...row.followup.unknown].map((s,i)=><p key={i}>{s}</p>)}<button className="button compact" disabled={busy} onClick={()=>{setManual(row);setManualBody('');setManualDate('');manualRequest.current=crypto.randomUUID();}}>Registrar atividade de {row.name}</button></>}
         {row.summary.services.map(s=><p key={s.name}><strong>{s.name}</strong> · Sugestão a validar: {s.basis}</p>)}
         {row.summary.facts.map(f=><p key={f.id}><a href={f.source_url} target="_blank" rel="noopener noreferrer">{f.statement}</a><br/><small>{f.scope}</small></p>)}
         <p><strong>A confirmar:</strong> {row.summary.unknown.join(' ')||'Revisar atualidade e condição de contato.'}</p><p>{row.summary.recommended_action}</p>
@@ -135,7 +154,8 @@ export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated,
       <div className="commercial-selection-count"><strong>{selection.length}/50 selecionadas</strong><button type="button" className="button compact" disabled={!selection.length||busy} onClick={()=>setSelection([])}>Limpar seleção</button><button type="button" className="button compact" disabled={busy||loading||!rows.length} onClick={()=>setSelection(current=>{
         const selected=new Map(current.map(s=>[s.id,s]));rows.forEach(r=>{if(selected.size<50||selected.has(r.id))selected.set(r.id,{id:r.id,version:r.version,review_version:r.review.version,followup_version:r.followup?.version});});return [...selected.values()];
       })}>Selecionar página</button></div>
-      <label>Ação em lote<select value={action} onChange={e=>setAction(e.target.value)}>{Object.entries(following?{...followActions,investigate:actions.investigate}:actions).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
+      <p className="daily-selection-note">A seleção permanece entre visões e após operações; versões são revalidadas em cada prévia.</p>
+      <label>Ação em lote<select id="commercial-batch-action" value={action} onChange={e=>setAction(e.target.value)}>{Object.entries(daily?{...actions,...followActions}:following?{...followActions,investigate:actions.investigate}:actions).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
       {action==='followup_set'&&<label>Próxima ação<input value={nextAction} required maxLength={180} onChange={e=>setNextAction(e.target.value)}/></label>}
       {['followup_set','followup_snooze'].includes(action)&&<label>Data da ação<input type="date" required value={dueOn} onChange={e=>setDueOn(e.target.value)}/></label>}
       {['followup_set','followup_snooze','followup_complete'].includes(action)&&<label className="commercial-consent"><input type="checkbox" checked={overwrite} onChange={e=>setOverwrite(e.target.checked)}/>Permitir substituir ou concluir ações manuais existentes, conforme a prévia.</label>}
@@ -168,7 +188,7 @@ export default function CommercialQueue({ storageKey, onOpenLead, onLeadUpdated,
       <label>Observações<textarea maxLength={1200} value={manualBody} onChange={e=>setManualBody(e.target.value)}/></label><button className="button primary" disabled={busy}>Salvar atividade</button>
     </form></Modal>}
     {detail&&<Modal title={`Revisão — ${detail.name}`} wide onClose={()=>{if(!dirty||window.confirm('Descartar alterações não salvas do rascunho?')){setDetail(null);void load();}}}>
-      <OpportunityWorkflow lead={detail} onInvestigate={()=>{setDetail(null);setAction('investigate');setError('Selecione a empresa na fila e revise a solicitação de investigação.');}} onHistory={()=>{onOpenLead(detail);setDetail(null);}} onLeadUpdated={lead=>{setDetail(lead);onLeadUpdated(lead);}} onDirty={setDirty}/>
+      <OpportunityWorkflow lead={detail} onInvestigate={()=>void investigateDetail(detail.id)} onHistory={()=>{onOpenLead(detail);setDetail(null);}} onLeadUpdated={lead=>{setDetail(lead);onLeadUpdated(lead);}} onDirty={setDirty}/>
     </Modal>}
   </section>;
 }

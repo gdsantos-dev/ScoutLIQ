@@ -1,6 +1,6 @@
 # Atualizações do ScoutLIQ
 
-O repositório privado https://github.com/gdsantos-dev/ScoutLIQ é a fonte principal. `main` representa a versão integrada. Nenhuma atualização deve começar de um ZIP antigo ou de uma cópia sem conferir o remoto.
+O repositório https://github.com/gdsantos-dev/ScoutLIQ é a fonte principal. `main` representa a versão integrada. Nenhuma atualização deve começar de um ZIP antigo ou de uma cópia sem conferir o remoto.
 
 ```powershell
 git switch main

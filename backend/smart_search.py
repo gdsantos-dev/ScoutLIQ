@@ -327,10 +327,13 @@ def create_search(db, user, intent, request_key, provider, now, options=None):
     coverage = [{'sector':s, **(legacy_capabilities(provider,intent.legacy.discovery()) if intent.legacy else capabilities(provider,s,intent.location,intent.area))} for s in discovery_sectors(intent)]
     unsupported = all(not c['supported'] for c in coverage)
     options = options or {}
+    from .investigation import preferences
+    progressive = preferences(user)
     job = SmartSearch(user_id=user.id, request_key=request_key,intent_json=intent.model_dump_json(),
         status='partial' if unsupported else 'pending', deadline=now+options.get('duration_minutes',120)*60,
         state_json=json.dumps({'candidates':[], 'sector':0,'offset':0,'calls':0,'discovered':0,'duplicates':0,'created':0,'existing':0,'investigated':0,
                               **options,
+                              'progressive_config': progressive if progressive['search'] else None,
                               'plan':discovery_plan.initialize(coverage),
                               'authorized_provider':getattr(provider,'name','unconfigured'),
                               'coverage':coverage,'reason':coverage[0]['reason'] if unsupported else ''}))
@@ -444,7 +447,7 @@ def persist(db, job, result, now):
             result=result.model_copy(update={'results':result.results[:remaining]})
         previous_count=len(entries)
         known=set(db.scalars(select(Lead.id).where(Lead.user_id==user.id)).all())
-        response=_persist_discovery(query_for(intent,info),result,user,db,commit=False)
+        response=_persist_discovery(query_for(intent,info),result,user,db,commit=False,auto_investigation=False)
         newly_incorporated=[r['id'] for r in response['results'] if r['id'] not in known]
         if intent.legacy:
             from .monitor_matching import matches
@@ -511,6 +514,13 @@ def persist(db, job, result, now):
         info['investigated']=sum(i.status in ('done','error','skipped') for i in items)
         if any(i.status in ('pending','running') for i in items) and now<job.deadline:
             job.status='investigating'; job.state_json=json.dumps(info); return
+    if info.get('prospecting_plan_id') and batch:
+        from .prospecting import owned as owned_plan, progress, config as plan_config
+        plan = owned_plan(db, user)
+        if plan and progress(db,plan,now)['incorporated'] >= plan_config(plan).daily_target:
+            job.status='completed' if qualified>=intent.target else 'partial'
+            info['reason']='Meta diária atingida; investigação autorizada concluída e resultados preservados.'
+            job.updated_at=now;job.state_json=json.dumps(info);return
     discovery_plan.choose(info)
     stalled=(info.get('stalled_pages',0)>=2 and not info.get('plan')) or (bool(info.get('plan')) and info['sector']>=len(discovery_sectors(intent)) and any(s.get('stalled',0)>=2 for s in info['plan']['steps']))
     exhausted=stalled or info['sector']>=len(discovery_sectors(intent)) or info.get('attempted_pages',0)>=info.get('page_limit',MAX_CALLS) or info['discovered']>=info.get('candidate_limit',MAX_CANDIDATES) or info.get('workspace_limit')
@@ -522,13 +532,16 @@ def persist(db, job, result, now):
                            'strategy':'Diversidade entre prioridades equivalentes; Score preservado.'}
     if broad and not exhausted and now<job.deadline and info['calls']<min(2,info.get('page_limit',MAX_CALLS)):
         job.status='pending';job.updated_at=now;job.state_json=json.dumps(info);return
-    if qualified>=intent.target:
+    progressive = info.get('progressive_config')
+    needs_progressive = progressive and not batch and any(e['origin']=='new' and e['group']!='discarded' for e in entries)
+    if qualified>=intent.target and not needs_progressive:
         job.status='completed'; info['reason']='Meta de oportunidades qualificadas atingida.'
     elif now>=job.deadline:
         job.status='partial'; info['reason']='Prazo da execução encerrado; resultado parcial preservado.'
         if batch and batch.status not in ('completed','cancelled'): batch.status='cancelled'
     else:
-        candidates=[e for e in entries if e['group']=='investigating' and e['id'] not in attempted]
+        candidates=[e for e in entries if e['id'] not in attempted and
+            (e['origin']=='new' and e['group']!='discarded' if progressive else e['group']=='investigating')]
         if info.get('cooldown_days'):
             recent=set(db.scalars(select(LeadResearch.lead_id).where(LeadResearch.user_id==user.id,
                 LeadResearch.checked_at>now-info['cooldown_days']*86400)).all())
@@ -544,8 +557,21 @@ def persist(db, job, result, now):
             ResearchBatchItem.status.in_(['pending','running']))))
         candidates=[entry for entry in candidates if entry['id'] not in pending_elsewhere]
         remaining=info.get('investigation_limit',MAX_INVESTIGATIONS)-len(attempted)
-        candidates=candidates[:min(remaining,max(0,intent.target-qualified)*2,50)]
-        if candidates:
+        if progressive:
+            from .investigation import preferences
+            current = preferences(user)
+            # One canonical bounded progressive batch per search, linked before commit.
+            # Reencounters never create automatic items. Current opt-out prevents admission.
+            remaining = min(remaining, progressive['execution_limit'], current['execution_limit']) if not batch and current['search'] else 0
+        candidates=candidates[:max(0,min(remaining,50 if progressive else max(0,intent.target-qualified)*2,50))]
+        if candidates and progressive:
+            from .investigation import enqueue
+            batches=enqueue(db,user,[e['id'] for e in candidates],source='search',request_key=job.id)
+            if batches:
+                batch=batches[0];job.batch_id=batch.id;job.status='investigating'
+            else:
+                job.status='partial';info['reason']='Investigação automática desativada; empresas preservadas.'
+        elif candidates:
             if not batch:
                 batch=ResearchBatch(user_id=user.id,mode=info.get('research_mode','deep'),status='pending',requested_count=0)
                 db.add(batch); db.flush(); job.batch_id=batch.id

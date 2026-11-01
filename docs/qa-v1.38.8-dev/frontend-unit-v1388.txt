@@ -1,0 +1,12 @@
+
+> scoutliq@1.38.7-dev test
+> vitest run
+
+
+ RUN  v4.1.12 $WORKSPACE/frontend
+
+
+ Test Files  8 passed (8)
+      Tests  27 passed (27)
+   Start at  15:35:28
+   Duration  4.81s (transform 6.67s, setup 0ms, import 8.38s, tests 775ms, environment 3ms)
