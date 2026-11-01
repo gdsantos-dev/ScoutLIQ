@@ -63,4 +63,4 @@ Para atualizar uma instalação existente, faça backup consistente do banco, pa
 - Próximo passo: revisar o PR e decidir a integração. Depois, homologar em ambiente de teste os provedores e infraestrutura pretendidos, com credenciais e autorizações próprias. Nenhuma homologação implica autorização de contato.
 - Avaliar separadamente a divergência de visibilidade do repositório. Não modificá-la sem autorização.
 
-Não houve merge, deploy, alteração de banco pessoal, geração de ZIP ou envio comercial. Nas próximas entregas, conferir `origin/main`, usar branch `codex/<assunto>`, commits e PR, seguindo [CONTRIBUTING](CONTRIBUTING.md).
+Não houve merge, deploy, alteração de banco pessoal, geração de ZIP ou envio comercial. Nas próximas entregas, conferir `origin/main`, usar branch `v<versao>-<funcao>` (ex.: `v1.38.9-confiabilidade`), commits e PR, seguindo [CONTRIBUTING](CONTRIBUTING.md).
