@@ -1,10 +1,21 @@
 # ScoutLIQ — código principal
 
-Repositório privado: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
+Repositório: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
 
 Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. Próximas alterações seguem [CONTRIBUTING](CONTRIBUTING.md), em branches e commits. As seções abaixo preservam o histórico das entregas; não substituem essas instruções de continuidade.
 
 ---
+
+## v1.38.8-dev — Integração da operação diária
+
+Radar → Fila comercial → Operação do dia. Continuidade entre plano, descoberta e investigação; revisão e preparação mantêm seleção, prévia e confirmação canônicas. Revisão Alembic **033**, sem nova migração.
+
+- [Auditoria do fluxo](docs/FLOW-AUDIT-v1.38.8-dev.md)
+- [Arquitetura](docs/ARCHITECTURE-v1.38.8-dev.md)
+- [Validação](docs/VALIDATION-v1.38.8-dev.md)
+- [Changelog](docs/CHANGELOG-v1.38.8-dev.md)
+
+Visibilidade verificada em 31/10/2026: pública. A descrição anterior como privada divergia da API. A visibilidade não foi alterada.
 
 ## v1.38.7-dev — Planejamento de prospecção
 

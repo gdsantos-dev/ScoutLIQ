@@ -1,0 +1,138 @@
+{
+  "suites": [
+    {
+      "suite": "general-search",
+      "port": 9440,
+      "exit_code": 0,
+      "seconds": 54.08,
+      "passed": 3
+    },
+    {
+      "suite": "unified-search",
+      "port": 9441,
+      "exit_code": 0,
+      "seconds": 94.17,
+      "passed": 9
+    },
+    {
+      "suite": "map-search",
+      "port": 9442,
+      "exit_code": 0,
+      "seconds": 55.49,
+      "passed": 1
+    },
+    {
+      "suite": "smart-search",
+      "port": 9443,
+      "exit_code": 0,
+      "seconds": 49.44,
+      "passed": 3
+    },
+    {
+      "suite": "absorption",
+      "port": 9444,
+      "exit_code": 0,
+      "seconds": 40.8,
+      "passed": 5
+    },
+    {
+      "suite": "autonomy",
+      "port": 9445,
+      "exit_code": 0,
+      "seconds": 41.7,
+      "passed": 2
+    },
+    {
+      "suite": "experience",
+      "port": 9446,
+      "exit_code": 0,
+      "seconds": 38.67,
+      "passed": 3
+    },
+    {
+      "suite": "workflow",
+      "port": 9447,
+      "exit_code": 0,
+      "seconds": 55.11,
+      "passed": 5
+    },
+    {
+      "suite": "absorption-intelligent",
+      "port": 9448,
+      "exit_code": 0,
+      "seconds": 75.28,
+      "passed": 4
+    },
+    {
+      "suite": "redesign",
+      "port": 9449,
+      "exit_code": 0,
+      "seconds": 426.92,
+      "passed": 25
+    },
+    {
+      "suite": "learning",
+      "port": 9450,
+      "exit_code": 0,
+      "seconds": 33.41,
+      "passed": 2
+    },
+    {
+      "suite": "intelligence",
+      "port": 9451,
+      "exit_code": 0,
+      "seconds": 43.39,
+      "passed": 2
+    },
+    {
+      "suite": "communication",
+      "port": 9452,
+      "exit_code": 0,
+      "seconds": 30.05,
+      "passed": 1
+    },
+    {
+      "suite": "investigation",
+      "port": 9453,
+      "exit_code": 0,
+      "seconds": 64.7,
+      "passed": 3
+    },
+    {
+      "suite": "commercial-queue",
+      "port": 9422,
+      "exit_code": 0,
+      "seconds": 80.83,
+      "passed": 2
+    },
+    {
+      "suite": "followup",
+      "port": 9424,
+      "exit_code": 0,
+      "seconds": 71.03,
+      "passed": 2
+    },
+    {
+      "suite": "operations",
+      "port": 9426,
+      "exit_code": 0,
+      "seconds": 75.42,
+      "passed": 3
+    },
+    {
+      "suite": "planning",
+      "port": 9428,
+      "exit_code": 0,
+      "seconds": 83.14,
+      "passed": 2
+    },
+    {
+      "suite": "daily-operations",
+      "port": 9480,
+      "exit_code": 0,
+      "seconds": 116.98,
+      "passed": 2
+    }
+  ],
+  "total_passed": 79
+}

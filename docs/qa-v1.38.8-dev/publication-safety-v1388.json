@@ -1,0 +1,6 @@
+{
+  "files_checked": 68,
+  "forbidden_paths": [],
+  "high_confidence_secret_patterns": [],
+  "scope": "Files selected for publication, with synthetic fixture credentials reviewed separately. Pattern scanning is not a guarantee of detection of every secret."
+}

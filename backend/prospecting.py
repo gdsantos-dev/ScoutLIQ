@@ -405,7 +405,12 @@ def run_block(db, run, now, provider=None):
         if check['blockers'] or check['token']!=plan.authorization: return 'Autorização do plano alterada.'
     stats=progress(db,plan,now)
     if stats['operations']>=cfg.daily_operations: return 'Orçamento diário do plano esgotado.'
-    if stats['incorporated']>=cfg.daily_target: return 'Meta diária atingida; resultados preservados.'
+    if stats['incorporated']>=cfg.daily_target:
+        job = db.get(SmartSearch, run.search_id) if run.search_id else None
+        # Reaching the incorporation goal stops discovery, not the bounded batch
+        # already admitted by this search. Window, consent and budgets still apply.
+        if not job or job.status != 'investigating':
+            return 'Meta diária atingida; resultados preservados.'
     return ''
 
 

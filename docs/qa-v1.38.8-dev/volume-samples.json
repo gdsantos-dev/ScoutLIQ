@@ -1,0 +1,12 @@
+{
+  "companies": 1000,
+  "select_queries_per_run": 39,
+  "max_index_refresh": 250,
+  "pending_index": 750,
+  "seconds_observed": [
+    1.979,
+    1.427,
+    0.9
+  ],
+  "note": "Samples observed during this cycle under different local loads, not a statistical benchmark or SLA. All made zero provider calls."
+}

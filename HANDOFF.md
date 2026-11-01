@@ -1,41 +1,30 @@
-# ScoutLIQ — Handoff v1.38.7-dev
+# ScoutLIQ — Handoff v1.38.8-dev
 
-## Fonte principal e escopo desta publicação
+## Fonte principal e estado da entrega
 
-Repositório privado: https://github.com/gdsantos-dev/ScoutLIQ. Branch principal: `main`.
-A partir desta publicação, o GitHub e o histórico Git são a fonte principal do código. ZIPs anteriores são artefatos históricos; não desenvolver sobre `work/` nem aplicar um ZIP por cima de alterações do Git.
+Repositório: https://github.com/gdsantos-dev/ScoutLIQ. Branch principal: `main`.
+Base confirmada: `d8d717a14a03ee60a3f3719881d0fb0553162a4d`. Desenvolvimento: `codex/v1.38.8-operacao-diaria`.
+O GitHub é a fonte principal. ZIPs e `work/` são históricos; não aplicar essas cópias sobre o checkout.
 
-Base importada: `ScoutLIQ-v1.38.7-dev-FULL.zip`, SHA-256 `2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac`.
-Commit da importação fiel: `7f7c4db2ce7bc10b3b1887d785da848b8f22c0f8`. Os 779 arquivos do FULL foram comparados com o conteúdo do índice Git antes desse commit. A pasta externa `ScoutLIQ/` do ZIP corresponde à raiz do repositório; caminhos internos foram preservados.
+**Visibilidade reconfirmada em 31/10/2026: pública**, pela API autenticada. A consulta anterior ao conector também reportou pública. A documentação anterior dizia privada. A visibilidade não foi alterada; sua decisão permanece com o proprietário. O momento e a causa da divergência não foram inferidos.
 
-Esta etapa acrescenta documentação e proteção de versionamento. Não altera backend, frontend, testes, dependências, migrações ou funcionalidades. Os manifestos de release existentes continuam descrevendo o FULL original, anterior aos ajustes de documentação e `.gitignore`; não devem ser reinterpretados como manifestos de todos os commits futuros.
+## O que mudou
 
-## O que está desenvolvido
+- SmartSearch admite a investigação automática opt-in em um lote progressivo canônico ligado à pesquisa e à rotina. Limites, cancelamento, fencing, ledger e orçamento continuam no worker compartilhado.
+- Atingir a meta de incorporações impede nova descoberta, mas permite concluir o lote já admitido dentro da janela, consentimento e orçamento.
+- Radar → Fila comercial → Operação do dia mostra meta, origens, investigações, qualificação, pesquisas, decisões e operações recuperáveis. Prioriza respostas, revisão, contexto alterado, dados pendentes e bloqueios a partir dos índices existentes.
+- Seleção de até 50 empresas permanece entre visões e após operações. Versões são atualizadas para a próxima prévia; cada operação ainda exige confirmação explícita. O detalhe reutiliza essa seleção para investigar.
+- Nenhum novo Score, scheduler, formulário de comunicação, integração paga ou serviço. Não houve envio comercial.
 
-Aplicação de prospecção comercial da ORLIQ: React/TypeScript/Vite no frontend, FastAPI/SQLAlchemy/Alembic no backend, com pesquisa, Score 3.0, evidências, Radar, Pipeline/CRM, Sites, absorção, investigação, operações comerciais, acompanhamento, aprendizado supervisionado e infraestrutura de comunicação.
+A meta diária mantém a definição de 1.38.7: empresas novas reais de todas as origens, sem duplicatas, demonstração ou descartes explícitos. A atribuição ao plano é uma medida separada. Investigadas e qualificadas são estados atuais; não são vendas ou conversões.
 
-A v1.38.7-dev acrescentou planejamento diário em Automações, desativado por padrão: metas, pesquisas e localizações autorizadas, prioridades, janela/horários, limites persistentes, consentimento vinculado à prévia, pausa/retomada/desativação, progresso, histórico e sugestões baseadas nos indicadores existentes. Reutiliza rotinas, ledger e worker; não cria um motor de score ou scheduler concorrente. A migração aditiva é **033 sobre 032**.
+## Validação e documentação
 
-Fontes principais: `backend/prospecting.py`, `backend/prospecting_models.py`, `migrations/versions/033_prospecting_plans.py`, `frontend/src/components/ProspectingPlan.tsx`. Consulte [arquitetura](docs/ARCHITECTURE-v1.38.7-dev.md), [métricas](docs/METRICS-v1.38.7-dev.md) e [changelog](docs/CHANGELOG-v1.38.7-dev.md).
+Resultados executados e evidências: [VALIDATION](docs/VALIDATION-v1.38.8-dev.md) e `docs/qa-v1.38.8-dev/`.
+Contratos e limites: [ARCHITECTURE](docs/ARCHITECTURE-v1.38.8-dev.md). Auditoria da base: [FLOW-AUDIT](docs/FLOW-AUDIT-v1.38.8-dev.md).
+Mudanças: [CHANGELOG](docs/CHANGELOG-v1.38.8-dev.md); relação de arquivos: [CHANGED-FILES](docs/CHANGED-FILES-v1.38.8-dev.md).
 
-## O que foi testado
-
-Evidências da entrega local anterior à publicação, preservadas em `docs/qa-v1.38.7-dev/` e [VALIDATION](docs/VALIDATION-v1.38.7-dev.md):
-
-| Verificação da versão | Resultado registrado |
-|---|---|
-| Backend completo | 592 testes aprovados |
-| Frontend unitário | 27 testes aprovados |
-| TypeScript aplicação e E2E | Aprovado |
-| Build Vite | Aprovado |
-| Navegador Chromium | 77 E2E em 18 suítes, incluindo mobile, teclado, Axe e recuperação |
-| FULL extraído em ambiente limpo | 79 testes aprovados |
-| Preservação dos mecanismos existentes | 61 fontes/migrações canônicas idênticas à base |
-| Agregações de progresso | 1.000 e 10.000 empresas; 8 consultas em ambos os casos |
-
-Nesta publicação foram revalidados hash/CRC do FULL, manifesto interno, igualdade integral do commit de importação, ausência de runtime no índice, revisão de candidatos a segredos e restrições de `.gitignore`. A regressão funcional não foi reexecutada nesta etapa: não houve alteração funcional. Isso não é uma execução de CI no GitHub nem homologação externa.
-
-O PATCH anterior foi validado por equivalência com o FULL, proteção de runtime, recusa de conflitos/reaplicação e rollback de fontes. Os recibos independentes dessa entrega estão em `docs/github-publication/`. Referem-se ao ZIP original, não a uma nova execução nesta publicação.
+A revisão Alembic continua **033**. Não há migração nova. Autenticação, políticas de contato, Score 3.0, evidências, histórico e configuração dos planos foram preservados.
 
 ## Execução local a partir do GitHub
 
@@ -63,28 +52,15 @@ O supervisor existente prepara o diretório de dados, executa Alembic até `033`
 
 Para atualizar uma instalação existente, faça backup consistente do banco, pare os processos, atualize fontes/dependências e siga [INSTALL](docs/INSTALL-v1.38.7-dev.md). Nunca remover dados para contornar o bloqueio de downgrade da migração 033.
 
-## Limitações e problemas conhecidos
+## Limitações e próximos passos
 
-- Implementado e testado localmente; PostgreSQL, provedores reais, Docker/Railway, produção/HTTPS, Safari, dispositivos físicos e leitores de tela não estão homologados por essa evidência.
-- Qualidade comercial real, custo monetário e lucratividade dependem de observação externa; não foram inferidos de fixtures.
-- Descartes anteriores à observação da migração 033 não têm cobertura histórica completa. Exclusões de dados e alterações de fuso podem afetar comparações históricas.
-- Um plano por conta; até 20 pesquisas; no máximo uma execução por pesquisa/dia; cooldown mínimo de 24 h; janela dentro do mesmo dia; histórico limitado a 366 dias/200 decisões e até 200 opções exibidas.
-- Avisos preexistentes de depreciação Starlette/anyio e tamanho do chunk de mapa do Vite. Não houve atualização de dependências nesta publicação nem nova auditoria externa de CVEs.
-- Documentos e empacotadores antigos são históricos. Os scripts de empacotamento incremental precisam dos ZIPs-base fora do Git; não são necessários para executar o aplicativo.
-- Não foi criado pipeline de CI nem configurado deploy automático. A presença de Dockerfile e railway.toml não representa deploy realizado.
+- Implementado e validado localmente com SQLite e adaptadores sintéticos. PostgreSQL, Docker/Railway, produção/HTTPS, provedores reais, Safari, dispositivos físicos e leitores de tela continuam sem homologação externa.
+- Um lote progressivo por pesquisa, com o menor teto da busca e das preferências atual/capturada, até 25 empresas. Excedentes permanecem disponíveis para investigação manual autorizada. Sem backfill de pesquisas antigas.
+- A fila atualiza até 250 índices locais por chamada e informa cobertura pendente. Resultados refletem o estado atual do estoque; exclusão de registros, mudança de fuso e descartes anteriores à observação de 033 limitam comparações históricas.
+- Consultas mostram até 20 pesquisas abertas/recentes, cinco decisões e cinco operações do dia; avisos indicam truncamento e os históricos canônicos permanecem acessíveis.
+- Qualidade comercial, custo monetário, lucratividade e economia de tempo não foram medidos em operação real.
+- Permanecem os avisos conhecidos de Starlette/anyio e do chunk de mapa do Vite. Dependências não foram atualizadas; os lockfiles foram auditados neste ciclo.
+- Próximo passo: revisar o PR e decidir a integração. Depois, homologar em ambiente de teste os provedores e infraestrutura pretendidos, com credenciais e autorizações próprias. Nenhuma homologação implica autorização de contato.
+- Avaliar separadamente a divergência de visibilidade do repositório. Não modificá-la sem autorização.
 
-## Segurança da publicação
-
-Nenhum `.env` real, senha/token de serviço, banco, sessão, chave privada, cache, dependência instalada ou backup foi incluído. `.env.example` contém campos de segredo vazios. Constantes de autenticação das fixtures são sintéticas, restritas aos testes, e não são credenciais da instalação. A revisão de padrões não equivale a uma auditoria exaustiva de segurança. O Git usa identidade noreply para não expor o e-mail pessoal do autor.
-
-Não houve deploy, mudança em banco pessoal, consumo de cotas de prospecção ou envio comercial. As integrações continuam exigindo configuração própria e autorização de contato.
-
-## Próximos passos
-
-1. Trabalhar a partir de `main` atualizada, em branches `codex/<assunto>`, com commits descritivos e revisão por pull request. Ver [CONTRIBUTING](CONTRIBUTING.md).
-2. Em cada alteração funcional, executar testes proporcionais e atualizar o relatório com o que realmente foi testado. Preservar evidências e migrações existentes.
-3. Preparar CI com bancos sintéticos, sem credenciais reais, em uma alteração separada; não considerar a ausência de CI uma falha funcional desta versão.
-4. Homologar PostgreSQL/provedores/produção somente em ambiente apropriado, com credenciais próprias, revisão de segurança e autorização correspondente.
-5. Continuar a evolução comercial a partir dos limites documentados, sem reimplementar planejamento, worker, Score 3.0 ou infraestrutura de comunicação.
-
-ZIPs futuros, quando solicitados, devem ser gerados do commit revisado do GitHub e identificar seu SHA. Não usar ZIPs ou cópias locais antigas como fonte principal.
+Não houve merge, deploy, alteração de banco pessoal, geração de ZIP ou envio comercial. Nas próximas entregas, conferir `origin/main`, usar branch `v<versao>-<funcao>` (ex.: `v1.38.9-confiabilidade`), commits e PR, seguindo [CONTRIBUTING](CONTRIBUTING.md).

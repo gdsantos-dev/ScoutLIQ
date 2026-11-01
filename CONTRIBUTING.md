@@ -1,19 +1,21 @@
 # Atualizações do ScoutLIQ
 
-O repositório privado https://github.com/gdsantos-dev/ScoutLIQ é a fonte principal. `main` representa a versão integrada. Nenhuma atualização deve começar de um ZIP antigo ou de uma cópia sem conferir o remoto.
+O repositório https://github.com/gdsantos-dev/ScoutLIQ é a fonte principal. `main` representa a versão integrada. Nenhuma atualização deve começar de um ZIP antigo ou de uma cópia sem conferir o remoto.
 
 ```powershell
 git switch main
 git pull --ff-only origin main
-git switch -c codex/descricao-da-alteracao
+git switch -c v1.38.9-confiabilidade # Exemplo: versao + funcao
 # Implementar e validar a alteração autorizada.
 git status --short
 git diff --check
 git add caminho/dos/arquivos-revisados
 git diff --cached
 git commit -m "fix: descreva a mudança concreta"
-git push -u origin codex/descricao-da-alteracao
+git push -u origin v1.38.9-confiabilidade
 ```
+
+Nomeie as branches de desenvolvimento com `v<versao>-<funcao>` (por exemplo, `v1.38.9-confiabilidade` ou `v1.38.10-qualidade-comercial`). A versao e a funcao devem identificar o ciclo. Nao usar prefixos por ferramenta, como `codex/`, nem prefixos de tipo como `chore/` por padrao.
 
 Abra um pull request para `main`, descrevendo problema, mudança, testes e limites. Não sobrescrever histórico remoto nem usar force push na branch principal. Essa é a política de trabalho; não há promessa de proteção de branch imposta pelo plano do GitHub.
 
