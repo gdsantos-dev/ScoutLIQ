@@ -104,7 +104,7 @@ def main():
         # Do not echo driver errors or SQL payloads into service logs. Operators
         # can run Alembic explicitly in a protected console for deeper diagnosis.
         subprocess.run([sys.executable,'-m','alembic','upgrade','head'],check=True,
-                       stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=120)
+                       stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         stage='bootstrap'
         from backend.bootstrap import bootstrap
         bootstrap()

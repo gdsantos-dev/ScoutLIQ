@@ -1,4 +1,5 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from uuid import uuid4
 from concurrent.futures import ThreadPoolExecutor
 from sqlalchemy import select
@@ -6,9 +7,14 @@ from backend.db import SessionLocal
 from backend.models import Lead, User, Session
 from backend.security import hasher
 
+def operation_today():
+    # The fixture account timezone is independent of the host/CI timezone.
+    return datetime.now(ZoneInfo('America/Sao_Paulo')).date()
+
+
 def make_sale(auth,lead_data,amount=250000):
     lead=auth.post('/api/leads',json=lead_data).json()
-    today=str(date.today())
+    today=str(operation_today())
     res=auth.post('/api/sales',json={'lead_id':lead['id'],'service':'Site institucional','amount_cents':amount,'sold_on':today,'due_on':today})
     assert res.status_code==201,res.text
     return lead,res.json()
@@ -23,7 +29,7 @@ def test_private_endpoints_and_headers(client):
 
 def test_sites_crud_alerts_conflict_and_export(auth,lead_data):
     _,sale=make_sale(auth,lead_data)
-    body={'sale_id':sale['id'],'name':'Site Teste','domain':'example.com','renewal_on':str(date.today()+timedelta(days=10)),'monthly_revenue_cents':14900,'monthly_cost_cents':2900,'status':'active'}
+    body={'sale_id':sale['id'],'name':'Site Teste','domain':'example.com','renewal_on':str(operation_today()+timedelta(days=10)),'monthly_revenue_cents':14900,'monthly_cost_cents':2900,'status':'active'}
     response=auth.post('/api/sites',json=body)
     assert response.status_code==201,response.text
     item=response.json()
@@ -48,7 +54,7 @@ def test_sites_ownership_and_input_boundaries(auth,lead_data):
         db.add(user);db.flush()
         lead=Lead(user_id=user.id,name='Other',category='Cafe',city='Recife',latitude=-8,longitude=-34)
         db.add(lead);db.flush()
-        other_sale=Sale(user_id=user.id,lead_id=lead.id,service='Site',amount_cents=100,sold_on=str(date.today()),due_on=str(date.today()))
+        other_sale=Sale(user_id=user.id,lead_id=lead.id,service='Site',amount_cents=100,sold_on=str(operation_today()),due_on=str(operation_today()))
         db.add(other_sale);db.flush()
         other=Site(user_id=user.id,sale_id=other_sale.id,name='Private site')
         db.add(other);db.commit();other_id=other.id;other_sale_id=other_sale.id
@@ -110,7 +116,7 @@ def test_next_action_requires_active_pipeline_and_uses_versioning(auth,lead_data
     lead=auth.post('/api/leads',json=lead_data).json()
     blocked=auth.patch(
         f"/api/leads/{lead['id']}/next-action",
-        json={'next_action':'Ligar amanhã','next_action_on':str(date.today()),'version':lead['version']},
+        json={'next_action':'Ligar amanhã','next_action_on':str(operation_today()),'version':lead['version']},
     )
     assert blocked.status_code==409
 
@@ -120,12 +126,12 @@ def test_next_action_requires_active_pipeline_and_uses_versioning(auth,lead_data
     ).json()
     saved=auth.patch(
         f"/api/leads/{lead['id']}/next-action",
-        json={'next_action':'  Enviar proposta pelo WhatsApp  ','next_action_on':str(date.today()),'version':moved['version']},
+        json={'next_action':'  Enviar proposta pelo WhatsApp  ','next_action_on':str(operation_today()),'version':moved['version']},
     )
     assert saved.status_code==200,saved.text
     updated=saved.json()
     assert updated['next_action']=='Enviar proposta pelo WhatsApp'
-    assert updated['next_action_on']==str(date.today())
+    assert updated['next_action_on']==str(operation_today())
     assert auth.patch(
         f"/api/leads/{lead['id']}/next-action",
         json={'next_action':'Outra','next_action_on':None,'version':moved['version']},
@@ -139,7 +145,7 @@ def test_next_action_requires_active_pipeline_and_uses_versioning(auth,lead_data
 
     scheduled=auth.patch(
         f"/api/leads/{lead['id']}/next-action",
-        json={'next_action':'Fazer follow-up','next_action_on':str(date.today()),'version':cleared['version']},
+        json={'next_action':'Fazer follow-up','next_action_on':str(operation_today()),'version':cleared['version']},
     ).json()
     lost=auth.patch(
         f"/api/leads/{lead['id']}/stage",
@@ -159,7 +165,7 @@ def test_stage_conflict_and_persistence(auth,lead_data):
 def test_sale_payment_balance_idempotency_and_summary(auth,lead_data):
     lead,sale=make_sale(auth,lead_data)
     assert auth.get('/api/leads').json()[0]['stage']=='won'
-    payload={'amount_cents':100000,'paid_on':str(date.today()),'request_id':str(uuid4())}
+    payload={'amount_cents':100000,'paid_on':str(operation_today()),'request_id':str(uuid4())}
     path=f"/api/sales/{sale['id']}/payments"
     first=auth.post(path,json=payload)
     second=auth.post(path,json=payload)
@@ -167,7 +173,7 @@ def test_sale_payment_balance_idempotency_and_summary(auth,lead_data):
     assert first.json()['id']==second.json()['id']
     assert auth.post(path,json={**payload,'amount_cents':1}).status_code==409
     assert auth.post(path,json={**payload,'amount_cents':160000,'request_id':str(uuid4())}).status_code==422
-    cost=auth.post('/api/expenses',json={'description':'Hospedagem','amount_cents':10000,'incurred_on':str(date.today()),'request_id':str(uuid4())})
+    cost=auth.post('/api/expenses',json={'description':'Hospedagem','amount_cents':10000,'incurred_on':str(operation_today()),'request_id':str(uuid4())})
     assert cost.status_code==201
     report=auth.get('/api/dashboard').json()
     assert report['revenue_cents']==250000
@@ -181,7 +187,7 @@ def test_delete_payment_recalculates_sale_and_dashboard(auth,lead_data):
     _,sale=make_sale(auth,lead_data)
     payment=auth.post(
         f"/api/sales/{sale['id']}/payments",
-        json={'amount_cents':50000,'paid_on':str(date.today()),'request_id':str(uuid4())}
+        json={'amount_cents':50000,'paid_on':str(operation_today()),'request_id':str(uuid4())}
     ).json()
     assert auth.get('/api/dashboard').json()['received_cents']==50000
     response=auth.delete(f"/api/sales/{sale['id']}/payments/{payment['id']}")
@@ -194,7 +200,7 @@ def test_delete_sale_keeps_lead_and_reopens_pipeline(auth,lead_data):
     lead,sale=make_sale(auth,lead_data)
     auth.post(
         f"/api/sales/{sale['id']}/payments",
-        json={'amount_cents':50000,'paid_on':str(date.today()),'request_id':str(uuid4())}
+        json={'amount_cents':50000,'paid_on':str(operation_today()),'request_id':str(uuid4())}
     )
     response=auth.delete(f"/api/sales/{sale['id']}")
     assert response.status_code==200,response.text
@@ -220,7 +226,7 @@ def test_delete_sale_with_site_removes_linked_site(auth,lead_data):
 def test_concurrent_payments_cannot_overpay(auth,lead_data):
     _,sale=make_sale(auth,lead_data,10000)
     def pay(_):
-        return auth.post(f"/api/sales/{sale['id']}/payments",json={'amount_cents':7000,'paid_on':str(date.today()),'request_id':str(uuid4())}).status_code
+        return auth.post(f"/api/sales/{sale['id']}/payments",json={'amount_cents':7000,'paid_on':str(operation_today()),'request_id':str(uuid4())}).status_code
     with ThreadPoolExecutor(max_workers=2) as pool:
         result=list(pool.map(pay,range(2)))
     assert sorted(result)==[201,422]
@@ -266,9 +272,9 @@ def test_export_has_stable_ids_no_credentials(auth,lead_data):
 
 def test_invalid_dates_and_money(auth,lead_data):
     lead=auth.post('/api/leads',json=lead_data).json()
-    body={'lead_id':lead['id'],'service':'Site','amount_cents':1000,'sold_on':str(date.today()),'due_on':str(date.today()-timedelta(days=1))}
+    body={'lead_id':lead['id'],'service':'Site','amount_cents':1000,'sold_on':str(operation_today()),'due_on':str(operation_today()-timedelta(days=1))}
     assert auth.post('/api/sales',json=body).status_code==422
-    body['due_on']=str(date.today())
+    body['due_on']=str(operation_today())
     body['amount_cents']=12.3
     assert auth.post('/api/sales',json=body).status_code==422
 

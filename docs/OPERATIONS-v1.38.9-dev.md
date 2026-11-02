@@ -76,6 +76,7 @@ Depois compare revisão, contagens, relações e resultados conhecidos, execute 
 ## Reproduzir testes
 
 ```sh
+python -c "from pathlib import Path; Path('artifacts').mkdir(exist_ok=True)"
 python -m pytest -q --basetemp artifacts/pytest-local
 python scripts/check_repository.py
 python -m pip_audit -r requirements-dev.lock --no-deps --disable-pip

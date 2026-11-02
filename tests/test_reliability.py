@@ -60,6 +60,30 @@ def test_health_database_outage_is_safe_503(client, monkeypatch):
         main.app.dependency_overrides.pop(main.get_db)
 
 
+def test_readiness_rejects_old_schema_even_without_combined_worker(client, monkeypatch):
+    monkeypatch.setenv('SCOUTLIQ_PROCESS_MODE', 'web')
+    monkeypatch.setattr(diagnostics, 'schema_ready', lambda _: False)
+    assert client.get('/api/health').status_code == 200
+    response = client.get('/api/health/ready')
+    assert response.status_code == 503 and response.json() == {'status': 'unavailable'}
+
+
+def test_migration_startup_failure_is_redacted_and_does_not_bootstrap(monkeypatch, caplog):
+    from scripts import start
+    import subprocess
+    monkeypatch.setattr(start, 'prepare_volume', lambda: None)
+    monkeypatch.setattr(start, 'validate_environment', lambda: 'combined')
+    def fail(*args, **kwargs):
+        assert kwargs['stdout'] == subprocess.DEVNULL and kwargs['stderr'] == subprocess.DEVNULL
+        raise RuntimeError('secret-connection-url-and-private-data')
+    monkeypatch.setattr(start.subprocess, 'run', fail)
+    with pytest.raises(RuntimeError, match='Startup failed') as error:
+        start.main()
+    assert 'secret-connection' not in str(error.value) + caplog.text
+    events = [json.loads(r.message) for r in caplog.records if r.name == 'scoutliq.operations']
+    assert events == [{'event': 'startup_failed', 'component': 'supervisor', 'state': 'migration', 'retryable': False}]
+
+
 @pytest.mark.parametrize('name', ['.env', 'config/.env.local', 'data/user.db', 'backups/user.json', 'secret.pem'])
 def test_publication_guard_rejects_sensitive_paths(name):
     assert 'sensitive_path' in inspect(name, b'')

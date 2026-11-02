@@ -48,7 +48,9 @@ jobs:
             git diff --check HEAD~1 HEAD
           fi
       - name: Complete backend and migration tests
-        run: python -m pytest -q --basetemp artifacts/pytest-ci --junitxml=artifacts/backend.xml
+        run: |
+          mkdir -p artifacts
+          python -m pytest -q --basetemp artifacts/pytest-ci --junitxml=artifacts/backend.xml
       - name: Audit exact Python dependencies
         run: python -m pip_audit -r requirements-dev.lock --no-deps --disable-pip
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -84,7 +86,9 @@ jobs:
       - name: Backend contracts and native migrations on isolated PostgreSQL
         env:
           SCOUT_TEST_POSTGRES_URL: postgresql+psycopg://scoutliq_tests:ci-ephemeral-tests-only@127.0.0.1:5432/scoutliq_test_ci
-        run: python -m pytest -q --basetemp artifacts/pytest-pg --junitxml=artifacts/postgres.xml
+        run: |
+          mkdir -p artifacts
+          python -m pytest -q --basetemp artifacts/pytest-pg --junitxml=artifacts/postgres.xml
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
