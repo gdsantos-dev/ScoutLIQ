@@ -30,3 +30,13 @@ Revisão da mudança: nenhum novo endpoint de negócio, DTO ou upload; diagnóst
 [Actions 41367605087](https://github.com/gdsantos-dev/ScoutLIQ/actions/runs/41367605087): frontend e oito suítes críticas aprovados. SQLite: 602 aprovados, oito falhas, 12 erros de fixture, dois skips; PostgreSQL: 586 aprovados, oito falhas, um erro de fixture, 29 skips. Falhas de venda provinham de date.today() no UTC do runner, enquanto a conta sintética opera em America/Sao_Paulo. As fixtures agora calculam sua data no fuso da conta, sem mudar o bloqueio de venda futura. Erros tmp_path provinham de artifacts/ ausente no checkout limpo; workflow agora cria o diretório explicitamente.
 
 Backup/restore local PostgreSQL 17.11: pg_dump custom + DROP apenas do schema UUID criado pelo teste + pg_restore no mesmo banco descartável. Revisão 033, 57 tabelas, relação lead/usuário sintética e outbox vazia preservadas. Nenhum dado pessoal. Essa evidência não homologa restore de produção.
+
+## Regressão Linux após correções de portabilidade
+
+[Actions 41368310472](https://github.com/gdsantos-dev/ScoutLIQ/actions/runs/41368310472), código `ee1f64f3a484826854c028a643af74606bf59060`: SQLite 624 aprovados / dois skips (252,494 s); PostgreSQL 597 aprovados / 29 skips (257,342 s); zero falhas/erros nos dois JUnit. Ambos incluem os testes de processos reais; o job PostgreSQL inclui perda real de conexão via proxy e reconexão. Frontend e auditorias também aprovados.
+
+Os 29 skips PostgreSQL pertencem exclusivamente aos dez módulos que usam sqlite3.backup: absorption (4), absorption_recovery (4), commercial_review (3), communication (2), followup (3), investigation (3), learning (2), location (1), opportunity (5), prospecting (2). Todos rodam no job SQLite. Seus dois skips são os testes exclusivos de PostgreSQL (migração nativa e conexão interrompida).
+
+A matriz completa expôs uma corrida no teste experience: o trace mostra page-view ainda em fade quando Axe calculou contraste. O teste agora aguarda opacity=1 e ausência de loading, como a suíte redesign existente. Não houve alteração em tokens, animações, escopo ou regras Axe. A confirmação no CI do ajuste está pendente neste checkpoint.
+
+Regressão local PostgreSQL: 595 aprovados / 29 skips em 961,65 s, antes da adição dos dois testes finais de readiness/startup. Estes passaram no job Linux final acima. Fixture de API e confiabilidade: 43 aprovados após correção de fuso.

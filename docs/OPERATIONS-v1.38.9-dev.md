@@ -30,6 +30,16 @@ DATABASE_URL aceita `postgresql+psycopg://` e normaliza `postgresql://`/`postgre
 
 PostgreSQL de teste: crie banco com prefixo `scoutliq_test_`, em loopback, com role NOSUPERUSER NOCREATEDB NOCREATEROLE. Ela deve poder criar schemas apenas nesse banco descartável. O bootstrap administrativo separado termina antes dos testes. `scripts/ci_postgres.py` só executa com GITHUB_ACTIONS=true e cria o banco descartável do serviço CI; suas senhas literais são exclusivamente sintéticas. Em homologação futura separar a role de migração/DDL da role de runtime/DML conforme política do host; o projeto não provisiona essas permissões automaticamente.
 
+Para criar o alvo local em uma instância descartável já iniciada, conecte como administrador local pelo psql e execute (somente se os nomes ainda não existirem):
+
+```sql
+CREATE ROLE scoutliq_tests LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE;
+\password scoutliq_tests
+CREATE DATABASE scoutliq_test_local OWNER scoutliq_tests;
+```
+
+O comando psql `\password` solicita a senha sem colocá-la no histórico SQL. Restrinja listen_addresses a loopback e pg_hba.conf ao banco/role de teste com SCRAM; não use trust para acesso remoto. Defina SCOUT_TEST_POSTGRES_URL localmente e rode pytest. A própria fixture cria/remove somente seu schema UUID. Para reproduzir o ambiente Linux sem provisionamento manual, execute o workflow do PR, que contém o serviço PostgreSQL efêmero e seu bootstrap completo.
+
 ## Inicialização e diagnóstico
 
 ```sh
@@ -71,7 +81,7 @@ pg_dump --format=custom --no-owner --file=backup-protegido.dump
 pg_restore --exit-on-error --no-owner --no-privileges --dbname=scoutliq_restore_test backup-protegido.dump
 ```
 
-Depois compare revisão, contagens, relações e resultados conhecidos, execute diagnóstico e smoke autenticado sem provedores. Só uma restauração efetivamente executada comprova o backup. O teste de migração deste ciclo comprova preservação 032→033 e recusa de downgrade destrutivo; não equivale a homologação de disaster recovery em produção.
+Depois compare revisão, contagens, relações e resultados conhecidos, execute diagnóstico e smoke autenticado sem provedores. Só uma restauração efetivamente executada comprova o backup. Neste ciclo houve uma restauração sintética local PostgreSQL 17.11: 57 tabelas, revisão 033, relação lead/usuário e outbox vazia preservadas. Não é homologação de recuperação de produção. O teste de migração deste ciclo comprova preservação 032→033 e recusa de downgrade destrutivo; não equivale a homologação de disaster recovery em produção.
 
 ## Reproduzir testes
 
