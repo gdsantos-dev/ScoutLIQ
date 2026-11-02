@@ -8,3 +8,5 @@
 - Diagnóstico por CLI com estados agregados, esquema, worker, planos, retentativas, claims expiradas e orçamento; logs estruturados de falhas do worker/supervisor sem payloads.
 - Testes com processos reais interrompem busca/investigação e validam recuperação sem efeitos duplicados; proxy de teste reproduz perda de conexão PostgreSQL e reconexão.
 - Runbook de homologação reproduzível. Sem alteração comercial, Score, interface, deploy ou envio.
+
+- Fixtures de CI usam o fuso da conta; E2E aguarda transições e respostas de controle antes de avaliar o estado. Nenhuma regra de validação ou acessibilidade foi desativada.
