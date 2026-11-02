@@ -12,7 +12,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.E2E_ORIGIN || "http://localhost:8001",
     browserName: "chromium",
-    channel: "chrome",
+    channel: process.env.CI ? undefined : "chrome",
     headless: true,
     locale: "pt-BR",
     viewport: { width: 1440, height: 1000 },

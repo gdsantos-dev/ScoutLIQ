@@ -4,7 +4,12 @@ from pathlib import Path
 
 # Isolate test data before importing the application, never use the user's database.
 _dir=tempfile.TemporaryDirectory(prefix='scoutliq-tests-')
-os.environ['DATABASE_URL']='sqlite:///'+str(Path(_dir.name)/'test.db')
+_postgres_cleanup = None
+if os.getenv('SCOUT_TEST_POSTGRES_URL'):
+    from database_fixture import postgres_database
+    os.environ['DATABASE_URL'], _postgres_cleanup = postgres_database(os.environ['SCOUT_TEST_POSTGRES_URL'])
+else:
+    os.environ['DATABASE_URL']='sqlite:///'+str(Path(_dir.name)/'test.db')
 os.environ['APP_ENV']='test'
 os.environ['RESEARCH_EXECUTION_MODE']='legacy'
 os.environ['ADMIN_EMAIL']='test@example.com'
@@ -29,10 +34,17 @@ from backend.security import limiter, hasher
 from backend.email_service import MEMORY_OUTBOX
 from sqlalchemy import delete
 
-command.upgrade(Config('alembic.ini'),'head')
+try:
+    command.upgrade(Config('alembic.ini'),'head')
+except Exception:
+    engine.dispose()
+    if _postgres_cleanup: _postgres_cleanup()
+    _dir.cleanup()
+    raise
 
 def pytest_sessionfinish(session, exitstatus):
     engine.dispose()
+    if _postgres_cleanup: _postgres_cleanup()
     _dir.cleanup()
 
 @pytest.fixture
@@ -66,3 +78,19 @@ def auth(client):
 @pytest.fixture
 def lead_data():
     return {'name':'Empresa Teste','category':'Cafeteria','city':'Recife','country':'BR','latitude':-8.05,'longitude':-34.9,'website_status':'none','rating':4.8,'reviews':312,'instagram':'https://instagram.com/example','instagram_active':True,'phone':'+55 81 99999-9999','whatsapp':'5581999999999','potential_cents':250000}
+
+
+# These modules clone the live SQLite DB with sqlite3.backup. They remain
+# mandatory in the SQLite job; PostgreSQL has a real preservation test instead.
+def pytest_collection_modifyitems(items):
+    if not os.getenv('SCOUT_TEST_POSTGRES_URL'): return
+    sqlite_migrations = {
+        'test_absorption_migration.py', 'test_absorption_recovery_migration.py',
+        'test_commercial_review_migration.py', 'test_communication_migration.py',
+        'test_followup_migration.py', 'test_investigation_migration.py',
+        'test_learning_migrations.py', 'test_location_migration.py',
+        'test_opportunity_migration.py', 'test_prospecting_migration.py',
+    }
+    for item in items:
+        if item.path.name in sqlite_migrations:
+            item.add_marker(pytest.mark.skip(reason='SQLite backup-specific test; mandatory SQLite job and real PostgreSQL preservation tests cover migrations.'))

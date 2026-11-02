@@ -11,6 +11,12 @@ from uuid import uuid4
 ROOT=Path(__file__).resolve().parent.parent
 
 
+def operational_event(name, state):
+    sys.path.insert(0, str(ROOT))
+    from backend.operational_logging import event
+    event(name, component='supervisor', state=state)
+
+
 def prepare_volume():
     """Docker bootstrap only; never recurse, follow links, or run app as root."""
     if os.name=='nt' or os.geteuid()!=0: return
@@ -73,13 +79,13 @@ def supervise(commands, *, env, health, stop, popen=subprocess.Popen, startup_gr
                 creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name=='nt' else 0))
         while not stop.wait(interval):
             if any(child.poll() is not None for child in children):
-                print('Um processo do serviço encerrou; reinício pelo supervisor do host.',flush=True)
+                operational_event('child_exited', 'host_restart_required')
                 return 1
             if time.monotonic()-started>startup_grace:
                 try: alive=health()
                 except Exception: alive=False
                 if not alive:
-                    print('Executor sem progresso no prazo; reinício pelo supervisor do host.',flush=True)
+                    operational_event('worker_stale', 'host_restart_required')
                     return 1
         return 0
     finally: stop_children(children,grace)
@@ -90,11 +96,21 @@ def main():
     sys.path.insert(0,str(ROOT))
     from dotenv import load_dotenv
     load_dotenv(ROOT/'.env')
-    prepare_volume()
-    mode=validate_environment()
-    subprocess.run([sys.executable,'-m','alembic','upgrade','head'],check=True)
-    from backend.bootstrap import bootstrap
-    bootstrap()
+    stage='configuration'
+    try:
+        prepare_volume()
+        mode=validate_environment()
+        stage='migration'
+        # Do not echo driver errors or SQL payloads into service logs. Operators
+        # can run Alembic explicitly in a protected console for deeper diagnosis.
+        subprocess.run([sys.executable,'-m','alembic','upgrade','head'],check=True,
+                       stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        stage='bootstrap'
+        from backend.bootstrap import bootstrap
+        bootstrap()
+    except Exception:
+        operational_event('startup_failed', stage)
+        raise RuntimeError('Startup failed; inspect the reported stage.') from None
     web=[sys.executable,'-m','uvicorn','backend.main:app','--host','0.0.0.0','--port',os.getenv('PORT','8000'),
          '--workers','1','--no-server-header','--no-proxy-headers','--timeout-graceful-shutdown','15']
     if mode=='web': os.execv(sys.executable,web)

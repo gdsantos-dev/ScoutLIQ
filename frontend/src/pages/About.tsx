@@ -15,7 +15,7 @@ import {
 import type { User } from "../types";
 import { Brand, Mark, PageHead } from "../components/UI";
 
-const VERSION = "1.38.8-dev";
+const VERSION = "1.38.9-dev";
 
 function runtimeEnvironment() {
   const host = window.location.hostname;

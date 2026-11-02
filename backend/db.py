@@ -5,7 +5,7 @@ from .config import DATABASE_URL
 class Base(DeclarativeBase):
     pass
 
-engine = create_engine(DATABASE_URL, connect_args={'check_same_thread': False, 'timeout': 15} if DATABASE_URL.startswith('sqlite') else {}, pool_pre_ping=True)
+engine = create_engine(DATABASE_URL, connect_args={'check_same_thread': False, 'timeout': 15} if DATABASE_URL.startswith('sqlite') else {'connect_timeout': 5}, pool_pre_ping=True, hide_parameters=True)
 if DATABASE_URL.startswith('sqlite'):
     @event.listens_for(engine, 'connect')
     def sqlite_config(connection, _):

@@ -54,8 +54,16 @@ test('explicit plan consent, real worker, pause/resume and audited history',asyn
   await panel.getByRole('button',{name:'Consultar sugestões dos últimos 7 dias'}).click();
   await expect(panel).toContainText('Nenhum ajuste aplicado');
   await panel.screenshot({path:'../artifacts/planning-progress-desktop.png'});
+  const paused=page.waitForResponse(response=>response.url().endsWith('/api/operations/plan/control')&&response.request().method()==='POST'&&response.request().postDataJSON().action==='pause');
   await panel.getByRole('button',{name:'Pausar plano'}).click();
+  const pausedResponse=await paused;expect(pausedResponse.ok()).toBeTruthy();
+  expect((await pausedResponse.json()).state).toBe('paused');
+  await expect(panel.getByRole('button',{name:'Desativar plano e liberar recorrências originais'})).toBeEnabled();
+  const disabled=page.waitForResponse(response=>response.url().endsWith('/api/operations/plan/control')&&response.request().method()==='POST'&&response.request().postDataJSON().action==='disable');
   await panel.getByRole('button',{name:'Desativar plano e liberar recorrências originais'}).click();
+  const disabledResponse=await disabled;expect(disabledResponse.ok()).toBeTruthy();
+  expect((await disabledResponse.json()).state).toBe('disabled');
+  await expect(panel.getByRole('button',{name:'Revisar ativação'})).toBeVisible();
   expect((await(await page.request.get('/api/operations/plan')).json()).state).toBe('disabled');
   const deletion=await page.request.delete('/api/radar/saved-searches/'+saved.id,{headers});expect(deletion.status()).toBe(409);
   const routines=await(await page.request.get('/api/operations/routines')).json();

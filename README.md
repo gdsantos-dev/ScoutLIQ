@@ -6,6 +6,14 @@ Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. P
 
 ---
 
+## v1.38.9-dev — Confiabilidade e preparação operacional
+
+CI SQLite/PostgreSQL/Chromium, diagnóstico operacional e recuperação de processos e conexões. Revisão Alembic **033**, sem nova migração. Repositório intencionalmente público; publicação de código não autoriza deploy ou contato comercial.
+
+- [Procedimentos de homologação e arquitetura](docs/OPERATIONS-v1.38.9-dev.md)
+- [Validação](docs/VALIDATION-v1.38.9-dev.md)
+- [Changelog](docs/CHANGELOG-v1.38.9-dev.md)
+
 ## v1.38.8-dev — Integração da operação diária
 
 Radar → Fila comercial → Operação do dia. Continuidade entre plano, descoberta e investigação; revisão e preparação mantêm seleção, prévia e confirmação canônicas. Revisão Alembic **033**, sem nova migração.

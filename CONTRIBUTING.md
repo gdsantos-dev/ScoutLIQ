@@ -17,7 +17,7 @@ git push -u origin v1.38.9-confiabilidade
 
 Nomeie as branches de desenvolvimento com `v<versao>-<funcao>` (por exemplo, `v1.38.9-confiabilidade` ou `v1.38.10-qualidade-comercial`). A versao e a funcao devem identificar o ciclo. Nao usar prefixos por ferramenta, como `codex/`, nem prefixos de tipo como `chore/` por padrao.
 
-Abra um pull request para `main`, descrevendo problema, mudança, testes e limites. Não sobrescrever histórico remoto nem usar force push na branch principal. Essa é a política de trabalho; não há promessa de proteção de branch imposta pelo plano do GitHub.
+Abra um pull request para `main` quando a versão anterior estiver integrada. Se o ciclo depender de um PR ainda aberto, derive da branch oficial daquela versão, confirme que contém o HEAD funcional e direcione o PR para ela. Neste ciclo: `v1.38.9-confiabilidade` → `v1.38.8-operacao-diaria` enquanto o PR #1 permanecer aberto. Descreva problema, mudança, testes e limites. Não sobrescrever histórico remoto nem usar force push na branch principal. Essa é a política de trabalho; não há promessa de proteção de branch imposta pelo plano do GitHub.
 
 Antes de publicar, verificar que o índice não contém secrets, dados pessoais, `.env`, bancos, backups, logs de runtime ou dependências instaladas. Apenas `.env.example` com segredos vazios é versionado. Credenciais nunca devem aparecer em commits, mensagens ou logs. Os recibos textuais de release já importados são históricos; binários ZIP e runtime ficam fora do Git.
 

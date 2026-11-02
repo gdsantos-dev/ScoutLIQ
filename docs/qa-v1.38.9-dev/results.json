@@ -1,0 +1,169 @@
+{
+  "version": "1.38.9-dev",
+  "report_date": "2026-11-02",
+  "pr": "https://github.com/gdsantos-dev/ScoutLIQ/pull/2",
+  "full_ci": {
+    "url": "https://github.com/gdsantos-dev/ScoutLIQ/actions/runs/41369123566",
+    "commit": "ac20131a851e4d7c20b46dcb1fd7ddf5fa9f5654",
+    "status": "success"
+  },
+  "synthetic_data_only": true,
+  "backend_ci": {
+    "postgres": {
+      "collected": 626,
+      "passed": 597,
+      "skipped": 29,
+      "failed": 0,
+      "errors": 0,
+      "seconds": 255.916
+    },
+    "backend": {
+      "collected": 626,
+      "passed": 624,
+      "skipped": 2,
+      "failed": 0,
+      "errors": 0,
+      "seconds": 228.775
+    }
+  },
+  "browser_ci": [
+    {
+      "suite": "absorption",
+      "passed": 5
+    },
+    {
+      "suite": "absorption-intelligent",
+      "passed": 4
+    },
+    {
+      "suite": "autonomy",
+      "passed": 2
+    },
+    {
+      "suite": "commercial-queue",
+      "passed": 2
+    },
+    {
+      "suite": "communication",
+      "passed": 1
+    },
+    {
+      "suite": "daily-operations",
+      "passed": 2
+    },
+    {
+      "suite": "experience",
+      "passed": 3
+    },
+    {
+      "suite": "followup",
+      "passed": 2
+    },
+    {
+      "suite": "general-search",
+      "passed": 3
+    },
+    {
+      "suite": "intelligence",
+      "passed": 2
+    },
+    {
+      "suite": "investigation",
+      "passed": 3
+    },
+    {
+      "suite": "learning",
+      "passed": 2
+    },
+    {
+      "suite": "map-search",
+      "passed": 1
+    },
+    {
+      "suite": "operations",
+      "passed": 3
+    },
+    {
+      "suite": "planning",
+      "passed": 2
+    },
+    {
+      "suite": "redesign",
+      "passed": 25
+    },
+    {
+      "suite": "smart-search",
+      "passed": 3
+    },
+    {
+      "suite": "unified-search",
+      "passed": 9
+    },
+    {
+      "suite": "workflow",
+      "passed": 5
+    }
+  ],
+  "frontend": {
+    "unit_passed": 27,
+    "typescript": "passed",
+    "vite_build": "passed",
+    "npm_audit_known_vulnerabilities": 0,
+    "python_audit_known_vulnerabilities": 0
+  },
+  "local": {
+    "sqlite": {
+      "passed": 622,
+      "skipped": 2,
+      "seconds": 1309.35
+    },
+    "postgres": {
+      "passed": 595,
+      "skipped": 29,
+      "seconds": 961.65
+    },
+    "note": "Local full backend runs preceded the two additional readiness/startup tests, included in CI. Counts are not additive across environments or reruns.",
+    "browser_initial": {
+      "passed": 77,
+      "failed": 2,
+      "suites": 19
+    },
+    "browser_planning_retest": {
+      "passed": 2,
+      "failed": 0,
+      "port": 9871,
+      "seconds_runner": 46.3
+    },
+    "browser_experience_retest": {
+      "passed": 3,
+      "failed": 0,
+      "port": 9860,
+      "seconds_runner": 132.69
+    }
+  },
+  "postgres_restore": {
+    "database": "PostgreSQL 17.11",
+    "schema_revision": "033",
+    "tables_preserved": 57,
+    "joined_synthetic_leads": 1,
+    "outbox": 0,
+    "dump_restore": "passed",
+    "personal_data_used": false
+  },
+  "lock_sha256": {
+    "requirements.lock": "84d6ebc22567a1070f51da211f289c60ac5abf1aaebc15ef2a382a09be4aec84",
+    "requirements-dev.lock": "3402e32e7bfc23e5e998f6962baf1b520b28db64e7105127dfe19070f40fd92a",
+    "frontend/package-lock.json": "fd778ec1397d884709ab3128bf7417547f58f808f867565d1031733ed4251780"
+  },
+  "not_homologated": [
+    "application Docker image",
+    "Railway",
+    "production HTTPS",
+    "real providers and commercial sends",
+    "physical devices",
+    "Safari",
+    "screen readers",
+    "commercial quality and financial results",
+    "production disaster recovery"
+  ]
+}

@@ -6,3 +6,4 @@ argon2-cffi==25.1.0
 python-dotenv==1.2.2
 tzdata==2025.3
 cryptography==50.0.2
+psycopg[binary]==3.3.6

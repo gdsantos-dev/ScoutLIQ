@@ -101,6 +101,9 @@ test("experience: navigation, decision record and responsive evidence", async ({
     await expect(page.locator("#main-content h1")).toHaveText("Clientes");
     await page.getByRole("button", { name: "Operar", exact: true }).click();
     await expect(page.locator("#main-content h1")).toHaveText("Oportunidades");
+    // Axe must inspect the completed view, not the navigation fade.
+    await expect(page.locator(".loading-view")).toHaveCount(0);
+    await expect(page.getByTestId("page-view")).toHaveCSS("opacity", "1");
     const audit = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
