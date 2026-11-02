@@ -1,0 +1,153 @@
+name: ScoutLIQ reliability
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
+  workflow_dispatch:
+    inputs:
+      full_browser:
+        description: Run all Chromium suites instead of the critical subset
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reliability-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: '1'
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  backend:
+    if: github.event.action != 'labeled' || github.event.label.name == 'ci:full'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.lock
+      - name: Repository hygiene and whitespace
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          python scripts/check_repository.py
+          if [ -n "$BASE_SHA" ] && [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            git diff --check "$BASE_SHA" HEAD
+          else
+            git diff --check HEAD~1 HEAD
+          fi
+      - name: Complete backend and migration tests
+        run: python -m pytest -q --basetemp artifacts/pytest-ci --junitxml=artifacts/backend.xml
+      - name: Audit exact Python dependencies
+        run: python -m pip_audit -r requirements-dev.lock --no-deps --disable-pip
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: sqlite-results
+          path: artifacts/backend.xml
+          retention-days: 7
+  postgres:
+    if: github.event.action != 'labeled' || github.event.label.name == 'ci:full'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17@sha256:31ba9c94a03ada9988f2bb493a22a75eef3a185884533e5cdbcd498ea835b08f
+        env:
+          POSTGRES_USER: scoutliq_bootstrap
+          POSTGRES_PASSWORD: ci-ephemeral-bootstrap-only
+          POSTGRES_DB: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U scoutliq_bootstrap -d postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.lock
+      - run: python scripts/ci_postgres.py
+      - name: Backend contracts and native migrations on isolated PostgreSQL
+        env:
+          SCOUT_TEST_POSTGRES_URL: postgresql+psycopg://scoutliq_tests:ci-ephemeral-tests-only@127.0.0.1:5432/scoutliq_test_ci
+        run: python -m pytest -q --basetemp artifacts/pytest-pg --junitxml=artifacts/postgres.xml
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: postgres-results
+          path: artifacts/postgres.xml
+          retention-days: 7
+  frontend:
+    if: github.event.action != 'labeled' || github.event.label.name == 'ci:full'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: frontend
+      - run: npm test && npm run typecheck:e2e && npm run build && npm audit
+        working-directory: frontend
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: frontend-build
+          path: frontend/dist
+          retention-days: 1
+  browser:
+    needs: frontend
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        suite: ${{ fromJSON((inputs.full_browser || contains(github.event.pull_request.labels.*.name, 'ci:full')) && '["general-search","unified-search","map-search","smart-search","absorption","autonomy","experience","workflow","absorption-intelligent","redesign","learning","intelligence","communication","investigation","commercial-queue","followup","operations","planning","daily-operations"]' || '["redesign","unified-search","investigation","planning","daily-operations","commercial-queue","workflow","communication"]') }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r requirements-dev.lock
+      - run: npm ci && npx playwright install --with-deps chromium
+        working-directory: frontend
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: frontend-build
+          path: frontend/dist
+      - name: Chromium against disposable synthetic host
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: python scripts/validate_browser.py --group full --suite "$SUITE" --port 9700
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: browser-${{ matrix.suite }}
+          path: |
+            artifacts/e2e-*-release.txt
+            artifacts/browser-*.json
+            artifacts/browser-${{ matrix.suite }}
+            artifacts/daily-*.png
+          retention-days: 7

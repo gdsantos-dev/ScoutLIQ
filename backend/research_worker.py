@@ -282,11 +282,18 @@ def run():
                     execute(task)
                 beat(identifier)
             except Exception:
-                import logging
-                logging.getLogger('scoutliq.worker').error('Falha local do executor; recuperação por lease.')
-                beat(identifier,'error',error='Falha local; aguarde recuperação ou revise o serviço.')
+                from .operational_logging import event
+                event('worker_cycle_failed', component='worker', state='retry_pending', retryable=True)
+                try:
+                    beat(identifier,'error',error='Falha local; aguarde recuperação ou revise o serviço.')
+                except Exception:
+                    event('heartbeat_unavailable', component='worker', state='database_unavailable', retryable=True)
             stopped.wait(3)
     finally:
-        beat(identifier,'stopped')
+        try:
+            beat(identifier,'stopped')
+        except Exception:
+            from .operational_logging import event
+            event('heartbeat_unavailable', component='worker', state='stopped', retryable=True)
 
 if __name__ == '__main__': run()

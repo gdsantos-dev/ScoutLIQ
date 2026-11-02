@@ -473,20 +473,28 @@ def sale_rows(db,user):
 
 @app.get('/api/health')
 def health(db: DBSession=Depends(get_db)):
-    db.execute(text('SELECT 1'))
-    return {'status':'ok'}
+    try:
+        db.execute(text('SELECT 1'))
+        return {'status':'ok'}
+    except Exception:
+        return JSONResponse({'status':'unavailable'},status_code=503)
 
 @app.get('/api/health/worker')
 def worker_health(db: DBSession=Depends(get_db)):
     from .worker_health import snapshot
-    state=snapshot(db)
-    return JSONResponse({'status':state['status']},status_code=200 if state['status']=='ok' else 503)
+    try: state=snapshot(db)['status']
+    except Exception: state='unavailable'
+    return JSONResponse({'status':state},status_code=200 if state=='ok' else 503)
 
 @app.get('/api/health/ready')
 def ready(db: DBSession=Depends(get_db)):
-    db.execute(text('SELECT 1'))
-    if os.getenv('SCOUTLIQ_PROCESS_MODE','combined')=='combined': return worker_health(db)
-    return {'status':'ok'}
+    from .diagnostics import schema_ready
+    try:
+        if not schema_ready(db): return JSONResponse({'status':'unavailable'},status_code=503)
+        if os.getenv('SCOUTLIQ_PROCESS_MODE','combined')=='combined': return worker_health(db)
+        return {'status':'ok'}
+    except Exception:
+        return JSONResponse({'status':'unavailable'},status_code=503)
 
 @app.get('/api/auth/config')
 def auth_config():

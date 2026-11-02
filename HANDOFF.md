@@ -1,4 +1,19 @@
-# ScoutLIQ — Handoff v1.38.8-dev
+# ScoutLIQ — Handoff v1.38.9-dev
+
+Fonte principal: https://github.com/gdsantos-dev/ScoutLIQ, intencionalmente público. Não alterar visibilidade.
+Branch deste ciclo: `v1.38.9-confiabilidade`. Base funcional confirmada: `v1.38.8-operacao-diaria`, commit `ab9bb3b6f2a0f9c4eaa387c0b0abae990b22e1d8`, sincronizada com o HEAD do PR #1 ainda aberto. O PR deste ciclo deve apontar para essa base. Não renomear branches codex históricas nem realizar merge. Main permanece a versão integrada anterior.
+
+Este ciclo adiciona CI, suporte PostgreSQL verificável, recuperação segura de heartbeat, diagnóstico CLI e testes com processos reais. Preserva o worker, supervisor, Score, políticas e UX da v1.38.8. A revisão Alembic permanece 033; a 011 recebeu apenas correção de SQL booleano compatível. Pytest atualizado para 9.0.3 após auditoria.
+
+Consulte [validação e estado dos checks](docs/VALIDATION-v1.38.9-dev.md), [changelog](docs/CHANGELOG-v1.38.9-dev.md) e [runbook/arquitetura](docs/OPERATIONS-v1.38.9-dev.md). Checkpoint: regressões completas em andamento, publicar apenas como draft até os resultados finais. ZIPs/work não são fonte principal. Nenhum banco real ou configuração privada foi usado.
+
+Próximos passos: concluir regressão, revisar o PR dependente e somente depois planejar homologação de host/HTTPS/provedores com autorizações próprias. Não há autorização de deploy, merge ou contato comercial.
+
+---
+
+## Histórico da versão funcional anterior
+
+### Handoff v1.38.8-dev (histórico)
 
 ## Fonte principal e estado da entrega
 
@@ -48,7 +63,7 @@ Edite `.env` somente localmente: mantenha `APP_ENV=development`, `APP_ORIGIN=htt
 .venv/Scripts/python.exe scripts/start.py
 ```
 
-O supervisor existente prepara o diretório de dados, executa Alembic até `033`, faz o bootstrap e inicia web/worker. Interface em http://localhost:8000. Abrir Automações não ativa o plano: revisar e confirmar é obrigatório. Não configurar provedores ou ativar pesquisas sem revisar cotas e condições de uso. Para testes, usar bancos isolados e `requirements-dev.txt`; não apontar fixtures para dados pessoais.
+O supervisor existente prepara o diretório de dados, executa Alembic até `033`, faz o bootstrap e inicia web/worker. Interface em http://localhost:8000. Abrir Automações não ativa o plano: revisar e confirmar é obrigatório. Não configurar provedores ou ativar pesquisas sem revisar cotas e condições de uso. Para testes, usar bancos isolados e `requirements-dev.lock`; não apontar fixtures para dados pessoais.
 
 Para atualizar uma instalação existente, faça backup consistente do banco, pare os processos, atualize fontes/dependências e siga [INSTALL](docs/INSTALL-v1.38.7-dev.md). Nunca remover dados para contornar o bloqueio de downgrade da migração 033.
 

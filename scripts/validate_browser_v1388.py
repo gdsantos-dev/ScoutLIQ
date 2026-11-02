@@ -37,6 +37,7 @@ def main():
     parser.add_argument('--suite', help='One suite from the selected group')
     args=parser.parse_args()
     output=ROOT/'artifacts';output.mkdir(exist_ok=True)
+    (output/'tmp').mkdir(exist_ok=True)
     report=[]
     suites=GROUPS[args.group]
     if args.suite:

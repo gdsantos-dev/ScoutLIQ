@@ -16,7 +16,7 @@ def upgrade():
     op.create_index('ix_leads_last_contact_at', 'leads', ['last_contact_at'])
 
     # Existing pipeline rows predate this field. created_at is the safest useful baseline.
-    op.execute("UPDATE leads SET pipeline_added_at = created_at WHERE in_pipeline = 1 AND pipeline_added_at IS NULL")
+    op.execute("UPDATE leads SET pipeline_added_at = created_at WHERE in_pipeline IS TRUE AND pipeline_added_at IS NULL")
 
     op.create_table(
         'lead_activities',

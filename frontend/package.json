@@ -1,6 +1,6 @@
 {
   "name": "scoutliq",
-  "version": "1.38.8-dev",
+  "version": "1.38.9-dev",
   "private": true,
   "type": "module",
   "scripts": {

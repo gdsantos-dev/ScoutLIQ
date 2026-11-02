@@ -2,7 +2,7 @@ import type { Currency, Lead, Sale, Stage, User } from "./types";
 
 export const BRIDGE_SCHEMA = "orliq.bridge" as const;
 export const BRIDGE_SCHEMA_VERSION = 1 as const;
-export const SCOUTLIQ_BRIDGE_VERSION = "1.38.8-dev";
+export const SCOUTLIQ_BRIDGE_VERSION = "1.38.9-dev";
 
 export type BridgeProfile = "workspace" | "dashliq_finance";
 export type BridgeScope = "commercial" | "delivery" | "finance";

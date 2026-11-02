@@ -7,6 +7,8 @@ ROOT = Path(__file__).resolve().parent.parent
 PRODUCTION = os.getenv('APP_ENV') == 'production'
 ORIGIN = os.getenv('APP_ORIGIN', 'http://localhost:8000').rstrip('/')
 DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///./data/scoutliq.db')
+if DATABASE_URL.startswith(('postgres://', 'postgresql://')):
+    DATABASE_URL = 'postgresql+psycopg://' + DATABASE_URL.split('://', 1)[1]
 REGISTRATION_MODE = os.getenv('REGISTRATION_MODE', 'open').strip().lower()
 EMAIL_MODE = os.getenv('EMAIL_MODE', 'brevo' if PRODUCTION else 'console').strip().lower()
 BREVO_API_KEY = os.getenv('BREVO_API_KEY', '').strip()
