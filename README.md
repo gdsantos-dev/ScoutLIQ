@@ -1,6 +1,6 @@
 # ScoutLIQ — código principal
 
-Repositório privado: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
+Repositório: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). **Visibilidade no GitHub em 15/11/2026: público.** Se o projeto deve permanecer restrito, a visibilidade precisa ser alterada nas configurações do repositório; o README não controla o acesso. Versão importada: **v1.38.7-dev**, migração **033**.
 
 Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. Próximas alterações seguem [CONTRIBUTING](CONTRIBUTING.md), em branches e commits. As seções abaixo preservam o histórico das entregas; não substituem essas instruções de continuidade.
 
