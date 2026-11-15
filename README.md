@@ -1,6 +1,6 @@
 # ScoutLIQ — código principal
 
-Repositório: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). **Visibilidade no GitHub em 15/11/2026: público.** Se o projeto deve permanecer restrito, a visibilidade precisa ser alterada nas configurações do repositório; o README não controla o acesso. Versão importada: **v1.38.7-dev**, migração **033**.
+**Repositório público:** [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**. O código é público; dados operacionais, credenciais e ambientes de execução não fazem parte desta publicação.
 
 Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. Próximas alterações seguem [CONTRIBUTING](CONTRIBUTING.md), em branches e commits. As seções abaixo preservam o histórico das entregas; não substituem essas instruções de continuidade.
 
@@ -112,8 +112,34 @@ Score 3.0, CommercialFit, evidências, CRM, aprendizado, Sites, Gmail OAuth, out
 
 ## Validação reproduzível
 
-Backend: `python -m pytest -q`. Frontend: `npm test`, `npm run build`, `npm run typecheck:e2e`. Os scripts/testes configuram bancos isolados; nunca execute fixtures apontando para dados pessoais.
+Os testes abaixo usam ambientes locais e dados sintéticos; não executam prospecção real, envio comercial ou deploy. A entrega **v1.38.7-dev** registrou **592 testes backend, 27 testes unitários frontend e 77 testes E2E em 18 suítes**, conforme [evidências da versão](docs/VALIDATION-v1.38.7-dev.md) e [resumo de QA](docs/qa-v1.38.7-dev/validation.json). Esses números são resultados históricos da validação local; não constituem uma execução de CI ou garantia de que a suíte atual passou em outro ambiente.
 
-Após o build, `python scripts/validate_browser_v137.py --group a --port 8120` e grupo b em outra porta livre reproduzem os 53 cenários de navegador. Cada suíte exige uma porta/banco sintético ainda não usado. Chrome e dependências de desenvolvimento são necessários. O runner não reduz limites de segurança para acomodar testes.
+**Pré-requisitos:** Python 3.12, Node.js 22, Google Chrome, dependências Python de desenvolvimento e dependências npm. Execute em um clone de desenvolvimento isolado, sem conectar bancos ou credenciais pessoais. No PowerShell, a partir da raiz:
 
-Homologação externa, qualidade comercial real e produção são separadas da validação local. Nenhum envio comercial real ou deploy foi executado nesta entrega.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pytest -q
+
+cd frontend
+npm ci
+npm test
+npm run build
+npm run typecheck:e2e
+cd ..
+```
+
+**Navegador E2E:** o runner atual é `scripts/validate_browser_v1387.py`, e não o runner histórico `v137`. Ele inicia servidores de fixtures sintéticas separados por suíte, usa o Chrome via Playwright e grava relatórios em `artifacts/`. A opção `complete` executa 14 suítes; as quatro suítes adicionais completam as 18 registradas na versão:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/validate_browser_v1387.py --group complete --port 9180
+.\.venv\Scripts\python.exe scripts/validate_browser_v1387.py --group operations --port 9220
+.\.venv\Scripts\python.exe scripts/validate_browser_v1387.py --group commercial --port 9230
+.\.venv\Scripts\python.exe scripts/validate_browser_v1387.py --group followup --port 9240
+.\.venv\Scripts\python.exe scripts/validate_browser_v1387.py --group planning --port 9250
+```
+
+Use portas livres e **não reutilize** portas cujos bancos `data/e2e-<porta>.db` já existam: o runner recusa essa condição para proteger o isolamento. Se necessário, escolha novas faixas de portas. A presença de logs anteriores não substitui executar os testes novamente. Para detalhes de instalação e limites, consulte [HANDOFF](HANDOFF.md).
+
+Homologação de PostgreSQL, provedores reais, Safari, dispositivos físicos e produção permanece separada da validação local. Nenhum envio comercial real ou deploy foi executado na entrega documentada.
