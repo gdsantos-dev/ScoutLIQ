@@ -2,7 +2,7 @@
 
 ## Fonte principal e escopo desta publicação
 
-Repositório privado: https://github.com/gdsantos-dev/ScoutLIQ. Branch principal: `main`.
+Repositório público: https://github.com/gdsantos-dev/ScoutLIQ. Branch principal: `main`.
 A partir desta publicação, o GitHub e o histórico Git são a fonte principal do código. ZIPs anteriores são artefatos históricos; não desenvolver sobre `work/` nem aplicar um ZIP por cima de alterações do Git.
 
 Base importada: `ScoutLIQ-v1.38.7-dev-FULL.zip`, SHA-256 `2f067f93aa5ae17214ef4da7a798b17fea8beab45eb0ed46cf47dfed876bd9ac`.

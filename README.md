@@ -1,6 +1,6 @@
 # ScoutLIQ — código principal
 
-Repositório privado: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
+Repositório público: [gdsantos-dev/ScoutLIQ](https://github.com/gdsantos-dev/ScoutLIQ). Versão importada: **v1.38.7-dev**, migração **033**.
 
 Comece pelo [HANDOFF](HANDOFF.md) para execução, validação e limitações. Próximas alterações seguem [CONTRIBUTING](CONTRIBUTING.md), em branches e commits. As seções abaixo preservam o histórico das entregas; não substituem essas instruções de continuidade.
 
@@ -92,7 +92,7 @@ A documentação abaixo registra a base anterior. Para pacotes desta integraçã
 
 # ScoutLIQ 1.37.0 — Unified Search & Experience Refinement
 
-Plataforma privada de prospecção comercial da ORLIQ. React/TypeScript/Vite, FastAPI, SQLAlchemy e Alembic. Identidade crimson/grafite, interface em pt-BR, en-US e es.
+Plataforma de prospecção comercial da ORLIQ. React/TypeScript/Vite, FastAPI, SQLAlchemy e Alembic. Identidade crimson/grafite, interface em pt-BR, en-US e es.
 
 No Radar, **Buscar empresas** reúne pedido, localização e meta 25/50/75/100. Ajustes ficam recolhidos. Progresso, resultados e histórico permanecem no Radar; revisão comercial acontece na ficha. Mapa, consultas salvas e monitores usam o serviço compartilhado. Dados e motores comerciais existentes são preservados.
 
